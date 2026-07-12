@@ -410,3 +410,723 @@ export const fetchMarketPulseMini = () =>
   getJson<MarketPulseMiniPanelData>("/mini/market-pulse");
 export const fetchFiccMini = () =>
   getJson<FiccMiniPanelData>("/mini/ficc");
+
+// ===========================================================================
+// Shared POST helper
+// ===========================================================================
+
+async function postJson<T>(path: string, body?: unknown): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: body != null ? JSON.stringify(body) : undefined,
+  });
+  if (!res.ok) throw new Error(`Failed: ${res.status} ${res.statusText}`);
+  return res.json() as Promise<T>;
+}
+
+// ===========================================================================
+// FIVE-MODEL LLM
+// ===========================================================================
+
+export interface LlmProvider {
+  provider: string;
+  display_name: string;
+  model: string;
+  family: string;
+  credential_configured: boolean;
+  default_runs_live: boolean;
+  mode: string;
+}
+
+export interface LlmProvidersData {
+  providers: LlmProvider[];
+  status: {
+    registered_providers: number;
+    provider_order: string[];
+    case_coverage: Record<string, Record<string, string>>;
+    cases: string[];
+    note: string;
+  };
+}
+
+export interface LlmCase {
+  case_id: string;
+  ticker: string;
+  market: string;
+  company_name: string;
+  evidence_hash: string;
+}
+
+export interface LlmCasesData {
+  cases: LlmCase[];
+  count: number;
+}
+
+export interface VerdictNote {
+  verdict: string;
+  note: string;
+}
+
+export interface ModelOverlay {
+  provider: string;
+  model: string;
+  ticker: string;
+  market: string;
+  generated_at: string;
+  data_state: string;
+  evidence_hash: string;
+  evidence_coverage: any;
+  confidence: number | null;
+  business_quality: VerdictNote | null;
+  moat: VerdictNote | null;
+  pricing_power: VerdictNote | null;
+  management_capital_allocation: VerdictNote | null;
+  valuation_view: VerdictNote | null;
+  red_flags: string[];
+  missing_evidence: string[];
+  risk_summary: any;
+  tone: any;
+  human_review_required: boolean;
+  source_refs: string[];
+  error_message: string | null;
+}
+
+export interface LlmCaseDetail {
+  case: LlmCase;
+  overlays: ModelOverlay[];
+}
+
+export interface AgreementFactor {
+  factor: string;
+  verdicts: Record<string, string>;
+  distinct_verdicts: string[];
+  comparable: boolean;
+  agreement: boolean;
+}
+
+export interface AgreementMatrix {
+  factors: AgreementFactor[];
+  comparisons: number;
+  agreements: number;
+  agreement_score: number | null;
+}
+
+export interface DisagreementFactor {
+  factor: string;
+  verdicts: Record<string, string>;
+  distinct_verdicts: string[];
+}
+
+export interface LlmComparison {
+  case: LlmCase;
+  comparable_providers: string[];
+  provider_states: Record<string, string>;
+  agreement_matrix: AgreementMatrix;
+  disagreement_matrix: DisagreementFactor[];
+  confidence_spread: number | null;
+  red_flags: {
+    per_provider: Record<string, string[]>;
+    shared_red_flag_themes: string[];
+    unique_red_flags: Record<string, string[]>;
+    material_risk_disagreement: boolean;
+  };
+  missing_evidence: {
+    per_provider: Record<string, string[]>;
+    shared_missing_evidence: string[];
+    all_missing_evidence: string[];
+  };
+  evidence_coverage: {
+    per_provider: Record<string, string | null>;
+    coverage_rank_spread: number | null;
+    weak_evidence_providers: string[];
+  };
+  human_review_required: boolean;
+  human_review_reasons: string[];
+  winner: null;
+  note: string;
+}
+
+export interface LlmAgreementData {
+  case: LlmCase;
+  agreement_matrix: AgreementMatrix;
+}
+
+export const fetchLlmProviders = () => getJson<LlmProvidersData>("/llm/providers");
+export const fetchLlmCases = () => getJson<LlmCasesData>("/llm/cases");
+export const fetchLlmCase = (id: string) => getJson<LlmCaseDetail>(`/llm/case/${id}`);
+export const fetchLlmComparison = (id: string) =>
+  getJson<LlmComparison>(`/llm/comparison/${id}`);
+export const fetchLlmAgreement = (id: string) =>
+  getJson<LlmAgreementData>(`/llm/agreement/${id}`);
+
+// ===========================================================================
+// MACRO
+// ===========================================================================
+
+export interface MacroRiskBudget {
+  version: string;
+  score: number;
+  regime: string;
+  confirmed_regime: string;
+  regime_confidence: any;
+  coverage: any;
+  hard_stops_active: boolean;
+  hard_stops_triggered: string[];
+  final_exposure: any;
+  exposure_cap_pct: number;
+  anomaly_flags: string[];
+  as_of: string;
+  freshness: any;
+  hysteresis: {
+    raw_regime: string;
+    confirmed_regime: string;
+    pending_regime: string;
+    observations_required: number;
+    observations_seen: number;
+    transition_pending: boolean;
+    reason: string;
+  } | null;
+  degraded_reason: string | null;
+}
+
+export interface MacroHistoryData {
+  count: number;
+  history: MacroRiskBudget[];
+}
+
+export interface MacroScenario {
+  id: string;
+  label: string;
+  risk_budget: MacroRiskBudget;
+}
+
+export interface MacroScenariosData {
+  scenarios: MacroScenario[];
+}
+
+export const fetchMacroRiskBudget = () =>
+  getJson<MacroRiskBudget>("/macro/risk-budget");
+export const fetchMacroHistory = () => getJson<MacroHistoryData>("/macro/history");
+export const fetchMacroScenarios = () =>
+  getJson<MacroScenariosData>("/macro/scenarios");
+
+// ===========================================================================
+// RESEARCH OPS
+// ===========================================================================
+
+export interface ReadinessModule {
+  module: string;
+  display_name: string;
+  readiness: string;
+  validation_method: string;
+  sample_count: number;
+  outcome_maturity: string;
+  record_kind: string;
+  pit_policy: string;
+  public_performance_eligible: boolean | null;
+  limitations: string[];
+  next_action: string;
+}
+
+export interface ResearchOpsReadiness {
+  schema_version: string;
+  as_of: string;
+  no_alpha_claim: string;
+  modules: ReadinessModule[];
+}
+
+export interface ResearchOpsValidation {
+  pit_policy_vocabulary: string[];
+  record_kind_vocabulary: string[];
+  readiness_vocabulary: string[];
+  modules: {
+    module: string;
+    validation_method: string;
+    record_kind: string;
+    pit_policy: string;
+    public_performance_eligible: boolean | null;
+    record_kind_policy: string;
+  }[];
+}
+
+export interface OutcomeModule {
+  module: string;
+  sample_count: number;
+  outcome_maturity: string;
+  realized_outcomes: number;
+  open_outcomes: number;
+  warming_up: boolean;
+  public_performance_eligible: boolean | null;
+  performance: {
+    hit_rate: null;
+    avg_return_pct: null;
+    sharpe: null;
+    max_drawdown_pct: null;
+    reason: string;
+  };
+  sample_timeline: { stage: string; count: number }[];
+}
+
+export interface ResearchOpsOutcomes {
+  outcome_status_vocabulary: string[];
+  performance_null_reason: string;
+  modules: OutcomeModule[];
+}
+
+export interface ResearchOpsSummary {
+  total_modules: number;
+  readiness_distribution: Record<string, number>;
+  public_performance_eligible_count: number;
+  modules_with_public_performance: number;
+  no_alpha_claim: string;
+  scorecards: {
+    module: string;
+    display_name: string;
+    readiness: string;
+    record_kind: string;
+    pit_policy: string;
+    public_performance_eligible: boolean | null;
+    sample_count: number;
+    outcome_maturity: string;
+  }[];
+}
+
+export const fetchResearchOpsReadiness = () =>
+  getJson<ResearchOpsReadiness>("/research-ops/readiness");
+export const fetchResearchOpsValidation = () =>
+  getJson<ResearchOpsValidation>("/research-ops/validation");
+export const fetchResearchOpsOutcomes = () =>
+  getJson<ResearchOpsOutcomes>("/research-ops/outcomes");
+export const fetchResearchOpsSummary = () =>
+  getJson<ResearchOpsSummary>("/research-ops/summary");
+
+// ===========================================================================
+// DATA LINEAGE
+// ===========================================================================
+
+export interface IngestRun {
+  id: number;
+  job_name: string;
+  started_at: string;
+  finished_at: string;
+  status: string;
+  metrics_ingested: number;
+  series_fetched: number;
+  duration_ms: number;
+  errors_json: any;
+}
+
+export interface IngestRunsData {
+  ingest_runs: IngestRun[];
+}
+
+export interface DpProviderHealth {
+  provider: string;
+  last_success_at: string;
+  last_failure_at: string | null;
+  consecutive_failures: number;
+  daily_calls_used: number;
+  daily_calls_limit: number;
+  avg_latency_ms: number;
+  status: string;
+}
+
+export interface DpProviderHealthData {
+  provider_health: DpProviderHealth[];
+}
+
+export interface DpObservation {
+  id: number;
+  domain: string;
+  metric_id: string;
+  instrument_id: string;
+  as_of_date: string;
+  value: number;
+  unit: string;
+  source: string;
+  ingested_at: string;
+  quality_state: string;
+  revision_sequence: number;
+  content_hash: string;
+}
+
+export interface DpObservationsData {
+  observations: DpObservation[];
+}
+
+export interface DpVersion {
+  id: number;
+  revision_sequence: number;
+  value: number;
+  unit: string;
+  source: string;
+  quality_state: string;
+  source_vintage: string;
+  vintage_at: string;
+  version_hash: string;
+}
+
+export interface DpVersionsData {
+  observation_id: number;
+  versions: DpVersion[];
+}
+
+export interface LineageNode {
+  layer: string;
+  entity: string;
+  id: any;
+  key: string;
+  detail: any;
+}
+
+export interface LineageConsumer {
+  provider: string;
+  model: string;
+  ticker: string;
+  overlay_ref: string;
+  prompt_version: string;
+}
+
+export interface LineageData {
+  evidence_hash: string;
+  found: boolean;
+  nodes: LineageNode[];
+  llm_consumers: LineageConsumer[];
+  note: string;
+}
+
+export const DEFAULT_LINEAGE_HASH =
+  "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9";
+
+export const fetchIngestRuns = () =>
+  getJson<IngestRunsData>("/data-platform/ingest-runs");
+export const fetchDpProviderHealth = () =>
+  getJson<DpProviderHealthData>("/data-platform/provider-health");
+export const fetchDpObservations = () =>
+  getJson<DpObservationsData>("/data-platform/observations");
+export const fetchDpVersions = (id: number | string) =>
+  getJson<DpVersionsData>(`/data-platform/versions/${id}`);
+export const fetchLineage = (evidenceHash: string) =>
+  getJson<LineageData>(`/data-platform/lineage/${evidenceHash}`);
+
+// ===========================================================================
+// PAPER GATEWAY
+// ===========================================================================
+
+export interface PaperGatewayStatus {
+  live_enabled: boolean;
+  broker_connected: boolean;
+  real_order_path: boolean;
+  paper_only: boolean;
+  broker_adapter_present: boolean;
+  llm_can_execute: boolean;
+  llm_can_approve: boolean;
+  human_approval_required: boolean;
+  audit_append_only: boolean;
+  note: string;
+}
+
+export interface PaperProvenance {
+  source_module: string;
+  source_verdict_ref: string;
+  validation_maturity: string;
+  macro_risk_budget_ref: string;
+  data_freshness_state: string;
+  kill_switch_snapshot: string;
+  risk_policy_snapshot: string;
+  actor_identity: string;
+  actor_type: string;
+  created_by_surface: string;
+  audit_hash: string;
+}
+
+export interface PaperFill {
+  fill_id: string;
+  filled_quantity: number;
+  fill_price: number;
+  slippage_bps: number;
+  venue: string;
+  is_paper: boolean;
+  filled_at: string;
+}
+
+export interface PaperIntent {
+  intent_id: string;
+  ticker: string;
+  asset_class: string;
+  sector: string;
+  side: string;
+  quantity: number;
+  limit_price: any;
+  notional_usd: any;
+  state: string;
+  provenance: PaperProvenance;
+  created_at: string;
+  rejection_reasons: string[];
+  approved_by: string | null;
+  paper_fill: PaperFill | null;
+}
+
+export interface PaperIntentsData {
+  intents: PaperIntent[];
+}
+
+export interface ApprovalCardData {
+  intent_id: string;
+  ticker: string;
+  side: string;
+  quantity: number;
+  notional_usd: any;
+  validation_maturity: string;
+  macro_risk_budget_ref: string;
+  data_freshness_state: string;
+  kill_switch_snapshot: string;
+  provenance_complete: boolean;
+  risk_gate_passed: boolean;
+  rejection_reasons: string[];
+  requires_human_approval: boolean;
+  llm_can_approve: boolean;
+  live_enabled: boolean;
+  operator_note: string;
+}
+
+export interface PaperIntentDetail {
+  intent: PaperIntent;
+  approval_card: ApprovalCardData | null;
+}
+
+export interface AuditEvent {
+  seq: number;
+  intent_id: string;
+  event_type: string;
+  actor_type: string;
+  actor_identity: string;
+  detail: any;
+  at: string;
+  prev_hash: string;
+  event_hash: string;
+}
+
+export interface AuditData {
+  events: AuditEvent[];
+}
+
+export interface ProvenanceCompleteness {
+  total_intents: number;
+  fully_provenanced: number;
+  completeness_pct: number;
+  audit_chain_intact: boolean;
+  intents: {
+    intent_id: string;
+    provenance_complete: boolean;
+    audit_hash_valid: boolean;
+    missing_fields: string[];
+  }[];
+}
+
+export interface LiveDisabledProof {
+  live_enabled: boolean;
+  broker_connected: boolean;
+  real_order_path: boolean;
+  paper_only: boolean;
+  broker_adapter_present: boolean;
+  llm_actor_intents: number;
+  llm_actor_paper_filled: number;
+  llm_actor_auto_executed_without_approval: number;
+  live_disabled: boolean;
+  attestation: string;
+}
+
+export const fetchPaperGatewayStatus = () =>
+  getJson<PaperGatewayStatus>("/paper-gateway/status");
+export const fetchPaperIntents = () =>
+  getJson<PaperIntentsData>("/paper-gateway/intents");
+export const fetchPaperIntent = (id: string) =>
+  getJson<PaperIntentDetail>(`/paper-gateway/intent/${id}`);
+export const fetchPaperAudit = (intentId?: string) =>
+  getJson<AuditData>(
+    `/paper-gateway/audit${intentId ? `?intent_id=${intentId}` : ""}`
+  );
+export const fetchProvenanceCompleteness = () =>
+  getJson<ProvenanceCompleteness>("/paper-gateway/provenance-completeness");
+export const fetchLiveDisabledProof = () =>
+  getJson<LiveDisabledProof>("/paper-gateway/live-disabled-proof");
+export const approvePaperIntent = (id: string, operator: string) =>
+  postJson<PaperIntent>(`/paper-gateway/intent/${id}/approve`, { operator });
+export const simulatePaperIntent = (id: string) =>
+  postJson<PaperIntent>(`/paper-gateway/intent/${id}/simulate`);
+export const rejectPaperIntent = (id: string, operator: string, note: string) =>
+  postJson<PaperIntent>(`/paper-gateway/intent/${id}/reject`, { operator, note });
+
+// ===========================================================================
+// BTC
+// ===========================================================================
+
+export interface BtcL1 {
+  state: string;
+  label: string;
+  triggered: boolean;
+  available: boolean;
+  coverage_ratio: any;
+  confidence: any;
+  rating_capped: any;
+  score: any;
+  primary_signal: string;
+  layer_bias: string;
+  execution_effect: string;
+  source_timestamp: string;
+}
+
+export interface BtcL2 {
+  guardian_state: string;
+  guardian_score: any;
+  macro_score: any;
+  long_gate: any;
+  short_gate: any;
+  hunter_state: string;
+  hunter_score: any;
+  architect_state: string;
+  architect_score: any;
+  risk_multiplier: any;
+  vol_scalar: any;
+  regime: string;
+  final_signal_score: any;
+  final_signal_direction: string;
+  final_signal_conviction: any;
+  missing_fields: string[];
+  source_timestamp: string;
+}
+
+export interface BtcL3 {
+  state: string;
+  risk_label_raw: string;
+  risk_score: any;
+  confidence: any;
+  mode: string;
+  high_alert_mode: boolean;
+  degraded_mode: boolean;
+  primary_signal: string;
+  posture_72h: string;
+  triggers_fired_72h: any;
+  metric_triggers: Record<string, boolean>;
+  conditions_fired: string[];
+  source_timestamp: string;
+}
+
+export interface BtcStack {
+  as_of: string;
+  l1: BtcL1;
+  l2: BtcL2;
+  l3: BtcL3;
+  macro_risk_budget: {
+    regime: string;
+    confirmed_regime: string;
+    hard_stops_active: boolean;
+    exposure_cap_pct: number;
+    final_exposure: any;
+  };
+  resolved_posture: {
+    outcome: string;
+    reasons: string[];
+    layer_inputs: Record<string, any>;
+    note: string;
+  };
+  missing_fields: { l2: string[] };
+  disclaimer: string;
+}
+
+export interface BtcHistoryRow {
+  date: string;
+  btc_price: number;
+  final_signal_label: string;
+  final_signal_value: number;
+  guardian_status: string;
+  regime: string;
+  risk_multiplier: any;
+  bottom_model_state: string;
+  bottom_model_label: string;
+  bottom_score: any;
+  risk_radar_state: string;
+  risk_radar_label: string;
+  risk_score: any;
+  fear_greed: any;
+  fear_greed_bucket: string;
+  mvrv: any;
+  l1_quality: string;
+  l2_quality: string;
+  l3_quality: string;
+  is_reconstructed: boolean;
+}
+
+export interface BtcHistoryData {
+  cadence: string;
+  count: number;
+  first: string;
+  last: string;
+  rows: BtcHistoryRow[];
+  l1_quality_distribution: Record<string, number>;
+  l3_state_distribution: Record<string, number>;
+  disclaimer: string;
+}
+
+export interface BtcConflict {
+  id: string;
+  title: string;
+  inputs: { l1: any; l2: any; l3: any; macro: any };
+  resolved_outcome: string;
+  expected_outcome: string;
+  matches_expected: boolean;
+  reasons: string[];
+}
+
+export interface BtcConflictsData {
+  examples: BtcConflict[];
+  outcomes_vocabulary: string[];
+  note: string;
+}
+
+export interface BtcPosture {
+  as_of: string;
+  outcome: string;
+  reasons: string[];
+  layer_inputs: Record<string, any>;
+  note: string;
+}
+
+export const fetchBtcStack = () => getJson<BtcStack>("/btc/stack");
+export const fetchBtcHistory = (limit = 60) =>
+  getJson<BtcHistoryData>(`/btc/history?limit=${limit}`);
+export const fetchBtcConflicts = () => getJson<BtcConflictsData>("/btc/conflicts");
+export const fetchBtcCurrentPosture = () =>
+  getJson<BtcPosture>("/btc/current-posture");
+
+// ===========================================================================
+// JUDGE
+// ===========================================================================
+
+export interface JudgeFlowStep {
+  step: number;
+  title: string;
+  endpoint: string;
+  status: string;
+  detail: string;
+}
+
+export interface JudgeFullDemo {
+  title: string;
+  anchor_case: string;
+  evidence_hash: string;
+  equity_flow: JudgeFlowStep[];
+  btc_flow: JudgeFlowStep[];
+  modules: string[];
+  safety: {
+    live_enabled: boolean;
+    llm_can_execute: boolean;
+    broker_connected: boolean;
+    offline_first: boolean;
+  };
+  note: string;
+}
+
+export const fetchJudgeFullDemo = () => getJson<JudgeFullDemo>("/judge/full-demo");
