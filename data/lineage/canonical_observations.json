@@ -1,0 +1,24 @@
+[
+  {
+    "domain": "equity", "metric_id": "revenue_ttm_usd", "instrument_id": "NVDA",
+    "as_of_date": "2026-Q1", "value": 78500000000.0, "unit": "USD",
+    "source": "fundamentals_reference", "ingested_at": "2026-05-01T05:07:40Z",
+    "vintage_at": "2026-05-01T05:07:40Z", "quality_state": "PROVIDER_REPORTED",
+    "source_vintage": "live_capture",
+    "revisions": [
+      {
+        "value": 79000000000.0, "source": "filings_reference",
+        "ingested_at": "2026-07-12T05:07:00Z", "vintage_at": "2026-07-12T05:07:00Z",
+        "quality_state": "MANUAL_VERIFIED", "verified_by": "operator_demo",
+        "verified_at": "2026-07-12T05:07:00Z", "source_vintage": "live_capture"
+      }
+    ]
+  },
+  {
+    "domain": "macro", "metric_id": "vix_close", "instrument_id": null,
+    "as_of_date": "2026-07-11", "value": 14.5, "unit": "index",
+    "source": "macro_reference", "ingested_at": "2026-07-12T05:02:11Z",
+    "vintage_at": "2026-07-12T05:02:11Z", "quality_state": "PROVIDER_REPORTED",
+    "source_vintage": "live_capture"
+  }
+]
