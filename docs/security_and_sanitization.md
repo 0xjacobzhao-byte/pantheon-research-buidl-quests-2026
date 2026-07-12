@@ -96,3 +96,33 @@ CI additionally runs the project's own checks on every push and PR to `main`.
 * **No performance, return, AUM, revenue, or user claims.**
 * LLM outputs are informational research, **not investment advice**.
 * Missing or unusable data fails closed; humans retain final judgment.
+
+## Full public migration — what is and is not ported
+
+The six governance modules are sanitized vertical slices. **Ported** (public-safe
+shape, vocabulary, and clearly-illustrative values only): field/enum contracts,
+deterministic control flow, hashing methods, fail-closed behavior, and bundled
+fixtures.
+
+**Never ported / never copied:**
+
+* `.env`, API keys, database URLs, admin tokens, service-account JSON, Telegram
+  bot tokens, broker credentials, TOTP code.
+* Broker/exchange adapters, live-execution or real-order paths, live-enablement
+  write paths, account configuration, personal risk limits.
+* Full proprietary thresholds, strategy formulas, scoring weights, regime/gate
+  multipliers, and TTL constants.
+* Raw private model responses, proprietary prompts, production database dumps,
+  real customer/operator identities, internal-only URLs, and real vendor payloads.
+* Real performance numbers (returns, Sharpe, hit rates) — Research Ops keeps all
+  performance fields `null` with an explicit reason.
+
+**Structural safety proofs in the public repo:**
+
+* `GET /api/paper-gateway/status` and `/live-disabled-proof` report
+  `live_enabled=false`, `broker_connected=false`, `real_order_path=false`,
+  `paper_only=true`, and `llm_actor_auto_executed_without_approval=0`.
+* A backend test asserts the paper-gateway package imports no broker/exchange SDK
+  and calls no order path.
+* All bundled LLM overlay content is sanitized illustrative text, not raw model
+  output; no live paid LLM call is made.
