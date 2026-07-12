@@ -1,0 +1,40 @@
+{
+  "model": "claude-3-5-sonnet",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_MODERATE",
+  "confidence": 0.7,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Largest, most secure proof-of-work settlement network."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "First-mover network effect and liquidity depth."
+  },
+  "pricing_power": {
+    "verdict": "neutral",
+    "note": "Fee market variable; settlement demand cyclical."
+  },
+  "management_capital_allocation": {
+    "verdict": "neutral",
+    "note": "Decentralized governance; no single capital allocator."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "On-chain valuation mid-cycle by MVRV context."
+  },
+  "red_flags": [
+    "Regulatory uncertainty across jurisdictions"
+  ],
+  "missing_evidence": [
+    "Forward regulatory clarity"
+  ],
+  "risk_summary": "Durable network; regulation and cyclicality dominate risk.",
+  "tone": "neutral",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:onchain",
+    "evidence:macro"
+  ]
+}

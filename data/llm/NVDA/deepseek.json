@@ -1,0 +1,39 @@
+{
+  "model": "deepseek-chat",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.65,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Category-defining compute vendor."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Network of tooling and libraries deepens switching costs."
+  },
+  "pricing_power": {
+    "verdict": "neutral",
+    "note": "Pricing power strong now but competitive entrants emerging."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Prudent balance-sheet management."
+  },
+  "valuation_view": {
+    "verdict": "negative",
+    "note": "Valuation stretched relative to normalized earnings."
+  },
+  "red_flags": [
+    "China revenue concentration"
+  ],
+  "missing_evidence": [
+    "Competitive landscape deep-dive"
+  ],
+  "risk_summary": "Quality high; valuation and competition temper the view.",
+  "tone": "cautious",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}

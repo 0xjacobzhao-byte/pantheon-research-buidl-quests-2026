@@ -1,0 +1,41 @@
+{
+  "model": "qwen-plus",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.6,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Franchise quality outstanding across the compute stack."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Ecosystem moat wide and self-reinforcing."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Premium pricing durable near-term."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Management capital allocation sound."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation elevated; growth must persist to justify it."
+  },
+  "red_flags": [
+    "Customer concentration among a few hyperscalers",
+    "Single-source supply-chain dependency"
+  ],
+  "missing_evidence": [
+    "Customer concentration disclosure"
+  ],
+  "risk_summary": "Strong franchise; flags concentration risks peers underweight.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals",
+    "evidence:sector"
+  ]
+}

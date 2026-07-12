@@ -1,0 +1,40 @@
+{
+  "model": "qwen-plus",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.58,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Foundational crypto network with deep liquidity."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Strong network effect."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Fee/settlement utility growing."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Community-led protocol stewardship."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation mid-range on on-chain context."
+  },
+  "red_flags": [
+    "Miner economics sensitivity to price"
+  ],
+  "missing_evidence": [
+    "Miner cost-basis detail"
+  ],
+  "risk_summary": "Constructive; monitors miner economics and market structure.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:onchain",
+    "evidence:macro"
+  ]
+}

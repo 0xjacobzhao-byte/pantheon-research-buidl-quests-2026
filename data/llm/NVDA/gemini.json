@@ -1,0 +1,39 @@
+{
+  "model": "gemini-2.5-pro",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_MODERATE",
+  "confidence": 0.7,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Leadership in AI training and inference silicon."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Software + hardware co-design sustains differentiation."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Pricing power evident in gross-margin profile."
+  },
+  "management_capital_allocation": {
+    "verdict": "neutral",
+    "note": "Capital allocation adequate; buybacks vs reinvestment balance watched."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation full; depends on sustained hyperscaler capex."
+  },
+  "red_flags": [
+    "Data-center capex cyclicality"
+  ],
+  "missing_evidence": [
+    "Management forward guidance"
+  ],
+  "risk_summary": "Constructive on franchise; cyclicality is the key uncertainty.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:sector"
+  ]
+}

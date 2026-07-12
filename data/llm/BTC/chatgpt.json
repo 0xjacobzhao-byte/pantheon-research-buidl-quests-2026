@@ -1,0 +1,39 @@
+{
+  "model": "gpt-4o",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.6,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Dominant digital-store-of-value network."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Liquidity and brand form a moat."
+  },
+  "pricing_power": {
+    "verdict": "neutral",
+    "note": "Fee revenue inconsistent."
+  },
+  "management_capital_allocation": {
+    "verdict": "neutral",
+    "note": "No corporate governance analogue."
+  },
+  "valuation_view": {
+    "verdict": "negative",
+    "note": "Valuation stretched on some on-chain multiples."
+  },
+  "red_flags": [
+    "Volatility regime risk"
+  ],
+  "missing_evidence": [
+    "Derivatives positioning detail"
+  ],
+  "risk_summary": "Constructive long-cycle; near-term valuation debated.",
+  "tone": "cautious",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:onchain"
+  ]
+}

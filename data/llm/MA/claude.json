@@ -1,0 +1,39 @@
+{
+  "model": "claude-3-5-sonnet",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_STRONG",
+  "confidence": 0.8,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Toll-road payments network with structural growth."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Two-sided network effect is a wide moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Strong pricing power via network fees."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Exemplary capital return discipline."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Premium valuation consistent with quality."
+  },
+  "red_flags": [
+    "Regulatory/interchange scrutiny"
+  ],
+  "missing_evidence": [
+    "Cross-border volume detail"
+  ],
+  "risk_summary": "High-quality compounder; regulation is the main watch-item.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}

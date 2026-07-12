@@ -1,0 +1,37 @@
+{
+  "model": "deepseek-chat",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.7,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Global payments duopoly member."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Acceptance network moat is wide."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Fee-based pricing power."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Disciplined capital allocation."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation elevated but supported."
+  },
+  "red_flags": [
+    "Regulatory fee caps"
+  ],
+  "missing_evidence": [],
+  "risk_summary": "High quality; watch regulation.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}
