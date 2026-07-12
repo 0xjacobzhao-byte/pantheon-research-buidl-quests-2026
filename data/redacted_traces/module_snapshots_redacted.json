@@ -1,0 +1,103 @@
+{
+  "_redaction": "Public-safe module snapshot grid. Context-only bundled samples that demonstrate the SHAPE of the Pantheon Research system. No live proprietary data, no private DB URLs, no provider secrets. The LLM-comparison and data-quality cards are computed live in-process from bundled samples.",
+  "schema_version": "module-snapshots-1.0",
+  "as_of": "2026-07-02",
+  "modules": [
+    {
+      "key": "macro",
+      "title": "Macro Regime",
+      "group": "Macro",
+      "data_state": "CONTEXT_ONLY",
+      "freshness": "bundled sample as-of 2026-07-02",
+      "validation_state": "CONTEXT_ONLY",
+      "role": "Cross-asset regime dashboard (growth/inflation/liquidity) — production surface: /macro",
+      "what_not_to_infer": "Not a live macro nowcast; the public repo ships a static illustrative snapshot, not the production regime model.",
+      "sample_endpoint": "/api/modules#macro",
+      "headline": "Regime: Late-cycle / disinflationary (illustrative)"
+    },
+    {
+      "key": "market_pulse_ta",
+      "title": "Market Pulse / TA",
+      "group": "Signal",
+      "data_state": "CONTEXT_ONLY",
+      "freshness": "bundled sample as-of 2026-07-02",
+      "validation_state": "NOT_VALIDATED",
+      "role": "Technical-analysis status (trend/breadth/momentum) — production surface: /ta",
+      "what_not_to_infer": "Not a trading signal; TA context only, and only for names inside the production universe. No buy/sell recommendation.",
+      "sample_endpoint": "/api/modules#market_pulse_ta",
+      "headline": "Breadth neutral, momentum cooling (illustrative)"
+    },
+    {
+      "key": "commodity",
+      "title": "Commodity",
+      "group": "FICC",
+      "data_state": "CONTEXT_ONLY",
+      "freshness": "bundled sample as-of 2026-07-02",
+      "validation_state": "FORWARD_VALIDATION_PROSPECTIVE",
+      "role": "Commodity stance + forward-validation shadow (spot join) — production surface: /commodity",
+      "what_not_to_infer": "No fair-value band is published here; editorial + FV-band variants stay BLOCKED in production. Stance is context, not a price target.",
+      "sample_endpoint": "/api/modules#commodity",
+      "headline": "Energy stance: balanced; validation warming up (illustrative)"
+    },
+    {
+      "key": "fixed_income",
+      "title": "Fixed Income",
+      "group": "FICC",
+      "data_state": "CONTEXT_ONLY",
+      "freshness": "bundled sample as-of 2026-07-02",
+      "validation_state": "FORWARD_VALIDATION_PENDING",
+      "role": "Rates/curve stance with PIT signal + REVISED forward-leg basis — production surface: /fi",
+      "what_not_to_infer": "Signal is point-in-time; the forward leg is REVISED (not PIT). Do not read the forward leg as a no-lookahead realized outcome.",
+      "sample_endpoint": "/api/modules#fixed_income",
+      "headline": "Duration: neutral-to-long bias (illustrative)"
+    },
+    {
+      "key": "fx",
+      "title": "FX",
+      "group": "FICC",
+      "data_state": "CONTEXT_ONLY",
+      "freshness": "bundled sample as-of 2026-07-02",
+      "validation_state": "SIGNAL_ONLY",
+      "role": "FX overlay + forward-validation (PIT signal) — production surface: /fx",
+      "what_not_to_infer": "Carry legs can be blocked upstream (e.g. missing benchmark); a SIGNAL_ONLY state means the forward outcome is not yet joined.",
+      "sample_endpoint": "/api/modules#fx",
+      "headline": "USD bias: mild-strong; carry SIGNAL_ONLY (illustrative)"
+    },
+    {
+      "key": "ticker_profile",
+      "title": "Ticker Profile",
+      "group": "Equity",
+      "data_state": "OFFLINE_SAMPLE",
+      "freshness": "bundled evidence packs (MA, NVDA)",
+      "validation_state": "EVIDENCE_HASHED",
+      "role": "Equity cockpit: evidence pack + dual-LLM overlay — production surface: /equity/ticker-profile",
+      "what_not_to_infer": "Bundled demo tickers only (MA, NVDA); the full universe and live fundamentals stay private.",
+      "sample_endpoint": "/api/comparison/NVDA",
+      "headline": "2 demo tickers with hashed evidence packs"
+    },
+    {
+      "key": "qwen_vs_deepseek",
+      "title": "Qwen vs DeepSeek",
+      "group": "Signal",
+      "data_state": "OFFLINE_SAMPLE",
+      "freshness": "computed in-process from bundled overlays",
+      "validation_state": "HUMAN_REVIEW_GATED",
+      "role": "Dual-LLM qualitative overlay comparison — the hackathon centerpiece",
+      "what_not_to_infer": "Agreement is not accuracy; low agreement / a major divergence routes to human review, never to a trade.",
+      "sample_endpoint": "/api/comparison/{ticker}",
+      "headline": "Live-computed from samples (see grid for real state)"
+    },
+    {
+      "key": "data_quality",
+      "title": "Data Quality",
+      "group": "Research-Ops",
+      "data_state": "LIVE_IN_PROCESS",
+      "freshness": "computed at request time",
+      "validation_state": "GOVERNANCE",
+      "role": "Research-Ops governance snapshot (coverage, provider config, per-ticker state) — production surface: Research Ops admin plane",
+      "what_not_to_infer": "This is a read-only public slice; no admin actions, mutations, or secrets are exposed.",
+      "sample_endpoint": "/api/data-quality",
+      "headline": "Coverage + fail-closed accounting"
+    }
+  ]
+}

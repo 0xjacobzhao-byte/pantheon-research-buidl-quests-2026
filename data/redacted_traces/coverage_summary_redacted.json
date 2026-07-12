@@ -1,0 +1,34 @@
+{
+  "_redaction": "Redacted coverage summary for the public demo. No private DB URLs, no proprietary universe.",
+  "schema_version": "coverage-1.1",
+  "timestamp_utc": "2026-07-02T12:00:00Z",
+  "coverage_state": "withheld_production_verified_public_demo",
+  "purpose": "Qwen-vs-DeepSeek qualitative-overlay comparison coverage",
+  "model_qwen_demo": "qwen-plus (public demo default)",
+  "model_qwen_production": "qwen3.7-plus (live Alibaba deployment; see /api/proof/alibaba-cloud)",
+  "model_deepseek": "deepseek-chat",
+  "product_demo_tickers": [
+    "NVDA",
+    "0700.HK",
+    "9988.HK"
+  ],
+  "public_repo_demo_tickers": [
+    "MA",
+    "NVDA"
+  ],
+  "public_demo": {
+    "evidence_packs": 2,
+    "dual_overlays_bundled": 2,
+    "healthy_comparisons": 2,
+    "errors": 0,
+    "mode": "offline (bundled samples)"
+  },
+  "production": {
+    "generated_overlays": "withheld",
+    "healthy_comparisons": "withheld",
+    "errors": "withheld",
+    "cost_estimate": "withheld",
+    "universe_size": "withheld"
+  },
+  "note": "Production coverage figures (universe size, refresh cadence, cost) live in the private repo and are intentionally not published here."
+}

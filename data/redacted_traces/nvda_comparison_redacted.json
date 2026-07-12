@@ -1,0 +1,56 @@
+{
+  "_redaction": "Redacted dual-model comparison built from bundled offline samples.",
+  "ticker": "NVDA",
+  "data_state": "OFFLINE_SAMPLE",
+  "qwen_status": "OFFLINE_SAMPLE",
+  "deepseek_status": "OFFLINE_SAMPLE",
+  "evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9",
+  "output_schema_version": "overlay-assessment-1.0",
+  "prompt_version": "qwen-overlay-v1.1 / deepseek-overlay-v1.1",
+  "timestamp_utc": "2026-07-02T12:00:00Z",
+  "agreement_score": 0.44,
+  "agreement_level": "LOW",
+  "qwen_tone": "conservative_positive",
+  "deepseek_tone": "conservative_positive",
+  "divergences": [
+    {
+      "field": "business_quality",
+      "qwen_view": "Exceptional. Gross margins of ~75% and net margins of ~55% reflect a premium-priced, software-like business model in hardware. ROIC of ~85% is extraordinary and demonstrates the economic power of the ",
+      "deepseek_view": "Exceptional quality. ~75% gross margins and ~55% net margins are remarkable for a semiconductor company, reflecting NVIDIA's transition to a platform company. The ROIC of ~85% demonstrates outstanding",
+      "severity": "moderate"
+    },
+    {
+      "field": "moat",
+      "qwen_view": "Extremely wide moat. The CUDA software ecosystem is the de facto standard for GPU computing, creating massive switching costs for developers. This software lock-in reinforces hardware demand, forming ",
+      "deepseek_view": "The CUDA ecosystem is the strongest moat in semiconductors. Over a decade of developer lock-in creates switching costs that are nearly insurmountable. However, hyperscaler custom silicon (ASICs) poses",
+      "severity": "moderate"
+    },
+    {
+      "field": "pricing_power",
+      "qwen_view": "Extraordinary pricing power. NVIDIA commands premium pricing for its data center GPUs due to unmatched performance and the CUDA ecosystem lock-in. Customers have limited alternatives at the scale requ",
+      "deepseek_view": "Very strong pricing power in the near term. AI GPU demand far exceeds supply, giving NVIDIA significant pricing leverage. However, as supply constraints ease and competitors emerge, pricing power may ",
+      "severity": "major"
+    },
+    {
+      "field": "capital_allocation",
+      "qwen_view": "Management under Jensen Huang has demonstrated exceptional strategic vision. Capital is reinvested aggressively in R&D to maintain technological leadership. The low dividend yield reflects growth rein",
+      "deepseek_view": "Management has been excellent at reinvesting in R&D to maintain the technology lead. The company's strategy of investing ahead of demand curves has been vindicated. Share buybacks are disciplined and ",
+      "severity": "moderate"
+    },
+    {
+      "field": "red_flags",
+      "qwen_view": "Key risks include cyclical demand for gaming GPUs, geopolitical restrictions on chip exports to China, potential competition from custom AI chips (ASICs), and extremely elevated valuation multiples. T",
+      "deepseek_view": "Valuation risk is extreme at 65x earnings. Geopolitical export restrictions to China could impact a significant revenue stream. Hyperscaler ASIC development (Google TPU, AWS Trainium) could erode GPU ",
+      "severity": "major"
+    }
+  ],
+  "evidence_gaps": [
+    "No real-time data center revenue breakdown",
+    "No competitive ASIC roadmap analysis",
+    "No supply chain constraint assessment",
+    "No hyperscaler capex guidance",
+    "No ASIC competitive threat timeline"
+  ],
+  "human_review_required": true,
+  "human_review_reason": "Low agreement between providers."
+}

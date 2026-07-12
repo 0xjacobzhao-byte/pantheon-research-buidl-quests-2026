@@ -1,0 +1,32 @@
+{
+  "ticker": "NVDA",
+  "agreement_score": 0.72,
+  "agreement_level": "HIGH",
+  "qwen_tone": "conservative_positive",
+  "deepseek_tone": "conservative_positive",
+  "divergences": [
+    {
+      "field": "red_flags",
+      "qwen_view": "Key risks include US-China export restrictions, competitive threats from AMD and custom silicon, and rich valuation metrics.",
+      "deepseek_view": "Primary concern is regulatory export control impact on China revenue. Also notes elevated valuation and potential data center capex cycle risk.",
+      "severity": "moderate"
+    }
+  ],
+  "evidence_gaps": [
+    "No real-time earnings data",
+    "No management forward guidance",
+    "No competitive landscape deep-dive",
+    "No supply chain risk analysis",
+    "No customer concentration data"
+  ],
+  "human_review_required": false,
+  "comparison_fields": [
+    "business_quality",
+    "moat",
+    "pricing_power",
+    "capital_allocation",
+    "red_flags",
+    "confidence",
+    "missing_evidence"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "ticker": "NVDA",
+  "takeaway": "NVIDIA is the premier AI infrastructure company, benefiting from an unprecedented GPU demand supercycle. While the CUDA moat is formidable, the current valuation embeds aggressive growth expectations that leave limited margin of safety.",
+  "assessment": {
+    "business_quality": "Exceptional quality. ~75% gross margins and ~55% net margins are remarkable for a semiconductor company, reflecting NVIDIA's transition to a platform company. The ROIC of ~85% demonstrates outstanding capital efficiency.",
+    "moat": "The CUDA ecosystem is the strongest moat in semiconductors. Over a decade of developer lock-in creates switching costs that are nearly insurmountable. However, hyperscaler custom silicon (ASICs) poses a longer-term threat to this moat.",
+    "pricing_power": "Very strong pricing power in the near term. AI GPU demand far exceeds supply, giving NVIDIA significant pricing leverage. However, as supply constraints ease and competitors emerge, pricing power may moderate over time.",
+    "capital_allocation": "Management has been excellent at reinvesting in R&D to maintain the technology lead. The company's strategy of investing ahead of demand curves has been vindicated. Share buybacks are disciplined and opportunistic.",
+    "red_flags": "Valuation risk is extreme at 65x earnings. Geopolitical export restrictions to China could impact a significant revenue stream. Hyperscaler ASIC development (Google TPU, AWS Trainium) could erode GPU demand. The AI spending cycle could eventually decelerate.",
+    "confidence": 0.72,
+    "missing_evidence": [
+      "No real-time data center revenue breakdown",
+      "No hyperscaler capex guidance",
+      "No ASIC competitive threat timeline"
+    ]
+  }
+}

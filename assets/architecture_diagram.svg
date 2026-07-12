@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" fill="#0f172a"/>
+
+  <text x="450" y="30" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">
+    Pantheon Research — Qwen Hackathon Architecture
+  </text>
+
+  <!-- Frontend -->
+  <rect x="50" y="60" width="800" height="130" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" fill="#3b82f6" font-size="14" font-weight="bold">Frontend (Vite + React + TypeScript)</text>
+
+  <rect x="80" y="100" width="200" height="70" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="180" y="125" text-anchor="middle" fill="#f1f5f9" font-size="12">Ticker Selector</text>
+  <text x="180" y="145" text-anchor="middle" fill="#94a3b8" font-size="10">App.tsx</text>
+
+  <rect x="350" y="100" width="200" height="70" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="450" y="125" text-anchor="middle" fill="#f1f5f9" font-size="12">Evidence Panel</text>
+  <text x="450" y="145" text-anchor="middle" fill="#94a3b8" font-size="10">api.ts</text>
+
+  <rect x="620" y="100" width="200" height="70" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="720" y="125" text-anchor="middle" fill="#f1f5f9" font-size="12">Comparison Grid</text>
+  <text x="720" y="145" text-anchor="middle" fill="#94a3b8" font-size="10">Side-by-side</text>
+
+  <!-- Arrow to backend -->
+  <line x1="450" y1="190" x2="450" y2="225" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="460" y="212" fill="#64748b" font-size="10">/api/*</text>
+
+  <!-- Backend -->
+  <rect x="50" y="230" width="800" height="180" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="450" y="255" text-anchor="middle" fill="#10b981" font-size="14" font-weight="bold">Backend (FastAPI + Python)</text>
+
+  <rect x="80" y="270" width="220" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="190" y="295" text-anchor="middle" fill="#f1f5f9" font-size="12">Sample Loader</text>
+  <text x="190" y="312" text-anchor="middle" fill="#94a3b8" font-size="10">data/*.json</text>
+
+  <rect x="340" y="270" width="220" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="450" y="295" text-anchor="middle" fill="#f1f5f9" font-size="12">Qwen Overlay</text>
+  <text x="450" y="312" text-anchor="middle" fill="#94a3b8" font-size="10">qwen_overlay.py</text>
+
+  <rect x="600" y="270" width="220" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="710" y="295" text-anchor="middle" fill="#f1f5f9" font-size="12">DeepSeek Overlay</text>
+  <text x="710" y="312" text-anchor="middle" fill="#94a3b8" font-size="10">deepseek_overlay.py</text>
+
+  <rect x="200" y="350" width="500" height="45" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="450" y="378" text-anchor="middle" fill="#f1f5f9" font-size="12">Comparison Logic (asyncio.gather) — comparison.py</text>
+
+  <!-- Arrows to APIs -->
+  <line x1="450" y1="330" x2="450" y2="350" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="410" x2="300" y2="460" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="710" y1="330" x2="650" y2="460" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- External APIs -->
+  <rect x="80" y="460" width="300" height="120" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="230" y="490" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="bold">Qwen Cloud</text>
+  <text x="230" y="510" text-anchor="middle" fill="#f1f5f9" font-size="11">DashScope API</text>
+  <text x="230" y="528" text-anchor="middle" fill="#94a3b8" font-size="10">dashscope-intl.aliyuncs.com</text>
+  <text x="230" y="545" text-anchor="middle" fill="#94a3b8" font-size="10">/compatible-mode/v1</text>
+  <text x="230" y="565" text-anchor="middle" fill="#10b981" font-size="10">Alibaba Cloud</text>
+
+  <rect x="520" y="460" width="300" height="120" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="670" y="490" text-anchor="middle" fill="#8b5cf6" font-size="14" font-weight="bold">DeepSeek API</text>
+  <text x="670" y="510" text-anchor="middle" fill="#f1f5f9" font-size="11">OpenAI-compatible</text>
+  <text x="670" y="528" text-anchor="middle" fill="#94a3b8" font-size="10">api.deepseek.com/v1</text>
+  <text x="670" y="548" text-anchor="middle" fill="#94a3b8" font-size="10">model: deepseek-chat</text>
+</svg>

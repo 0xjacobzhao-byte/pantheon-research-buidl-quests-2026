@@ -1,0 +1,131 @@
+{
+  "_note": "Production-feel ticker profiles for the public demo. KPI cards derived from bundled evidence packs. No live data, no private DB queries.",
+  "profiles": [
+    {
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "exchange": "NASDAQ",
+      "sector": "Information Technology",
+      "industry": "Semiconductors",
+      "market_cap_usd": 3390000000000,
+      "kpi_cards": {
+        "valuation": {
+          "label": "Valuation",
+          "metrics": [
+            {"name": "P/E (TTM)", "value": 64.5, "signal": "premium"},
+            {"name": "P/B", "value": 55.2, "signal": "premium"},
+            {"name": "EV/Revenue", "value": 38.1, "signal": "premium"}
+          ],
+          "summary": "Premium valuation reflecting AI/datacenter growth expectations"
+        },
+        "quality": {
+          "label": "Quality",
+          "metrics": [
+            {"name": "ROIC", "value": "116.4%", "signal": "exceptional"},
+            {"name": "Gross Margin", "value": "75.9%", "signal": "strong"},
+            {"name": "Net Margin", "value": "55.6%", "signal": "exceptional"}
+          ],
+          "summary": "Exceptional profitability metrics; world-class margins"
+        },
+        "growth": {
+          "label": "Growth",
+          "metrics": [
+            {"name": "Revenue Growth YoY", "value": "122.4%", "signal": "exceptional"},
+            {"name": "FCF TTM", "value": "$60.9B", "signal": "strong"}
+          ],
+          "summary": "Hyper-growth driven by AI infrastructure demand"
+        },
+        "anchors": {
+          "label": "Anchors",
+          "metrics": [
+            {"name": "D/E Ratio", "value": 0.41, "signal": "conservative"},
+            {"name": "Dividend Yield", "value": "0.03%", "signal": "minimal"}
+          ],
+          "summary": "Conservative leverage; minimal dividend"
+        },
+        "technical": {
+          "label": "Technical",
+          "metrics": [
+            {"name": "52W Trend", "value": "uptrend", "signal": "bullish"},
+            {"name": "RSI (14)", "value": 62, "signal": "neutral-to-strong"}
+          ],
+          "summary": "Sustained uptrend; momentum intact but cooling (illustrative)"
+        }
+      },
+      "evidence_pack_summary": {
+        "sources": 4,
+        "hash_prefix": "sha256:7a3f...",
+        "as_of": "2026-07-02",
+        "fields_covered": ["valuation", "profitability", "growth", "leverage", "cash_flow"]
+      },
+      "human_review": {
+        "status": "GATED",
+        "reason": "Low agreement between Qwen and DeepSeek on pricing_power",
+        "queue_position": "pending"
+      }
+    },
+    {
+      "ticker": "MA",
+      "company_name": "Mastercard Incorporated",
+      "exchange": "NYSE",
+      "sector": "Financials",
+      "industry": "Transaction & Payment Processing Services",
+      "market_cap_usd": 518000000000,
+      "kpi_cards": {
+        "valuation": {
+          "label": "Valuation",
+          "metrics": [
+            {"name": "P/E (TTM)", "value": 37.8, "signal": "premium"},
+            {"name": "P/B", "value": 62.1, "signal": "premium"},
+            {"name": "EV/Revenue", "value": 22.4, "signal": "premium"}
+          ],
+          "summary": "Premium compounder valuation; network-effects moat"
+        },
+        "quality": {
+          "label": "Quality",
+          "metrics": [
+            {"name": "ROIC", "value": "165.3%", "signal": "exceptional"},
+            {"name": "Gross Margin", "value": "78.2%", "signal": "strong"},
+            {"name": "Net Margin", "value": "45.6%", "signal": "exceptional"}
+          ],
+          "summary": "Best-in-class returns on capital; asset-light model"
+        },
+        "growth": {
+          "label": "Growth",
+          "metrics": [
+            {"name": "Revenue Growth YoY", "value": "14.2%", "signal": "solid"},
+            {"name": "FCF TTM", "value": "$12.1B", "signal": "strong"}
+          ],
+          "summary": "Steady double-digit growth; strong cash generation"
+        },
+        "anchors": {
+          "label": "Anchors",
+          "metrics": [
+            {"name": "D/E Ratio", "value": 2.14, "signal": "moderate"},
+            {"name": "Dividend Yield", "value": "0.55%", "signal": "low"}
+          ],
+          "summary": "Moderate leverage; consistent buyback program"
+        },
+        "technical": {
+          "label": "Technical",
+          "metrics": [
+            {"name": "52W Trend", "value": "uptrend", "signal": "bullish"},
+            {"name": "RSI (14)", "value": 58, "signal": "neutral"}
+          ],
+          "summary": "Steady uptrend; no technical stress (illustrative)"
+        }
+      },
+      "evidence_pack_summary": {
+        "sources": 4,
+        "hash_prefix": "sha256:b1b1...",
+        "as_of": "2026-07-02",
+        "fields_covered": ["valuation", "profitability", "growth", "leverage", "cash_flow"]
+      },
+      "human_review": {
+        "status": "CLEARED",
+        "reason": null,
+        "queue_position": null
+      }
+    }
+  ]
+}
