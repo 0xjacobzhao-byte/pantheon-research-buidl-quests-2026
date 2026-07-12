@@ -1,0 +1,150 @@
+{
+  "_note": "Bundled, sanitized demo intents for the paper-only trading gateway. All identities are placeholders; no real accounts, orders, or brokers are involved. LIVE is disabled by construction.",
+  "intents": [
+    {
+      "intent_id": "intent_nvda_001",
+      "ticker": "NVDA",
+      "asset_class": "equity",
+      "sector": "Information Technology",
+      "side": "buy",
+      "quantity": 100,
+      "limit_price": 100.0,
+      "notional_usd": 10000.0,
+      "created_at": "2026-07-12T09:00:00Z",
+      "demo_lifecycle": "approve_and_fill",
+      "provenance": {
+        "source_module": "equity_overlay",
+        "source_verdict_ref": "comparison:NVDA:sha256:ab12cd",
+        "validation_maturity": "MATURE",
+        "macro_risk_budget_ref": "macro-risk-budget-1.1@2026-07-12",
+        "data_freshness_state": "FRESH",
+        "kill_switch_snapshot": "ARMED",
+        "risk_policy_snapshot": "risk-policy-demo-v1",
+        "actor_identity": "llm_tool",
+        "actor_type": "llm",
+        "created_by_surface": "llm_overlay"
+      },
+      "risk_context": {
+        "macro_hard_stop": false,
+        "macro_exposure_cap_pct": 0.75,
+        "macro_budget_used_pct": 0.20,
+        "kill_switch_state": "ARMED",
+        "market_open": true,
+        "daily_trade_count": 3
+      }
+    },
+    {
+      "intent_id": "intent_ma_002",
+      "ticker": "MA",
+      "asset_class": "equity",
+      "sector": "Financials",
+      "side": "buy",
+      "quantity": 50,
+      "limit_price": 480.0,
+      "notional_usd": 24000.0,
+      "created_at": "2026-07-12T09:05:00Z",
+      "provenance": {
+        "source_module": "equity_overlay",
+        "source_verdict_ref": "comparison:MA:sha256:ef34gh",
+        "validation_maturity": "MATURE",
+        "macro_risk_budget_ref": "macro-risk-budget-1.1@2026-07-12",
+        "data_freshness_state": "FRESH",
+        "kill_switch_snapshot": "ARMED",
+        "risk_policy_snapshot": "risk-policy-demo-v1",
+        "actor_identity": "llm_tool",
+        "actor_type": "llm",
+        "created_by_surface": "llm_overlay"
+      },
+      "risk_context": {
+        "macro_hard_stop": true,
+        "macro_exposure_cap_pct": 0.0,
+        "kill_switch_state": "ARMED",
+        "market_open": true
+      }
+    },
+    {
+      "intent_id": "intent_btc_003",
+      "ticker": "BTC",
+      "asset_class": "crypto",
+      "side": "buy",
+      "quantity": 0.05,
+      "limit_price": 60000.0,
+      "notional_usd": 3000.0,
+      "created_at": "2026-07-12T09:10:00Z",
+      "provenance": {
+        "source_module": "btc_stack",
+        "source_verdict_ref": "btc:l2:SLOW_SCALE:2026-07-11",
+        "validation_maturity": "SIGNAL_ONLY",
+        "macro_risk_budget_ref": "macro-risk-budget-1.1@2026-07-12",
+        "data_freshness_state": "FRESH",
+        "kill_switch_snapshot": "ARMED",
+        "risk_policy_snapshot": "risk-policy-demo-v1",
+        "actor_identity": "llm_tool",
+        "actor_type": "llm",
+        "created_by_surface": "llm_overlay"
+      },
+      "risk_context": {
+        "macro_hard_stop": false,
+        "kill_switch_state": "ARMED",
+        "market_open": true
+      }
+    },
+    {
+      "intent_id": "intent_nvda_004",
+      "ticker": "NVDA",
+      "asset_class": "equity",
+      "sector": "Information Technology",
+      "side": "buy",
+      "quantity": 3000,
+      "limit_price": 100.0,
+      "notional_usd": 300000.0,
+      "created_at": "2026-07-12T09:15:00Z",
+      "provenance": {
+        "source_module": "equity_overlay",
+        "source_verdict_ref": "comparison:NVDA:sha256:ab12cd",
+        "validation_maturity": "MATURE",
+        "macro_risk_budget_ref": "macro-risk-budget-1.1@2026-07-12",
+        "data_freshness_state": "FRESH",
+        "kill_switch_snapshot": "ARMED",
+        "risk_policy_snapshot": "risk-policy-demo-v1",
+        "actor_identity": "llm_tool",
+        "actor_type": "llm",
+        "created_by_surface": "llm_overlay"
+      },
+      "risk_context": {
+        "macro_hard_stop": false,
+        "kill_switch_state": "ARMED",
+        "market_open": true
+      }
+    },
+    {
+      "intent_id": "intent_ma_005",
+      "ticker": "MA",
+      "asset_class": "equity",
+      "sector": "Financials",
+      "side": "sell",
+      "quantity": 20,
+      "limit_price": 480.0,
+      "notional_usd": 9600.0,
+      "created_at": "2026-07-12T09:20:00Z",
+      "demo_lifecycle": "reject",
+      "provenance": {
+        "source_module": "equity_overlay",
+        "source_verdict_ref": "comparison:MA:sha256:ef34gh",
+        "validation_maturity": "MATURE",
+        "macro_risk_budget_ref": "macro-risk-budget-1.1@2026-07-12",
+        "data_freshness_state": "FRESH",
+        "kill_switch_snapshot": "ARMED",
+        "risk_policy_snapshot": "risk-policy-demo-v1",
+        "actor_identity": "llm_tool",
+        "actor_type": "llm",
+        "created_by_surface": "llm_overlay"
+      },
+      "risk_context": {
+        "macro_hard_stop": false,
+        "kill_switch_state": "ARMED",
+        "market_open": true
+      }
+    }
+  ]
+}
