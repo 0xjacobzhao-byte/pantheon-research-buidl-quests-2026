@@ -1,0 +1,39 @@
+{
+  "model": "gemini-2.5-pro",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_MODERATE",
+  "confidence": 0.72,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Leading card network with secular tailwinds."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Brand + acceptance network sustain the moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Pricing power intact."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Capital allocation shareholder-friendly."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation premium warranted."
+  },
+  "red_flags": [
+    "Interchange regulation"
+  ],
+  "missing_evidence": [
+    "Geographic revenue mix"
+  ],
+  "risk_summary": "Constructive; regulation the key risk.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:sector"
+  ]
+}

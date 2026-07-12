@@ -1,0 +1,5 @@
+[
+  {"id": 4501, "job_name": "macro_daily_ingest", "started_at": "2026-07-12T05:00:00Z", "finished_at": "2026-07-12T05:02:11Z", "status": "success", "metrics_ingested": 42, "series_fetched": 12, "duration_ms": 131000, "errors": []},
+  {"id": 4502, "job_name": "equity_fundamentals_ingest", "started_at": "2026-07-12T05:05:00Z", "finished_at": "2026-07-12T05:07:40Z", "status": "success", "metrics_ingested": 88, "series_fetched": 20, "duration_ms": 160000, "errors": []},
+  {"id": 4503, "job_name": "crypto_weekly_ingest", "started_at": "2026-07-12T05:10:00Z", "finished_at": "2026-07-12T05:11:05Z", "status": "partial", "metrics_ingested": 30, "series_fetched": 8, "duration_ms": 65000, "errors": ["one series stale beyond soft TTL (served honestly)"]}
+]

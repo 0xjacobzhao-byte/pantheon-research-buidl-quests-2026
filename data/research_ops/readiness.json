@@ -1,0 +1,227 @@
+{
+  "schema_version": "research-ops-readiness-1.0",
+  "as_of": "2026-07-12",
+  "no_alpha_claim": "No alpha, return, or performance claim is made for modules without mature, eligible outcomes.",
+  "modules": [
+    {
+      "module": "btc",
+      "display_name": "BTC",
+      "readiness": "ready",
+      "validation_method": "price-return binding (forward, live cohort)",
+      "sample_count": 64,
+      "outcome_maturity": "maturing",
+      "record_kind": "live",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": true,
+      "limitations": [
+        "4y weekly reconstruction upstream of live cohort",
+        "attribution disabled until sample matures"
+      ],
+      "next_action": "await 30d cohort maturity; keep attribution OFF"
+    },
+    {
+      "module": "eth",
+      "display_name": "ETH",
+      "readiness": "ready",
+      "validation_method": "price-return binding (forward, live cohort)",
+      "sample_count": 58,
+      "outcome_maturity": "maturing",
+      "record_kind": "live",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": true,
+      "limitations": [
+        "shorter live history than BTC"
+      ],
+      "next_action": "await cohort maturity"
+    },
+    {
+      "module": "defi",
+      "display_name": "DeFi",
+      "readiness": "signal_only",
+      "validation_method": "yield-return validation (realized vs quoted APY)",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "limitations": [
+        "no realized yield series yet",
+        "quoted APY != realized yield"
+      ],
+      "next_action": "accumulate realized-yield outcomes"
+    },
+    {
+      "module": "macro",
+      "display_name": "Macro",
+      "readiness": "partial",
+      "validation_method": "regime-forward target binding",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "ALFRED point-in-time coverage partial",
+        "regime forward is not a direct return"
+      ],
+      "next_action": "admin diagnostics only \u2014 never public /performance"
+    },
+    {
+      "module": "us-stock",
+      "display_name": "US Stock",
+      "readiness": "ready_for_internal_diagnostics",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "universe composition changes",
+        "coverage gaps in vendor history"
+      ],
+      "next_action": "admin diagnostics only \u2014 never public /performance"
+    },
+    {
+      "module": "cn-stock",
+      "display_name": "CN Stock",
+      "readiness": "ready_for_internal_diagnostics",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "manual macro sidecars for some inputs",
+        "coverage gaps"
+      ],
+      "next_action": "admin diagnostics only"
+    },
+    {
+      "module": "hk-stock",
+      "display_name": "HK Stock",
+      "readiness": "partial",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "sparse history for some names"
+      ],
+      "next_action": "admin diagnostics only"
+    },
+    {
+      "module": "sg-stock",
+      "display_name": "SG Stock",
+      "readiness": "partial",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "partial OHLCV coverage",
+        "no wired benchmark index"
+      ],
+      "next_action": "wire benchmark; admin diagnostics only"
+    },
+    {
+      "module": "commodity",
+      "display_name": "Commodity",
+      "readiness": "partial",
+      "validation_method": "regime-forward target binding",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "reconstructed",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "reconstructed inputs",
+        "weekly cadence"
+      ],
+      "next_action": "admin diagnostics only"
+    },
+    {
+      "module": "fi",
+      "display_name": "Fixed Income",
+      "readiness": "partial",
+      "validation_method": "yield/duration validation",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "no realized yield series yet",
+        "weekly cadence"
+      ],
+      "next_action": "accumulate realized outcomes"
+    },
+    {
+      "module": "forex",
+      "display_name": "Forex",
+      "readiness": "partial",
+      "validation_method": "FX regime-forward binding",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "limitations": [
+        "reconstructed inputs",
+        "weekly cadence"
+      ],
+      "next_action": "admin diagnostics only"
+    },
+    {
+      "module": "ta",
+      "display_name": "TA",
+      "readiness": "warming_up",
+      "validation_method": "regime-forward target binding",
+      "sample_count": 7,
+      "outcome_maturity": "warming_up",
+      "record_kind": "warming_up",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "limitations": [
+        "needs 8 weekly snapshots to mature (7/8)"
+      ],
+      "next_action": "capture 1 more weekly snapshot"
+    },
+    {
+      "module": "narrative",
+      "display_name": "Narrative",
+      "readiness": "signal_only",
+      "validation_method": "event-forward ticker binding",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "limitations": [
+        "events not yet matured to outcomes"
+      ],
+      "next_action": "await event maturation"
+    },
+    {
+      "module": "guru-council",
+      "display_name": "Guru Council",
+      "readiness": "signal_only",
+      "validation_method": "portfolio-construction forward binding",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "limitations": [
+        "small sample",
+        "portfolio validation immature"
+      ],
+      "next_action": "accumulate portfolio outcomes"
+    }
+  ]
+}

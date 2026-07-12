@@ -1,0 +1,25 @@
+{
+  "_note": "Illustrative public-safe macro snapshot. Indicator values are bundled samples, not live feeds. Thresholds and scores are illustrative, not the production model.",
+  "as_of": "2026-07-01",
+  "growth_score": 0.66,
+  "inflation_score": 0.34,
+  "data_quality_summary": "FULL",
+  "freshness_source": "DB_SNAPSHOT",
+  "hard_stops": [
+    {"id": "HS1", "active": false, "indicator": "vix_term_structure"},
+    {"id": "HS2", "active": false, "indicator": "credit_spread"},
+    {"id": "HS3", "active": false, "indicator": "liquidity_delta"},
+    {"id": "HS4", "active": false, "indicator": "curve_stress"},
+    {"id": "HS5", "active": false, "indicator": "vol_of_vol"},
+    {"id": "HS6", "active": false, "indicator": "cross_asset_stress"}
+  ],
+  "indicators": [
+    {"name": "Equity Vol (illustrative)", "value": "14.5", "signal": "low"},
+    {"name": "Credit Spread (illustrative)", "value": "305bp", "signal": "tight"},
+    {"name": "Yield Curve 10Y-2Y (illustrative)", "value": "+18bp", "signal": "normalizing"},
+    {"name": "Liquidity 30d Delta (illustrative)", "value": "+1.2%", "signal": "accommodative"},
+    {"name": "Growth Nowcast (illustrative)", "value": "0.66", "signal": "expanding"},
+    {"name": "Inflation Nowcast (illustrative)", "value": "0.34", "signal": "cooling"}
+  ],
+  "anomaly_flags": []
+}

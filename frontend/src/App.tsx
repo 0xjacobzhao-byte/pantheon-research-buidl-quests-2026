@@ -36,8 +36,33 @@ import ValidationTimeline from "./components/ValidationTimeline";
 import MacroMiniPanel from "./components/MacroMiniPanel";
 import MarketPulseMiniPanel from "./components/MarketPulseMiniPanel";
 import FiccMiniPanel from "./components/FiccMiniPanel";
+import FiveModelResearchCockpit from "./components/llm/FiveModelResearchCockpit";
+import MacroRiskContextPanel from "./components/macro/MacroRiskContextPanel";
+import ResearchOpsConsole from "./components/research-ops/ResearchOpsConsole";
+import DataLineageExplorer from "./components/data-lineage/DataLineageExplorer";
+import PaperGatewayDemo from "./components/paper-gateway/PaperGatewayDemo";
+import BtcThreeLayerStack from "./components/btc/BtcThreeLayerStack";
 
 const TICKERS = ["MA", "NVDA"];
+
+type TabId =
+  | "overview"
+  | "llm"
+  | "macro"
+  | "research-ops"
+  | "data-lineage"
+  | "paper-gateway"
+  | "btc";
+
+const TABS: { id: TabId; label: string }[] = [
+  { id: "overview", label: "Overview" },
+  { id: "llm", label: "Five-Model LLM" },
+  { id: "macro", label: "Macro Risk" },
+  { id: "research-ops", label: "Research Ops" },
+  { id: "data-lineage", label: "Data Lineage" },
+  { id: "paper-gateway", label: "Paper Gateway" },
+  { id: "btc", label: "BTC Stack" },
+];
 
 function App() {
   const [project, setProject] = useState<ProjectInfo | null>(null);
@@ -56,6 +81,7 @@ function App() {
   const [tickerProfile, setTickerProfile] = useState<TickerProfile | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabId>("overview");
 
   useEffect(() => {
     fetchProject().then(setProject).catch(() => {});
@@ -109,6 +135,27 @@ function App() {
         )}
       </header>
 
+      <nav className="main-nav" data-testid="main-nav">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            className={`nav-tab ${activeTab === t.id ? "active" : ""}`}
+            onClick={() => setActiveTab(t.id)}
+          >
+            {t.label}
+          </button>
+        ))}
+      </nav>
+
+      {activeTab === "llm" && <FiveModelResearchCockpit />}
+      {activeTab === "macro" && <MacroRiskContextPanel />}
+      {activeTab === "research-ops" && <ResearchOpsConsole />}
+      {activeTab === "data-lineage" && <DataLineageExplorer />}
+      {activeTab === "paper-gateway" && <PaperGatewayDemo />}
+      {activeTab === "btc" && <BtcThreeLayerStack />}
+
+      {activeTab === "overview" && (
+      <div className="view" data-testid="view-overview">
       {/* Four-layer architecture */}
       <section className="card">
         <h2>Four-Layer Architecture</h2>
@@ -376,6 +423,8 @@ function App() {
           slice; the production system stays private.
         </p>
       </section>
+      </div>
+      )}
 
       <footer>
         <p>

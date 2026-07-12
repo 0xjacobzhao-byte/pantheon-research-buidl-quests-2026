@@ -1,0 +1,26 @@
+{
+  "_note": "Five-model cockpit case index. Overlay content is sanitized and illustrative — never raw proprietary model output. NVDA/MA evidence hashes match /api/evidence/{ticker}.",
+  "cases": [
+    {
+      "case_id": "NVDA",
+      "ticker": "NVDA",
+      "market": "US",
+      "company_name": "NVIDIA Corporation",
+      "evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9"
+    },
+    {
+      "case_id": "MA",
+      "ticker": "MA",
+      "market": "US",
+      "company_name": "Mastercard Incorporated",
+      "evidence_hash": "sha256:721769b6d074ba3a4e4ce96d22100a89f32cfe7a09d126f5fcd1793f4e824fa3"
+    },
+    {
+      "case_id": "BTC",
+      "ticker": "BTC",
+      "market": "CRYPTO",
+      "company_name": "Bitcoin (network qualitative overlay)",
+      "evidence_hash": "sha256:bd7c11e0f4a2c9d3e6851b0a4f2c7d9e13a6b8c0f2e4d6a8c0e2f4a6b8d0c2e4"
+    }
+  ]
+}

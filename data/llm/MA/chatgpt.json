@@ -1,0 +1,37 @@
+{
+  "model": "gpt-4o",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_STRONG",
+  "confidence": 0.82,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Dominant global payments rail."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Network effects and scale entrench the moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Durable pricing power."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Consistent buybacks and dividends."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation full but defensible."
+  },
+  "red_flags": [
+    "Regulatory pressure on fees"
+  ],
+  "missing_evidence": [],
+  "risk_summary": "Quality franchise; valuation fair for the growth.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}

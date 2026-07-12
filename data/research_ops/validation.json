@@ -1,0 +1,138 @@
+{
+  "schema_version": "research-ops-validation-1.0",
+  "as_of": "2026-07-12",
+  "pit_policy_vocabulary": [
+    "PIT",
+    "MIXED",
+    "REVISED"
+  ],
+  "record_kind_vocabulary": [
+    "live",
+    "validation_only",
+    "reconstructed",
+    "signal_only",
+    "warming_up"
+  ],
+  "readiness_vocabulary": [
+    "ready",
+    "ready_for_internal_diagnostics",
+    "partial",
+    "signal_only",
+    "warming_up",
+    "blocked"
+  ],
+  "modules": [
+    {
+      "module": "btc",
+      "validation_method": "price-return binding (forward, live cohort)",
+      "record_kind": "live",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": true,
+      "record_kind_policy": "live \u2192 eligible for public performance"
+    },
+    {
+      "module": "eth",
+      "validation_method": "price-return binding (forward, live cohort)",
+      "record_kind": "live",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": true,
+      "record_kind_policy": "live \u2192 eligible for public performance"
+    },
+    {
+      "module": "defi",
+      "validation_method": "yield-return validation (realized vs quoted APY)",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "record_kind_policy": "signal-only \u2192 no realized outcomes yet"
+    },
+    {
+      "module": "macro",
+      "validation_method": "regime-forward target binding",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "reconstructed \u2192 surfaced separately, never summed into public performance"
+    },
+    {
+      "module": "us-stock",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "validation-only \u2192 admin diagnostics, never public"
+    },
+    {
+      "module": "cn-stock",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "validation-only \u2192 admin diagnostics, never public"
+    },
+    {
+      "module": "hk-stock",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "validation-only \u2192 admin diagnostics, never public"
+    },
+    {
+      "module": "sg-stock",
+      "validation_method": "per-ticker price-return binding (validation_only)",
+      "record_kind": "validation_only",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "validation-only \u2192 admin diagnostics, never public"
+    },
+    {
+      "module": "commodity",
+      "validation_method": "regime-forward target binding",
+      "record_kind": "reconstructed",
+      "pit_policy": "MIXED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "reconstructed \u2192 surfaced separately, never summed into public performance"
+    },
+    {
+      "module": "fi",
+      "validation_method": "yield/duration validation",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "reconstructed \u2192 surfaced separately, never summed into public performance"
+    },
+    {
+      "module": "forex",
+      "validation_method": "FX regime-forward binding",
+      "record_kind": "reconstructed",
+      "pit_policy": "REVISED",
+      "public_performance_eligible": false,
+      "record_kind_policy": "reconstructed \u2192 surfaced separately, never summed into public performance"
+    },
+    {
+      "module": "ta",
+      "validation_method": "regime-forward target binding",
+      "record_kind": "warming_up",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "record_kind_policy": "warming up \u2192 below maturity threshold"
+    },
+    {
+      "module": "narrative",
+      "validation_method": "event-forward ticker binding",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "record_kind_policy": "signal-only \u2192 no realized outcomes yet"
+    },
+    {
+      "module": "guru-council",
+      "validation_method": "portfolio-construction forward binding",
+      "record_kind": "signal_only",
+      "pit_policy": "PIT",
+      "public_performance_eligible": null,
+      "record_kind_policy": "signal-only \u2192 no realized outcomes yet"
+    }
+  ]
+}

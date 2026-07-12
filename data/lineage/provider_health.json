@@ -1,0 +1,6 @@
+[
+  {"provider": "macro_reference", "last_success_at": "2026-07-12T05:02:11Z", "last_failure_at": null, "consecutive_failures": 0, "daily_calls_used": 120, "daily_calls_limit": 1000, "avg_latency_ms": 210, "status": "healthy"},
+  {"provider": "fundamentals_reference", "last_success_at": "2026-07-12T05:07:40Z", "last_failure_at": "2026-07-11T05:07:10Z", "consecutive_failures": 0, "daily_calls_used": 250, "daily_calls_limit": 500, "avg_latency_ms": 340, "status": "healthy"},
+  {"provider": "filings_reference", "last_success_at": "2026-07-12T05:07:00Z", "last_failure_at": null, "consecutive_failures": 0, "daily_calls_used": 30, "daily_calls_limit": null, "avg_latency_ms": 900, "status": "healthy"},
+  {"provider": "crypto_reference", "last_success_at": "2026-07-12T05:11:05Z", "last_failure_at": "2026-07-12T05:10:40Z", "consecutive_failures": 1, "daily_calls_used": 480, "daily_calls_limit": 500, "avg_latency_ms": 180, "status": "rate_limited"}
+]

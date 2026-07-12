@@ -1,0 +1,40 @@
+{
+  "model": "qwen-plus",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_LIMITED_BRIEF",
+  "confidence": 0.5,
+  "business_quality": {
+    "verdict": "neutral",
+    "note": "Strong network but brief pack limits depth of quality read."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Network effect acknowledged as a moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Pricing power present."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Capital allocation sound."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation premium; limited evidence to refine view."
+  },
+  "red_flags": [
+    "Regulatory risk"
+  ],
+  "missing_evidence": [
+    "Deeper fundamentals pack needed",
+    "Cross-border segment detail"
+  ],
+  "risk_summary": "View constrained by limited evidence coverage.",
+  "tone": "neutral",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}

@@ -66,6 +66,32 @@ and proprietary strategy implementation.
 
 ---
 
+## Full Public Migration — Six Governance Modules
+
+Beyond the original dual-model demo, this public repo now ships six public-safe
+vertical slices of the production system. All are **offline-first, deterministic,
+secret-free, and judge-runnable**; navigate them from the top-level tabs
+(`Overview · Five-Model LLM · Macro Risk · Research Ops · Data Lineage · Paper
+Gateway · BTC Stack`) and verify them with `scripts/judge_smoke.sh`.
+
+| Module | What it proves | Docs |
+|---|---|---|
+| **Five-Model LLM Cockpit** | Production runs five LLM modules; this public repo now compares Claude, ChatGPT, Gemini, DeepSeek and Qwen over one hash-committed evidence pack, surfacing agreement/disagreement/red-flags/missing-evidence — **no winner declared**, no live paid call. | [docs](docs/five_model_llm_cockpit.md) |
+| **Macro Risk Budget** | Deterministic research logic: four-quadrant regime, hysteresis-confirmed regime, hard stops, exposure cap, fail-closed degraded output — works fully offline. | [docs](docs/macro_risk_budget.md) |
+| **Research Ops / Validation Console** | Validation discipline: readiness, PIT policy, record kinds, and a hard **no-alpha-claim** contract — performance fields are `null` with a reason, never invented. | [docs](docs/research_ops_validation.md) |
+| **Canonical Data Lineage** | Provenance: idempotent ingest, append-only vintage history, and end-to-end lineage from a provider record to the five LLM overlays. | [docs](docs/data_lineage.md) |
+| **Paper / Shadow Trading Gateway** | Paper-only and **LIVE disabled** by construction — no broker, no real order path; the LLM can propose but a human must approve, and approval only unlocks a paper simulation. | [docs](docs/paper_gateway.md) |
+| **BTC Three-Layer Decision Stack** | Cross-asset depth: L1/L2/L3 layers + macro input resolved into a research posture (`NO_TRADE/WAIT/SLOW_SCALE/RISK_THROTTLE/RESEARCH_ONLY`) — never a live order. | [docs](docs/btc_three_layer_stack.md) |
+
+A single [unified judge demo flow](docs/full_demo_flow.md) links every module
+end-to-end at `GET /api/judge/full-demo`.
+
+The **private production repository remains closed-source**; judges may request
+temporary read-only access. See [security & sanitization](docs/security_and_sanitization.md)
+for exactly what is and is not ported.
+
+---
+
 ## The Pantheon Thesis
 
 1. **Framework First.** Investment discipline precedes AI. Frameworks define what

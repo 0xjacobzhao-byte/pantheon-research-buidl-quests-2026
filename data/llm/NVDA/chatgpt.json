@@ -1,0 +1,39 @@
+{
+  "model": "gpt-4o",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_MODERATE",
+  "confidence": 0.82,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Best-in-class compute platform with expanding TAM."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Ecosystem + interconnect advantages reinforce the moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Strong pricing power in data-center GPUs."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Capital allocation aligned with durable growth."
+  },
+  "valuation_view": {
+    "verdict": "negative",
+    "note": "Valuation demanding; limited margin of safety at current multiples."
+  },
+  "red_flags": [
+    "Rich valuation / multiple compression risk"
+  ],
+  "missing_evidence": [
+    "Independent supply-chain risk analysis"
+  ],
+  "risk_summary": "High-quality franchise; the debate is price, not business.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals"
+  ]
+}

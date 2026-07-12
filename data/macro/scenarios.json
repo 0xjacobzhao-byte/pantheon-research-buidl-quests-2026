@@ -1,0 +1,38 @@
+{
+  "_note": "Deterministic test scenarios for the macro risk-budget extractor. Illustrative only.",
+  "scenarios": [
+    {
+      "id": "valid_full",
+      "label": "Valid full snapshot — REFLATION, no hard stops",
+      "snapshot": {
+        "as_of": "2026-07-01", "growth_score": 0.66, "inflation_score": 0.34,
+        "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT",
+        "hard_stops": [], "anomaly_flags": []
+      }
+    },
+    {
+      "id": "hard_stop_stress",
+      "label": "Stagflation stress with hard stops — exposure forced to zero",
+      "snapshot": {
+        "as_of": "2026-07-01", "growth_score": 0.30, "inflation_score": 0.72,
+        "data_quality_summary": "PARTIAL", "freshness_source": "DB_SNAPSHOT_STALE",
+        "hard_stops": [{"id": "HS2", "active": true}, {"id": "HS6", "active": true}],
+        "anomaly_flags": ["macro_data_stale"]
+      }
+    },
+    {
+      "id": "stale_degraded",
+      "label": "Hard-stale / degraded freshness — conservative degraded output",
+      "snapshot": {
+        "as_of": "2026-06-01", "growth_score": 0.55, "inflation_score": 0.40,
+        "data_quality_summary": "DEGRADED", "freshness_source": "DB_SNAPSHOT_HARD_STALE",
+        "degraded_reason": "hard_ttl_exceeded", "hard_stops": [], "anomaly_flags": []
+      }
+    },
+    {
+      "id": "missing_malformed",
+      "label": "Missing / malformed snapshot — fail-closed degraded output",
+      "snapshot": {"as_of": "2026-07-01"}
+    }
+  ]
+}

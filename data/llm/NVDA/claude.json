@@ -1,0 +1,41 @@
+{
+  "model": "claude-3-5-sonnet",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_STRONG",
+  "confidence": 0.85,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Dominant accelerated-compute franchise with deep software lock-in."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "CUDA ecosystem and developer mindshare form a wide, durable moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Premium pricing sustained by performance leadership."
+  },
+  "management_capital_allocation": {
+    "verdict": "positive",
+    "note": "Disciplined reinvestment and shareholder returns."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation rich but arguably supported by growth durability."
+  },
+  "red_flags": [
+    "Export-control exposure to China demand"
+  ],
+  "missing_evidence": [
+    "Forward guidance beyond current cycle",
+    "Customer-level concentration detail"
+  ],
+  "risk_summary": "Structurally strong; primary risk is policy/geopolitical, not franchise quality.",
+  "tone": "conservative_positive",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:fundamentals",
+    "evidence:sector"
+  ]
+}

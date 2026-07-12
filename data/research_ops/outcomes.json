@@ -1,0 +1,547 @@
+{
+  "schema_version": "research-ops-outcomes-1.0",
+  "as_of": "2026-07-12",
+  "outcome_status_vocabulary": [
+    "WIN",
+    "LOSS",
+    "FLAT",
+    "OPEN",
+    "INSUFFICIENT_DATA",
+    "UNSUPPORTED"
+  ],
+  "performance_null_reason": "no matured, eligible outcomes \u2014 performance intentionally null",
+  "modules": [
+    {
+      "module": "btc",
+      "sample_count": 64,
+      "outcome_maturity": "maturing",
+      "realized_outcomes": 44,
+      "open_outcomes": 64,
+      "warming_up": false,
+      "public_performance_eligible": true,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 64
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 64
+        },
+        {
+          "stage": "model_recorded",
+          "count": 64
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 64
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 44
+        }
+      ]
+    },
+    {
+      "module": "eth",
+      "sample_count": 58,
+      "outcome_maturity": "maturing",
+      "realized_outcomes": 38,
+      "open_outcomes": 58,
+      "warming_up": false,
+      "public_performance_eligible": true,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 58
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 58
+        },
+        {
+          "stage": "model_recorded",
+          "count": 58
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 58
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 38
+        }
+      ]
+    },
+    {
+      "module": "defi",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": true,
+      "public_performance_eligible": null,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "macro",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "us-stock",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "cn-stock",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "hk-stock",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "sg-stock",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "commodity",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "fi",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "forex",
+      "sample_count": 0,
+      "outcome_maturity": "validation_only",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": false,
+      "public_performance_eligible": false,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "ta",
+      "sample_count": 7,
+      "outcome_maturity": "warming_up",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": true,
+      "public_performance_eligible": null,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 7
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 7
+        },
+        {
+          "stage": "model_recorded",
+          "count": 7
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 7
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "narrative",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": true,
+      "public_performance_eligible": null,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "module": "guru-council",
+      "sample_count": 0,
+      "outcome_maturity": "warming_up",
+      "realized_outcomes": 0,
+      "open_outcomes": 0,
+      "warming_up": true,
+      "public_performance_eligible": null,
+      "performance": {
+        "hit_rate": null,
+        "avg_return_pct": null,
+        "sharpe": null,
+        "max_drawdown_pct": null,
+        "reason": "no matured, eligible outcomes \u2014 performance intentionally null"
+      },
+      "sample_timeline": [
+        {
+          "stage": "signal_captured",
+          "count": 0
+        },
+        {
+          "stage": "evidence_hashed",
+          "count": 0
+        },
+        {
+          "stage": "model_recorded",
+          "count": 0
+        },
+        {
+          "stage": "awaiting_forward_window",
+          "count": 0
+        },
+        {
+          "stage": "matured_and_scored",
+          "count": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[
+  {"evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9", "provider": "claude", "model": "claude-3-5-sonnet", "ticker": "NVDA", "overlay_ref": "overlay:NVDA:claude", "prompt_version": "equity-overlay-public-v1"},
+  {"evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9", "provider": "chatgpt", "model": "gpt-4o", "ticker": "NVDA", "overlay_ref": "overlay:NVDA:chatgpt", "prompt_version": "equity-overlay-public-v1"},
+  {"evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9", "provider": "gemini", "model": "gemini-2.5-pro", "ticker": "NVDA", "overlay_ref": "overlay:NVDA:gemini", "prompt_version": "equity-overlay-public-v1"},
+  {"evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9", "provider": "deepseek", "model": "deepseek-chat", "ticker": "NVDA", "overlay_ref": "overlay:NVDA:deepseek", "prompt_version": "equity-overlay-public-v1"},
+  {"evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9", "provider": "qwen", "model": "qwen-plus", "ticker": "NVDA", "overlay_ref": "overlay:NVDA:qwen", "prompt_version": "equity-overlay-public-v1"}
+]

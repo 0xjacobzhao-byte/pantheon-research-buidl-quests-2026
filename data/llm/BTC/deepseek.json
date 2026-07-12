@@ -1,0 +1,39 @@
+{
+  "model": "deepseek-chat",
+  "generated_at": "2026-07-12T06:00:00Z",
+  "data_state": "CACHED",
+  "evidence_coverage": "SOURCE_BACKED_BASIC",
+  "confidence": 0.62,
+  "business_quality": {
+    "verdict": "positive",
+    "note": "Robust, censorship-resistant network."
+  },
+  "moat": {
+    "verdict": "positive",
+    "note": "Network effect and hash-rate security moat."
+  },
+  "pricing_power": {
+    "verdict": "positive",
+    "note": "Settlement assurances improving with adoption."
+  },
+  "management_capital_allocation": {
+    "verdict": "neutral",
+    "note": "Protocol governance diffuse."
+  },
+  "valuation_view": {
+    "verdict": "neutral",
+    "note": "Valuation neutral on realized-cap basis."
+  },
+  "red_flags": [
+    "Exchange concentration risk"
+  ],
+  "missing_evidence": [
+    "Custody flow data"
+  ],
+  "risk_summary": "Network strong; structural risks are market-structure, not protocol.",
+  "tone": "neutral",
+  "human_review_required": false,
+  "source_refs": [
+    "evidence:onchain"
+  ]
+}

@@ -208,3 +208,17 @@ Both LLM calls are executed concurrently using `asyncio.gather()`, reducing tota
 - Offline mode → `OFFLINE_SAMPLE` status
 - All statuses are rendered in the frontend with colored badges
 - Human review is flagged when agreement is LOW, major divergences exist, or either provider returns a non-SUCCESS status
+
+## Full public migration — six governance modules
+
+This repo now ships six public-safe, offline, judge-runnable modules, exposed via
+top-level navigation and a unified demo endpoint (`GET /api/judge/full-demo`):
+
+- Five-Model LLM Cockpit — [docs/five_model_llm_cockpit.md](five_model_llm_cockpit.md)
+- Macro Risk Budget — [docs/macro_risk_budget.md](macro_risk_budget.md)
+- Research Ops / Validation Console — [docs/research_ops_validation.md](research_ops_validation.md)
+- Canonical Data Lineage — [docs/data_lineage.md](data_lineage.md)
+- Paper / Shadow Trading Gateway (LIVE disabled) — [docs/paper_gateway.md](paper_gateway.md)
+- BTC Three-Layer Decision Stack — [docs/btc_three_layer_stack.md](btc_three_layer_stack.md)
+
+Verify every module in one command: `./scripts/judge_smoke.sh` (47 checks, all green).

@@ -1,0 +1,23 @@
+[
+  {
+    "provider": "fundamentals_reference", "provider_family": "aggregator", "market": "US",
+    "ticker": "NVDA", "instrument_id": "NVDA",
+    "source_url": "https://example-provider.invalid/fundamentals/NVDA",
+    "retrieved_at": "2026-05-01T05:07:40Z", "as_of": "2026-Q1", "currency": "USD",
+    "normalized_payload": {"revenue_ttm_usd": 78500000000.0}, "dq_state": "OK", "coverage_state": "FULL"
+  },
+  {
+    "provider": "filings_reference", "provider_family": "primary_filing", "market": "US",
+    "ticker": "NVDA", "instrument_id": "NVDA",
+    "source_url": "https://example-provider.invalid/filings/NVDA/10-Q",
+    "retrieved_at": "2026-07-12T05:07:00Z", "as_of": "2026-Q1", "currency": "USD",
+    "normalized_payload": {"revenue_ttm_usd": 79000000000.0}, "dq_state": "OK", "coverage_state": "FULL"
+  },
+  {
+    "provider": "macro_reference", "provider_family": "official_series", "market": "GLOBAL",
+    "ticker": null, "instrument_id": null,
+    "source_url": "https://example-provider.invalid/series/VIX",
+    "retrieved_at": "2026-07-12T05:02:11Z", "as_of": "2026-07-11", "currency": null,
+    "normalized_payload": {"vix_close": 14.5}, "dq_state": "OK", "coverage_state": "FULL"
+  }
+]
