@@ -12,12 +12,12 @@ deterministic + five-model LLM layer, the information dashboard, the signal and
 delivery layer, the staged trading roadmap, and the three deployment stacks.
 [`docs/architecture.md`](../architecture.md) is its textual source of truth.
 
-> **Maintainer note:** this exact PNG is supplied by Jacob and must be committed
-> at `docs/assets/pantheon_research_high_level_architecture.png`. The README and
-> `docs/architecture.md` already reference it with a live `<img>` embed, so it
-> renders automatically once the file is present. **No substitute or
-> Claude-generated architecture image is used** — a previous pass generated a
-> stand-in diagram and local-demo screenshots; those were rejected and removed.
+This exact PNG is supplied by Jacob and is committed at
+`pantheon_research_high_level_architecture.png` (1672×941, ~1.6 MB). The README
+and `docs/architecture.md` reference it with a live `<img>` embed. **No
+substitute or Claude-generated architecture image is used** — a previous pass
+generated a stand-in diagram and local-demo screenshots; those were rejected and
+removed.
 
 ## Historical reference (not shown in the README)
 

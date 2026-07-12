@@ -86,8 +86,6 @@ and proprietary strategy implementation.
 
 ## Architecture
 
-<!-- ARCHITECTURE IMAGE: place the approved diagram at the exact path below before
-     merging this branch. The <img> below then renders automatically with no edits. -->
 <p align="center">
   <img
     src="docs/assets/pantheon_research_high_level_architecture.png"

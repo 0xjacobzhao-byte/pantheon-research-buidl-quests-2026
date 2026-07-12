@@ -6,8 +6,6 @@ This document is the **textual source of truth** for the approved architecture
 diagram, `docs/assets/pantheon_research_high_level_architecture.png`, shown at
 the top of the [README](../README.md#architecture).
 
-<!-- ARCHITECTURE IMAGE: place the approved diagram at the path below before
-     merging this branch. The <img> then renders automatically with no edits. -->
 <p align="center">
   <img
     src="assets/pantheon_research_high_level_architecture.png"
