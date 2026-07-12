@@ -2,24 +2,19 @@
 
 > **AI-native investment research operating system for public markets.**
 
-Pantheon Research combines structured market data, institutional-style
-investment frameworks, deterministic signal engines, backtest analytics,
-data-quality tooling and LLM-powered research overlays in one cross-asset
-research platform.
+Pantheon Research unifies structured market data, institutional-style investment
+frameworks, deterministic signal engines, backtest analytics, data-quality
+operations, and multi-model LLM research overlays across public markets.
 
 > **Core belief:** AI should not replace the investor. AI should compound the
 > investor's discipline.
 
-Built and operated by **one founder** — the BUIDL_QUESTS / OPC relevance is that
-a single person designs the research methodology, engineers the platform,
-deploys the cloud infrastructure, runs data operations, and drives go-to-market,
-using AI-assisted development and multi-model research workflows to multiply that
-capacity. Final investment judgment stays human. No autonomous trade execution is
-claimed.
-
-> **Judges:** start with [`docs/judge_evidence.md`](docs/judge_evidence.md) for a
-> reproducible verification path, and [`docs/buidl_quests_submission.md`](docs/buidl_quests_submission.md)
-> for the OpenArena submission copy.
+[![CI](https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Python 3.11–3.12](https://img.shields.io/badge/Python-3.11--3.12-3776AB?logo=python&logoColor=white)](backend/requirements.txt)
+[![React + TypeScript](https://img.shields.io/badge/React-TypeScript-61DAFB?logo=react&logoColor=white)](frontend/package.json)
+[![Docker Compose](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](docker-compose.yml)
+[![Live Product](https://img.shields.io/badge/Live%20Product-pantheon--research.com-1f9d55)](https://pantheon-research.com)
 
 ---
 
@@ -29,72 +24,76 @@ claimed.
 |---|---|
 | 🌐 Live Product | https://pantheon-research.com |
 | 💻 Public Code (this repo) | https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026 |
+| 📋 Judge Evidence | [`docs/judge_evidence.md`](docs/judge_evidence.md) |
+| 🏗️ Architecture | [`docs/architecture.md`](docs/architecture.md) |
 | 👤 Founder / X | https://x.com/0xjacobzhao |
-| ☁️ Live Deployment Proof (secret-free) | http://8.222.191.152/api/proof/alibaba-cloud |
+| ☁️ Alibaba Cloud Deployment Proof *(supporting evidence)* | http://8.222.191.152/api/proof/alibaba-cloud |
 
-> A demo video and pitch deck can be attached in the OpenArena form — see
-> "Remaining actions" at the end of this document. Prior hackathon media is not
-> reused here unless it accurately represents this submission.
-
----
-
-## Judge Note
-
-* The **live website** (pantheon-research.com) is the broader **production
-  product**.
-* **This repository** is a **sanitized, public, self-contained review slice** —
-  clone it and run it in minutes with no secrets.
-* The **private production repository** contains proprietary strategy logic,
-  production infrastructure, and operational assets, and remains closed.
-* This public repository exists so judges can inspect and run representative
-  components safely.
+> A demo video and pitch deck can be attached in the OpenArena form once
+> recorded for this submission. Prior hackathon media is not reused here unless
+> it accurately represents this BUIDL_QUESTS submission.
 
 ---
 
-## 3-Minute Judge Path
+## At a Glance
 
-1. **Open the live product** — https://pantheon-research.com
-2. **Read the architecture & module overview** — [below](#what-pantheon-research-does)
-   and [`docs/architecture.md`](docs/architecture.md)
-3. **Inspect the evidence-pack + multi-model comparison** —
-   [`backend/app/evidence_pack.py`](backend/app/evidence_pack.py) ·
-   [`backend/app/comparison.py`](backend/app/comparison.py)
-4. **Run the offline demo**
-   ```bash
-   docker compose up --build          # frontend :5173 · backend :8000
-   ```
-5. **Run the smoke test**
-   ```bash
-   ./scripts/judge_smoke.sh           # offline, no secrets
-   ```
-6. **Read the evidence guide** — [`docs/judge_evidence.md`](docs/judge_evidence.md)
+| Dimension | Current state |
+|---|---|
+| Product | Live cross-asset investment research platform |
+| Research coverage | Macro, US/CN/HK/SG Equities, Bitcoin, Ethereum, DeFi, Technical Analysis, Fixed Income, Currencies, Commodities, Research Ops |
+| LLM layer (production) | Claude, ChatGPT, Gemini, DeepSeek, and Qwen |
+| Public demo (this repo) | Runnable, evidence-grounded Qwen + DeepSeek comparison |
+| Core production deployment | Vercel (frontend) + Railway (backend + PostgreSQL) |
+| Additional deployments | Google Cloud (Cloud Run + Gemini) and Alibaba Cloud (ECS + DashScope/Qwen) |
+| Governance | Evidence hashing, fail-closed provider states, human-review gate |
+| Execution | Human-controlled — no live autonomous trading |
 
 ---
 
-## What Pantheon Research Does
+## Architecture
 
-Pantheon Research is a **cross-asset** research operating system. The production
-product spans these domains:
+<p align="center">
+  <img
+    src="docs/assets/pantheon_research_high_level_architecture_2026.png"
+    alt="Pantheon Research high-level architecture showing data sources, data platform, research engines, five-model LLM layer, dashboard, signal layer, trading roadmap and multi-cloud deployments"
+    width="100%"
+  />
+</p>
 
-| Domain | | Domain | |
+<p align="center"><sub>This diagram represents the full Pantheon Research production architecture. The public repository below is a sanitized, representative slice of it — see <a href="#production-vs-public-repository-slice">Production vs. Public Repository Slice</a>.</sub></p>
+
+---
+
+## What Problem Pantheon Solves
+
+Serious investment research is fragmented across a dozen disconnected tools —
+market data, fundamentals, macro context, technical signals, and cross-asset
+read-through. The issue is not a lack of information; it's a lack of
+**structured decision intelligence**. Pantheon connects deterministic research
+frameworks with evidence-grounded LLM interpretation in one platform, so a
+single operator can run an institutional-style research process.
+
+---
+
+## Product Coverage
+
+Pantheon Research is a **cross-asset** research operating system covering:
+
+| | | | |
 |---|---|---|---|
-| Global Macro | Bitcoin | Commodities | Technical Analysis |
-| US Equities | Ethereum | Fixed Income | Research Ops |
-| China Equities | DeFi | Currencies (FX) | |
-| Hong Kong Equities | Singapore Equities | | |
+| Overview | Global Macro | US Equities | China Equities |
+| Hong Kong Equities | Singapore Equities | Bitcoin | Ethereum |
+| DeFi | Technical Analysis | Fixed Income | Currencies (FX) |
+| Commodities | Research Ops | | |
 
-**In the production product:** all domains above are covered with structured
-frameworks, data feeds, and dashboards.
-
-**In this public repository slice:** the runnable demo focuses on the **equities
-qualitative-overlay** feature (MA, NVDA) plus **context-only** mini panels for
-Macro, Market Pulse / TA, and FICC (FI/FX/Commodity), a Research-Ops / data
-quality view, and a module snapshot grid. Not every production module is copied
-into this public slice — the demo is representative, not a full clone.
+**Production Pantheon Research** covers all domains above with structured
+frameworks, data feeds, and dashboards. **This public repository slice** is a
+representative, runnable subset — see the [scope table](#production-vs-public-repository-slice)
+below.
 
 ---
 
-## Four-Layer Investment Stack
+## Four-Layer Architecture
 
 ```text
 Strategy ──▶ Information ──▶ Signal ──▶ Trading
@@ -105,35 +104,53 @@ Strategy ──▶ Information ──▶ Signal ──▶ Trading
 | **Strategy** | Research frameworks and investment hypotheses; universe selection |
 | **Information** | Normalized market data, evidence packs, APIs, and dashboards |
 | **Signal** | Deterministic signals **plus** LLM research interpretation of structured evidence |
-| **Trading** | Future / staged layer — **not active autonomous execution**; a human-in-the-loop decision gate |
+| **Trading** | Manual execution today; a staged, human-gated roadmap toward constraint-bound execution |
 
-**Safety:** LLMs do not execute trades. Every signal passes a human-review gate.
-Pantheon Research is not an autonomous trading bot.
+Final investment decisions remain human-controlled. LLM overlay outputs can
+trigger a human-review requirement when models disagree or evidence is missing
+— they never execute a trade.
 
 ---
 
 ## AI Innovation
 
-Pantheon separates a **deterministic framework layer** from an **LLM
+Pantheon separates a **deterministic framework layer** from a **multi-model LLM
 research-overlay layer** — the LLM interprets governed evidence, it does not
-free-associate from raw prompts.
+free-associate from a raw prompt.
 
 **Deterministic framework layer**
-* structured market inputs and evidence packs;
-* scoring and signal logic;
+* normalized evidence packs;
+* versioned scoring and signal logic;
 * backtests;
-* data-quality labels and `data_state` honesty;
-* audit trails via content hashing.
+* data-quality states (`data_state` honesty);
+* auditability via content hashing.
 
-**LLM research-overlay layer**
-* LLMs analyze a structured evidence pack, not a bare prompt;
-* multiple models examine the **same** evidence;
-* model outputs are compared side-by-side;
-* disagreements and missing evidence are surfaced;
-* human review remains central.
+**Five-model LLM research layer (production)**
+* Claude, ChatGPT, Gemini, DeepSeek, and Qwen;
+* a consistent research schema across providers;
+* evidence-grounded interpretation, not raw-prompt generation;
+* side-by-side provider comparison;
+* disagreement detection and missing-evidence surfacing;
+* a human-review gate.
 
-This is AI-assisted research, not autonomous agents: there is no agent
-orchestration runtime and no autonomous execution.
+LLMs interpret evidence; they do not replace deterministic computation.
+
+---
+
+## Production vs. Public Repository Slice
+
+| Capability | Production Pantheon Research | Public BUIDL_QUESTS repository |
+|---|---|---|
+| Cross-asset dashboards | Full product coverage | Representative context-only mini panels |
+| LLM providers | Claude, ChatGPT, Gemini, DeepSeek, Qwen | Runnable Qwen + DeepSeek comparison slice |
+| Market coverage | Full supported universes | Sanitized MA / NVDA examples |
+| Database | Production PostgreSQL + runtime stores | Bundled offline sample data |
+| Cloud deployment | Vercel + Railway (core), Google Cloud, Alibaba Cloud | Docker local demo + public deployment-proof evidence |
+| Secrets | Managed privately | None included |
+| Trading | Human-controlled / staged roadmap | No execution |
+
+This repository does not claim full parity with production — it is a sanitized,
+self-contained, judge-runnable slice.
 
 ---
 
@@ -143,71 +160,126 @@ Every capability below points to a real file in this repository.
 
 | Capability | Implementation |
 |------------|---------------|
-| **Fail-closed model states** — missing key → `BLOCKED_BY_MISSING_CREDENTIAL`, bad JSON → `PARSE_ERROR`, missing sample → `QWEN_NOT_GENERATED` | [`qwen_overlay.py`](backend/app/qwen_overlay.py) · [`models.py`](backend/app/models.py) |
-| **Evidence hashing** — every pack committed to a `sha256` content hash threaded into each comparison | [`evidence_pack.py`](backend/app/evidence_pack.py) |
-| **Multi-model agreement & divergence** — independent models, per-field divergence, `data_state` (`LIVE_DUAL` / `OFFLINE_SAMPLE` / `MIXED` / `PARTIAL` / `BLOCKED`) | [`comparison.py`](backend/app/comparison.py) |
-| **Human-review gate** — low agreement or major divergence flags `human_review_required`; fail-closed yields `NOT_COMPARABLE` | [`comparison.py`](backend/app/comparison.py) · [`OverlayComparisonPanel.tsx`](frontend/src/components/equity/OverlayComparisonPanel.tsx) |
-| **Multi-asset scope** — Macro · TA · FICC · Equity module grid with per-module `data_state` | [`sample_modules.py`](backend/app/sample_modules.py) · [`ModuleSnapshotGrid.tsx`](frontend/src/components/ModuleSnapshotGrid.tsx) |
-| **Research-Ops panel** — governance snapshot: provider config, coverage, per-ticker state | [`data_quality.py`](backend/app/data_quality.py) · [`DataQualityPanel.tsx`](frontend/src/components/DataQualityPanel.tsx) |
-| **Validation methodology** — the overlay is a tracked signal, not an alpha oracle | [`docs/validation_methodology.md`](docs/validation_methodology.md) |
-| **Secret-free deployment proof** — host-honest proof endpoint, booleans only | [`alibaba_cloud_proof.py`](backend/app/alibaba_cloud_proof.py) · [`docs/live_proof.md`](docs/live_proof.md) |
+| **Evidence packs + content hash** — every pack committed to a `sha256` hash threaded into each comparison | [`evidence_pack.py`](backend/app/evidence_pack.py) |
+| **Explicit provider states** — missing key → `BLOCKED_BY_MISSING_CREDENTIAL`, bad JSON → `PARSE_ERROR`, missing sample → `QWEN_NOT_GENERATED` | [`qwen_overlay.py`](backend/app/qwen_overlay.py) · [`models.py`](backend/app/models.py) |
+| **Fail-closed handling** — a blocked or malformed provider never silently reports a hollow success | [`qwen_overlay.py`](backend/app/qwen_overlay.py) · [`deepseek_overlay.py`](backend/app/deepseek_overlay.py) |
+| **Multi-model agreement & divergence** — per-field divergence, `data_state` (`LIVE_DUAL` / `OFFLINE_SAMPLE` / `MIXED` / `PARTIAL` / `BLOCKED`) | [`comparison.py`](backend/app/comparison.py) |
+| **Missing-evidence surfacing** — comparisons enumerate what the models could not evaluate | [`comparison.py`](backend/app/comparison.py) |
+| **Human-review gate** — low agreement or major divergence flags `human_review_required` | [`comparison.py`](backend/app/comparison.py) · [`OverlayComparisonPanel.tsx`](frontend/src/components/equity/OverlayComparisonPanel.tsx) |
+| **Research-Ops governance** — provider config, coverage, per-ticker state | [`data_quality.py`](backend/app/data_quality.py) · [`DataQualityPanel.tsx`](frontend/src/components/DataQualityPanel.tsx) |
+| **Reproducible offline demo** — the full workflow runs with zero secrets | [`sample_loader.py`](backend/app/sample_loader.py) · [`scripts/judge_smoke.sh`](scripts/judge_smoke.sh) |
+
+---
+
+## Multi-Cloud Deployment
+
+Pantheon Research has been **deployed and validated** across three cloud
+footprints, each demonstrating a distinct capability:
+
+| Stack | Role | Components |
+|---|---|---|
+| **Vercel + Railway** | Core production | Vercel frontend, Railway FastAPI backend, Railway PostgreSQL |
+| **Google Cloud** | Completed deployment path + Gemini integration | Cloud Run, Artifact Registry, Secret Manager, Cloud Logging |
+| **Alibaba Cloud** | Completed deployment path + Qwen integration | ECS/Nginx, Dockerized FastAPI, RDS PostgreSQL (selected evidence mirror), DashScope/Qwen |
+
+**Non-claim:** these deployments demonstrate cloud portability and provider
+integration. This repository does **not** claim automatic multi-cloud failover
+or identical full-database replication across stacks — see the precise
+database-claim breakdown in [`docs/live_proof.md`](docs/live_proof.md) and
+[`docs/alibaba_deployment_parity.md`](docs/alibaba_deployment_parity.md).
+
+The secret-free `/api/proof/alibaba-cloud` endpoint reports host/runtime and
+credential state as **booleans only**, makes no external calls, and never
+claims connectivity it did not verify —
+[`alibaba_cloud_proof.py`](backend/app/alibaba_cloud_proof.py).
 
 ---
 
 ## Why This Fits the OPC Model
 
-Pantheon Research is a **one-person company**:
-
-* one founder coordinates product design, research methodology, engineering,
-  cloud deployment, data operations, and go-to-market;
-* AI-assisted development (LLM coding tools) and multi-model research workflows
-  make this breadth achievable solo;
-* structured deterministic frameworks stay separate from LLM interpretation;
-* the human founder retains product judgment and investment responsibility.
-
-This is the Super Individual thesis in practice — not an autonomous-agent product,
-but a single operator whose research, engineering, and operational capacity are
-multiplied by AI.
+Pantheon Research demonstrates the OPC model through **AI-multiplied founder
+execution**, not through fully autonomous company control. One founder
+coordinates product design, research methodology, engineering, cloud
+deployment, data operations, model evaluation, and go-to-market — using
+AI-assisted development and a multi-model research layer to reach institutional
+breadth solo, while retaining full product judgment and investment
+responsibility.
 
 ---
 
 ## Current Progress
 
-Reported honestly (roadmap items are not claimed as complete):
-
-* **Live web product** at pantheon-research.com;
-* multi-asset research modules across the domains listed above;
-* multi-model LLM research overlays with side-by-side comparison;
-* Research-Ops / data-quality tooling;
-* a live cloud deployment (Alibaba ECS) with a secret-free proof endpoint;
-* ongoing backtest and forward-validation work (methodology documented; not an
-  alpha claim);
-* commercialization preparation (in progress).
+| Item | Status |
+|---|---|
+| Live web product | **Live** — pantheon-research.com |
+| Deterministic frameworks + data platform | **Live** |
+| Five-model LLM research layer | **Completed** |
+| Research Ops / data-quality tooling | **Live** |
+| Vercel + Railway (core production) | **Live** |
+| Google Cloud deployment + Gemini integration | **Completed** |
+| Alibaba Cloud deployment + Qwen integration | **Completed** |
+| PWA / mobile support | **In progress** |
+| WeChat Mini Program | **In progress** |
+| Telegram distribution | **In progress** |
+| Backtest / forward-validation | **Validation-only** — methodology documented, not an alpha claim |
+| Commercialization / membership readiness | **In progress** |
 
 ---
 
 ## Business Model
 
 * subscription plans for individual investors;
-* premium research tiers;
-* paid research / evaluation APIs;
-* B2B / institutional licensing;
 * reusable investment "Skills";
-* controlled execution **only after** validation — not today.
+* paid research and evaluation APIs;
+* B2B / institutional licensing;
+* future proprietary-trading upside — **only after validation**, not today.
 
 No revenue, user, or AUM figures are claimed.
 
 ---
 
-## Repository Scope
+## 3-Minute Judge Path
 
-**This repository is:** sanitized · self-contained · representative · public for
-hackathon review.
+1. **Open the live product** — https://pantheon-research.com
+2. **Read the architecture** — the [diagram above](#architecture) and [`docs/architecture.md`](docs/architecture.md)
+3. **Inspect the evidence-pack + multi-model comparison code** —
+   [`backend/app/evidence_pack.py`](backend/app/evidence_pack.py) ·
+   [`backend/app/comparison.py`](backend/app/comparison.py)
+4. **Run the offline demo**
+   ```bash
+   docker compose up --build          # frontend :5173 · backend :8000
+   ```
+5. **Run the smoke test**
+   ```bash
+   ./scripts/judge_smoke.sh           # offline, no secrets
+   ```
+6. **Read the full evidence guide** — [`docs/judge_evidence.md`](docs/judge_evidence.md)
 
-**This repository is not:** a full production clone · a database dump · the
-complete proprietary strategy library · a live-trading system.
+---
 
-See [`docs/security_and_sanitization.md`](docs/security_and_sanitization.md).
+## Product Evidence
+
+**Cross-asset overview & module scope** — the four-layer architecture and the
+system-scope module grid, run locally from this repository:
+
+<p align="center">
+  <img src="docs/assets/product_overview.png" alt="Pantheon Research product overview showing the four-layer architecture and system-scope module snapshot grid" width="100%">
+</p>
+
+**Multi-model qualitative overlay comparison** — Qwen and DeepSeek independently
+analyzing the same NVDA evidence pack, with agreement scoring and a human-review
+gate:
+
+<p align="center">
+  <img src="docs/assets/equity_llm_comparison.png" alt="Qwen vs DeepSeek overlay comparison panel showing agreement score, human review gate, and side-by-side qualitative assessments" width="100%">
+</p>
+
+**Research-Ops / data-quality governance** — a read-only, public-safe snapshot
+of provider configuration and comparison health:
+
+<p align="center">
+  <img src="docs/assets/research_ops_data_quality.png" alt="Research-Ops data quality panel showing provider status and per-ticker comparison health" width="100%">
+</p>
 
 ---
 
@@ -259,13 +331,16 @@ docker compose config                      # validate compose file
 
 ---
 
-## Safety Boundary
+## Safety & Public/Private Boundary
 
-* AI **assists** research; LLM outputs are **not investment advice**.
-* Missing or unusable data **fails closed** — never a fabricated result.
-* Humans retain investment judgment; every signal passes a human-review gate.
-* Pantheon Research does **not** currently execute autonomous trades.
-* No private data, secrets, or broker credentials are included in this repository.
+AI **assists** research; LLM outputs are **not investment advice**, and missing
+or unusable data **fails closed** rather than fabricating a result. Humans
+retain investment judgment at every step, and Pantheon Research does **not**
+currently execute autonomous trades. This repository is a sanitized,
+self-contained public slice — full details in
+[`docs/security_and_sanitization.md`](docs/security_and_sanitization.md). No
+API keys, private user data, live trading credentials, production secrets, or
+private financial records are included.
 
 ---
 
@@ -275,9 +350,10 @@ docker compose config                      # validate compose file
 |-------|-----------|
 | Backend | FastAPI · Python 3.11–3.12 |
 | Frontend | React 18 · TypeScript · Vite 6 |
-| LLM providers | Qwen (Alibaba DashScope) · DeepSeek — both OpenAI-compatible |
-| Database | PostgreSQL (Alibaba RDS-compatible) — production only |
-| Deploy | Docker Compose · Alibaba ECS (Nginx → FastAPI) |
+| LLM providers (public slice) | Qwen (Alibaba DashScope) · DeepSeek — both OpenAI-compatible |
+| LLM providers (production) | Claude, ChatGPT, Gemini, DeepSeek, Qwen |
+| Database | PostgreSQL (Railway / Alibaba RDS-compatible) — production only |
+| Deploy | Docker Compose · Vercel + Railway (core) · Google Cloud · Alibaba Cloud |
 | Tests | pytest (backend) · vitest + Testing Library (frontend) |
 
 ---
