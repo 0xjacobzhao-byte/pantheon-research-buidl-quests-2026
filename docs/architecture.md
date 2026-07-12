@@ -51,9 +51,31 @@ mirror, DashScope/Qwen).
 **Non-claims:** the three deployment stacks are independently verified, not an
 active-active failover cluster; only the core Vercel + Railway production stack
 and the Alibaba selected-evidence RDS mirror are described as connected to
-runtime data — see [Multi-Cloud Deployment](../README.md#multi-cloud-deployment)
+runtime data — see [Deployment Architecture](../README.md#deployment-architecture)
 in the README and [`docs/alibaba_deployment_parity.md`](alibaba_deployment_parity.md)
-for the precise breakdown.
+for the precise breakdown. The full deployment model — one canonical writer,
+shadow/proof substrates, write/scheduler safety, provider proofs, version
+parity, and rollback — is documented in
+[`docs/deployment_architecture.md`](deployment_architecture.md).
+
+## Maturity Status Labels
+
+Capabilities in the README's *Current Maturity* table use a consistent
+vocabulary:
+
+| Label | Meaning |
+|---|---|
+| `LIVE` | Shipped in the live production product |
+| `BETA` | Available but still stabilizing |
+| `INTERNAL` | Private production only — **never** publicly available |
+| `SHADOW` | A proof / validation deployment — **never** production |
+| `EXPERIMENTAL` | Early, unproven |
+| `PLANNED` | On the roadmap, not built |
+| `PUBLIC DEMO` | Present and tested on this repository's `main` (runnable) |
+
+A capability is labelled `PUBLIC DEMO` only when it is actually present and
+tested on public `main`. Broader modules are `INTERNAL` / private production and
+are never documented as public code until they are merged here.
 
 ---
 

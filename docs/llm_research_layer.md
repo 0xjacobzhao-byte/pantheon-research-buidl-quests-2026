@@ -24,6 +24,78 @@ be wrong without corrupting the score of record.
 
 ---
 
+## Two Research Lanes
+
+Every research output belongs to exactly one of two lanes, and the two are never
+allowed to blur.
+
+### Evidence-backed
+
+Grounded in source packs, with:
+
+- provenance and an explicit evidence tier;
+- content-hash / source references;
+- data-quality and freshness state.
+
+A conclusion is only *eligible* to be presented as evidence-backed when those
+requirements pass. If provenance, tier, or freshness fails, the conclusion cannot
+be served as sourced fact.
+
+### Model-inferred / AI-prior
+
+Explicit model reasoning that goes beyond the available evidence. It is:
+
+- **always labelled** as inference;
+- **never** presented as sourced fact;
+- unable to mutate a deterministic rating;
+- unable to execute;
+- able only to raise a **verification task** or a **human-review requirement**.
+
+> An AI prior can never masquerade as source-backed evidence.
+
+This separation is enforced as governance, not convention: the evidence tier and
+label travel with the output, so a downstream surface (dashboard, alert, API)
+always knows whether it is showing sourced research or labelled inference.
+
+---
+
+## Research governance in practice
+
+| Governance capability | Pantheon implementation |
+|---|---|
+| Evidence provenance | Source packs and evidence artifacts bound to hashes / references |
+| Fail-closed states | Missing, stale, blocked, parse, and provider errors stay visible |
+| Schema validation | Structured model output validated before it is served |
+| Multi-model comparison | Agreement and divergence surfaced provider by provider |
+| Evidence hierarchy | Source-backed research separated from AI-prior inference |
+| Human review | Disagreement and missing evidence create review requirements |
+| Research Ops | Coverage, provider health, maturity, and audit surfaces |
+| Signal separation | AI research does not directly execute trades |
+
+---
+
+## Product availability vs. validation maturity
+
+A research surface can be **live** while its **forward-return validation** is
+still immature. Pantheon tracks these separately:
+
+- **product availability** — is the surface shipped and usable;
+- **framework maturity** — is the methodology frozen and versioned;
+- **validation maturity** — are there enough forward samples and attribution;
+- **public-performance eligibility** — may any performance claim be made.
+
+BTC is among the more mature validation tracks; equity forward samples are still
+accumulating. Reconstructed results and live forward results are kept separate,
+and **validation-only data is not a public alpha claim.** No performance numbers
+are published until they are real and verifiable.
+
+> When the public five-model cockpit and Research Ops console are merged to the
+> public `main`, this document will reference their exact public files and routes.
+> Until then, the five-model layer is described as private production capability
+> and the public runnable evidence is the Qwen + DeepSeek slice below.
+
+---
+
 ## Five developed LLM research modules
 
 | Model | Role in Pantheon | Governance boundary |

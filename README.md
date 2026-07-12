@@ -143,7 +143,30 @@ The architecture spans seven layers, left to right and top to bottom:
 - **Deployment stacks** — core production on Vercel + Railway, with completed
   deployments on Google Cloud and Alibaba Cloud.
 
-Full detail: [`docs/architecture.md`](docs/architecture.md).
+<p align="center"><sub>
+Vercel + Railway is the primary production path. Google Cloud and Alibaba Cloud
+are validated shadow / proof deployments, not equal production writers. The
+five-model research layer keeps evidence-backed conclusions separate from
+explicitly labelled model inference. Capital Flow Intelligence is an internal
+validation surface. Trading is independently gated and staged; live autonomous
+production trading is not claimed.
+</sub></p>
+
+**End-to-end flow:**
+
+```text
+Providers
+  → Canonical Observations
+  → Product Snapshots & Evidence Packs
+  → Deterministic Research Engines
+  → Multi-Model Research Comparison
+  → Dashboard & Alerts
+  → Human Decision
+  → Independently Gated Execution
+```
+
+Full detail: [`docs/architecture.md`](docs/architecture.md) ·
+[`docs/deployment_architecture.md`](docs/deployment_architecture.md).
 
 ---
 
@@ -178,6 +201,36 @@ this **public review repository**.
 > The public slice proves the **mechanism and governance** — evidence packs,
 > fail-closed provider states, multi-model comparison, data-quality — not full
 > production parity. See [Repository Access and Judge Review](#repository-access-and-judge-review).
+
+---
+
+## Current Maturity
+
+Maturity is tracked honestly, per capability, using a consistent vocabulary:
+`LIVE` (production product) · `BETA` · `INTERNAL` (private only) · `SHADOW`
+(proof deployment, not production) · `EXPERIMENTAL` · `PLANNED` · `PUBLIC DEMO`
+(runnable in this repository). `INTERNAL` is never publicly available and
+`SHADOW` is never production.
+
+| Capability | Production maturity | Public evidence |
+|---|---|---|
+| Cross-asset dashboard | `LIVE` | `PUBLIC DEMO` (offline slice) |
+| Macro / cross-asset research | `LIVE` | Method docs |
+| Equity cockpit | `LIVE` | `PUBLIC DEMO` (MA / NVDA) |
+| Five-model comparison | `INTERNAL` (five providers) | `PUBLIC DEMO` (Qwen + DeepSeek) |
+| Evidence-backed vs inferred lanes | `LIVE` | Governance docs + code |
+| Research Ops | `LIVE` | `PUBLIC DEMO` (data-quality slice) |
+| Signal Alert Layer | `BETA` | Documented |
+| Pantheon Pro delivery | `BETA` | Documented |
+| WeChat Mini Program | `IN PROGRESS` | Documented |
+| Capital Flow Intelligence | `INTERNAL` (validation surface) | Documented only |
+| Trading Gateway | `PLANNED` / staged | No live execution |
+| Multi-cloud proofs | `SHADOW` (GCP, Alibaba) + `LIVE` (Vercel + Railway) | Proof artifacts |
+
+Status-label definitions are expanded in [`docs/architecture.md`](docs/architecture.md).
+A public capability is listed as `PUBLIC DEMO` only when it is present and tested
+on this repository's `main`; broader modules are marked `INTERNAL` / private
+production and are not claimed as public code.
 
 ---
 
@@ -321,7 +374,43 @@ Human Review
 Provider states are explicit: a missing credential yields
 `BLOCKED_BY_MISSING_CREDENTIAL`, malformed output yields `PARSE_ERROR`, and the
 comparison headline (`LIVE_DUAL` / `OFFLINE_SAMPLE` / `MIXED` / `PARTIAL` /
-`BLOCKED`) never reports a hollow success. Full detail:
+`BLOCKED`) never reports a hollow success.
+
+### Two Research Lanes
+
+Pantheon keeps two research lanes strictly separated:
+
+- **Evidence-backed** — grounded in source packs, with provenance, an evidence
+  tier, content-hash / source references, and data-quality & freshness state.
+  A conclusion is only eligible to be presented as evidence-backed when those
+  requirements pass.
+- **Model-inferred / AI-prior** — explicit model reasoning that goes beyond the
+  available evidence. It is **always labelled**, is never presented as sourced
+  fact, cannot mutate a deterministic rating, cannot execute, and may only raise
+  a verification task or a human-review requirement.
+
+> An AI prior can never masquerade as source-backed evidence.
+
+### Research Governance in Practice
+
+| Governance capability | Pantheon implementation |
+|---|---|
+| Evidence provenance | Source packs and evidence artifacts bound to hashes / references |
+| Fail-closed states | Missing, stale, blocked, parse, and provider errors stay visible |
+| Schema validation | Structured model output validated before it is served |
+| Multi-model comparison | Agreement and divergence surfaced provider by provider |
+| Evidence hierarchy | Source-backed research separated from AI-prior inference |
+| Human review | Disagreement and missing evidence create review requirements |
+| Research Ops | Coverage, provider health, maturity, and audit surfaces |
+| Signal separation | AI research does not directly execute trades |
+
+**Product availability vs. validation maturity.** A research surface can be live
+while its forward-return validation is still immature. Pantheon tracks *product
+availability*, *framework maturity*, *validation maturity*, and
+*public-performance eligibility* separately. BTC is among the more mature
+validation tracks; equity forward samples are still accumulating; reconstructed
+results and live forward results are kept separate; and validation-only data is
+**not** a public alpha claim. Full detail:
 [`docs/llm_research_layer.md`](docs/llm_research_layer.md).
 
 ---
@@ -362,25 +451,58 @@ anything reaches a subscriber, and neither executes a trade. Delivery channels
 
 ---
 
-## Multi-Cloud Deployment
+## Deployment Architecture
 
-| Deployment | Role | Main Components | Verified Scope |
-|---|---|---|---|
-| Vercel + Railway | Core production | Vercel frontend, Railway FastAPI, Railway PostgreSQL | Live production |
-| Google Cloud | Completed deployment path | Cloud Run, Artifact Registry, Secret Manager, Cloud Logging, Gemini | Completed & validated |
-| Alibaba Cloud | Completed deployment path | ECS/Nginx, Dockerized FastAPI, RDS selected mirror, DashScope/Qwen | Completed & validated |
+Pantheon runs on **one code source, several deployment substrates**, with exactly
+one canonical production writer:
 
-Multi-cloud matters for portability, regional deployment, model-provider
-integration, cost and operational benchmarking, and reduced platform dependence.
+- **Vercel + Railway is the primary production path** — Railway is the single
+  canonical writer to the production database.
+- **Google Cloud and Alibaba Cloud are isolated shadow / proof deployments**,
+  not equal production writers. They exist to validate portability, regional
+  deployment, model-provider integration, cost, latency, observability, and
+  operational friction.
+- The **public repository is a sanitized offline judge demo** — it is not a
+  production deployment and does not write to any production database.
 
-> Automatic failover, active-active replication, and identical full production
-> database clones are not claimed.
+```mermaid
+flowchart TB
+    PGH[Private production repo<br/>master · code source]
+    PGH --> V[Vercel<br/>production frontend]
+    PGH --> R[Railway<br/>production FastAPI · canonical writer]:::writer
+    PGH --> G[GCP Cloud Run<br/>Gemini shadow / proof]:::shadow
+    PGH --> A[Alibaba Cloud<br/>Qwen shadow / proof]:::shadow
+    V --> R
+    R --> DB[(Canonical PostgreSQL)]
+    R --> JOBS[Production jobs / scheduler]
+    G --> GDB[(Isolated shadow data role)]
+    A --> ADB[(Selected RDS mirror / shadow role)]
+
+    XGH[Public review repo<br/>main · this repository] --> DEMO[Docker Compose<br/>offline judge demo · no production writes]
+
+    classDef writer fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20;
+    classDef shadow fill:#fff8e1,stroke:#f9a825,color:#5d4037;
+```
+
+| Environment | Role | Runtime | Data role | Writes / scheduler |
+|---|---|---|---|---|
+| Vercel | Production frontend | pantheon-research.com | — | — |
+| Railway | Production backend / canonical writer | FastAPI + jobs | Canonical PostgreSQL | Enabled |
+| GCP Cloud Run | Gemini shadow / proof | Scale-to-zero container | Isolated shadow role | Fail-closed OFF |
+| Alibaba Cloud | Qwen shadow / proof | ECS + Nginx + Dockerized FastAPI | Selected RDS mirror | Fail-closed OFF |
+| Public judge demo | Offline review slice | Docker Compose | Bundled / local data | No production writes |
 
 The Alibaba deployment exposes a secret-free proof endpoint
 (`/api/proof/alibaba-cloud`) that returns booleans only and makes no external
-calls; the precise, non-overclaiming database scope is documented in
-[`docs/live_proof.md`](docs/live_proof.md) and
+calls. Deployment triggers, canonical-writer / scheduler safety, provider-model
+proofs, version parity, and rollback are documented in
+[`docs/deployment_architecture.md`](docs/deployment_architecture.md); the precise
+database scope is in [`docs/live_proof.md`](docs/live_proof.md) and
 [`docs/alibaba_deployment_parity.md`](docs/alibaba_deployment_parity.md).
+
+> **Non-claims:** no three production writers; no active-active database; no
+> automatic cross-cloud failover; no identical full production database clones;
+> the selected Alibaba RDS mirror is not canonical.
 
 ---
 
