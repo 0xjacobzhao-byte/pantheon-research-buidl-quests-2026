@@ -1,92 +1,137 @@
 # Judge Evidence Guide
 
-**Pantheon Research — BUIDL_QUESTS 2026.** A reproducible verification path for
-the public repository slice: evidence packs, the multi-model overlay comparison,
-fail-closed model handling, Research-Ops governance, and a local offline smoke
-test. The Alibaba ECS / DashScope-Qwen deployment and RDS selected mirror are
-included as **supporting evidence** of a real live deployment — not as the
-identity of the project.
+**Pantheon Research — BUIDL_QUESTS 2026.** A reproducible verification path,
+ordered so the product — not any single cloud or model provider — is the
+identity under inspection.
 
-## 1. What to inspect first
+## 1. Product scope
 
-| Question | Evidence |
+Pantheon Research is an AI-native investment research operating system for
+public markets: structured evidence, deterministic frameworks, and a five-model
+LLM research layer (production), reduced here to a sanitized, judge-runnable
+public slice. See [README → At a Glance](../README.md#at-a-glance) and
+[README → Production vs. Public Repository Slice](../README.md#production-vs-public-repository-slice).
+
+## 2. Architecture
+
+[`docs/architecture.md`](architecture.md) is the textual source of truth for
+the high-level diagram (data sources → data platform → research engines →
+deterministic + LLM layer → deployment footprint → signal layer → trading
+layer), reproduced at the top of the [README](../README.md#architecture).
+
+## 3. Evidence packs
+
+Every evidence pack is committed to a `sha256` content hash before any model
+sees it, so a stored comparison can be verified against an unmodified pack.
+
+| What to verify | File |
 |---|---|
-| Is the backend running on Alibaba Cloud? | Live proof endpoint + [`backend/app/alibaba_cloud_proof.py`](../backend/app/alibaba_cloud_proof.py) |
-| Is Qwen / DashScope actually integrated? | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) + qwen-smoke endpoint |
-| Is this more than an API wrapper? | Evidence hash, comparison engine, fail-closed states, human-review gate |
-| Is RDS overclaimed? | `database.production_data_migrated=false`, `mirror_state=partial_selected_mirror` |
-| Can I run it locally? | `docker compose up --build` + `./scripts/judge_smoke.sh` |
+| Evidence pack + provenance hashing | [`backend/app/evidence_pack.py`](../backend/app/evidence_pack.py) |
+| Pydantic evidence/comparison models | [`backend/app/models.py`](../backend/app/models.py) |
 
-## 2. Live URLs
+## 4. Deterministic vs. LLM separation
 
-| What | URL |
-|------|-----|
-| Live product | https://pantheon-research.com |
-| Alibaba deployment | http://8.222.191.152 |
-| Deployment proof | http://8.222.191.152/api/proof/alibaba-cloud |
-| Demo video | https://www.youtube.com/watch?v=68lceOACLKo |
-| Deck | [Google Slides](https://docs.google.com/presentation/d/1E72ORBmaiL2QPbmL1CPBqrbSLLOsAVEnDxdo76IPJqs/edit?usp=sharing) |
-| Public code | https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026 |
+The deterministic framework layer (scores, signals, evidence hashing) is
+implemented independently of the LLM overlay layer — the LLM interprets
+governed evidence, it does not generate the underlying scores. See
+[README → AI Innovation](../README.md#ai-innovation).
 
-## 3. Code evidence
+## 5. Five-model production coverage
+
+Production Pantheon Research runs a five-model LLM research layer: **Claude,
+ChatGPT, Gemini, DeepSeek, and Qwen**. This public repository does not bundle
+all five as independently runnable integrations — see the next section for
+exactly what is runnable here.
+
+## 6. Public Qwen + DeepSeek implementation
+
+The runnable public slice is the dual-LLM equity qualitative overlay: Qwen
+(Alibaba Cloud DashScope) and DeepSeek independently assess the same evidence
+pack.
+
+| What to verify | File |
+|---|---|
+| Qwen / DashScope API call implementation | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) |
+| DeepSeek API call implementation | [`backend/app/deepseek_overlay.py`](../backend/app/deepseek_overlay.py) |
+| Dual-model comparison engine (agreement, divergence, tone) | [`backend/app/comparison.py`](../backend/app/comparison.py) |
+| Fail-closed LLM handling | [`tests/test_qwen_fail_closed.py`](../backend/tests/test_qwen_fail_closed.py) |
+
+**Default mode is offline** — no API key required; bundled samples serve the
+demo end-to-end.
+
+## 7. Data governance
+
+| What to verify | File |
+|---|---|
+| Research-Ops / data-quality governance | [`backend/app/data_quality.py`](../backend/app/data_quality.py) |
+| Module snapshot grid (per-module `data_state`) | [`backend/app/sample_modules.py`](../backend/app/sample_modules.py) |
+| Provider health snapshot (secret-free) | [`backend/app/provider_health.py`](../backend/app/provider_health.py) |
+
+## 8. Multi-cloud deployment evidence
+
+Pantheon Research has been deployed and validated across **Vercel + Railway**
+(core production), **Google Cloud** (Cloud Run + Gemini integration), and
+**Alibaba Cloud** (ECS + DashScope/Qwen). The Alibaba deployment is the one
+with a public, secret-free live proof endpoint:
+
+```bash
+curl -s http://8.222.191.152/api/proof/alibaba-cloud | jq
+```
 
 | What to verify | File |
 |---|---|
 | Deployment proof (host, services, secrets) | [`backend/app/alibaba_cloud_proof.py`](../backend/app/alibaba_cloud_proof.py) |
-| Qwen / DashScope API call implementation | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) |
-| Dual-model comparison engine | [`backend/app/comparison.py`](../backend/app/comparison.py) |
-| Evidence pack + provenance hashing | [`backend/app/evidence_pack.py`](../backend/app/evidence_pack.py) |
-| Data quality / Research-Ops | [`backend/app/data_quality.py`](../backend/app/data_quality.py) |
-| Pydantic models (proof schema) | [`backend/app/models.py`](../backend/app/models.py) |
-| Fail-closed LLM handling | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) · [`tests/test_qwen_fail_closed.py`](../backend/tests/test_qwen_fail_closed.py) |
+| Precise database claim (no overclaiming) | [`docs/live_proof.md`](live_proof.md) · [`docs/alibaba_deployment_parity.md`](alibaba_deployment_parity.md) |
 
-## 4. Verification commands
+**Non-claim:** these deployments demonstrate cloud portability and provider
+integration — not automatic multi-cloud failover, and not identical
+full-database replication. `database.production_data_migrated=false`,
+`mirror_state=partial_selected_mirror`.
+
+## 9. Tests and smoke
 
 ```bash
-# Live deployment proof (no auth required)
-curl -s http://8.222.191.152/api/proof/alibaba-cloud | jq
-
-# Live comparison data_state
-curl -s http://8.222.191.152/api/equity/overlay-comparison/US/NVDA | jq '.data_state'
-
-# Local smoke (no secrets needed)
+# Local offline demo — no secrets needed
 docker compose up --build
 ./scripts/judge_smoke.sh
 
 # Backend tests
-cd backend && python -m pytest
+cd backend && python -m pytest             # 84 tests
 
 # Frontend tests + build
-cd frontend && npm test -- --run && npm run build
+cd frontend && npm test -- --run && npm run build   # 9 tests
 
 # Secret scan (should be clean)
 grep -RInE "(sk-|AKIA|DASHSCOPE_API_KEY=|DEEPSEEK_API_KEY=|DATABASE_URL=postgres|x-admin-token|BEGIN PRIVATE KEY|github_pat_|ghp_)" . \
   --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.venv || true
 ```
 
-## 5. Safe claims (defensible, verifiable)
+Real product screenshots captured from this exact local demo (offline, zero
+credentials) are in [`docs/assets/`](assets/README.md) and embedded in the
+[README → Product Evidence](../README.md#product-evidence) section.
 
-1. **Backend deployment proof is served by a Dockerized FastAPI app behind Nginx.**
-2. **The live Alibaba ECS box reports `alibaba_hosted=true` and `host_runtime=Alibaba Cloud ECS`.**
-3. **Qwen integration uses Alibaba Cloud Model Studio / DashScope in OpenAI-compatible mode.**
-4. **Actual Qwen API call implementation is in [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py).**
-5. **Public proof endpoint makes no external calls and returns no secrets.**
-6. **Admin-gated qwen-smoke endpoint performs a real Qwen smoke call on the live ECS host.**
-7. **Alibaba RDS is connected as a selected evidence mirror on the live ECS deployment.**
-8. **Dual-model comparison is real.** Two independent providers (Qwen, DeepSeek) assess the same evidence pack; agreement / divergence / tone are computed.
-9. **Evidence is provenance-committed.** Each evidence pack is bound to a `sha256` content hash.
-10. **Offline mode is fully functional** with bundled samples and no secrets.
+## 10. Non-claims (explicitly NOT asserted)
 
-## 6. Non-claims (explicitly NOT asserted)
-
-1. **Alibaba RDS is NOT a full production database clone.**
-2. **Alibaba RDS is NOT a byte-for-byte production migration.**
-3. **Not claiming all APIs read from Alibaba RDS.**
+1. **Not claiming all five production LLM providers are runnable in this public repository** — only Qwen + DeepSeek are.
+2. **Not claiming automatic multi-cloud failover or identical full-database replication** across Vercel+Railway / Google Cloud / Alibaba Cloud.
+3. **Alibaba RDS is NOT a full production database clone** — it is a selected evidence mirror (`mirror_state=partial_selected_mirror`).
 4. **Not claiming autonomous trading or model-generated alpha.** LLMs never execute trades.
 5. **Not exposing private production strategy code.**
 6. **This public repository is a sanitized vertical slice**, not the full private production system.
 
-## 7. Qwen coverage snapshot
+---
+
+## Reference material
+
+| | |
+|---|---|
+| Live product | https://pantheon-research.com |
+| Public code | https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026 |
+| Alibaba deployment (supporting evidence) | http://8.222.191.152 |
+| Proof bundle (machine-readable) | [`data/judge_proof_bundle.json`](../data/judge_proof_bundle.json) |
+| Prior Qwen Cloud technical demo/deck | [`docs/assets/README.md`](assets/README.md#prior-technical-evidence-not-the-current-buidl_quests-presentation) — historical reference, not this submission's media |
+
+### Qwen coverage snapshot (public-slice supporting detail)
 
 | Metric | Value |
 |--------|-------|
@@ -95,16 +140,3 @@ grep -RInE "(sk-|AKIA|DASHSCOPE_API_KEY=|DEEPSEEK_API_KEY=|DATABASE_URL=postgres
 | DeepSeek baseline universe | 1,331 |
 | Markets | US 117 / CN 69 / HK 103 / SG 23 |
 | Full-universe parity | not pursued; low-liquidity tail intentionally excluded |
-
-## 8. Proof bundle
-
-A machine-readable proof bundle is committed at
-[`data/judge_proof_bundle.json`](../data/judge_proof_bundle.json) — same facts
-as above, structured for programmatic inspection.
-
-## 9. What judges can safely conclude in 3 minutes
-
-1. `curl` the live proof endpoint → confirms Alibaba ECS host + DashScope configured + RDS selected mirror.
-2. Open [`backend/app/alibaba_cloud_proof.py`](../backend/app/alibaba_cloud_proof.py) → confirms proof code structure, secret-free design, and service map.
-3. Open [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) → confirms actual Qwen API call implementation.
-4. Run `./scripts/judge_smoke.sh` → confirms offline demo works end-to-end with no secrets.
