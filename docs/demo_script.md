@@ -15,30 +15,36 @@ docker compose up --build      # frontend :5173 · backend :8000
 
 "Pantheon Research is an AI-native investment research operating system for public
 markets, built and run by one founder. It unifies cross-asset evidence, applies
-deterministic frameworks, and layers **multiple LLMs** that analyze the *same*
-structured evidence — then compares them, surfaces disagreement and missing
-evidence, and hands the final call to a human. This repo is a sanitized slice you
-can run in one command; the live product is at pantheon-research.com."
+deterministic frameworks, and — in production — layers **five LLMs** (Claude,
+ChatGPT, Gemini, DeepSeek, Qwen) that analyze the *same* structured evidence —
+then compares them, surfaces disagreement and missing evidence, and hands the
+final call to a human. This repo is a sanitized, runnable Qwen + DeepSeek slice
+of that system; the live product at pantheon-research.com runs the full
+five-model layer across Vercel + Railway, Google Cloud, and Alibaba Cloud."
 
-Show: open http://localhost:5173, pick **NVDA**, and point at the overlay
-comparison with its agreement score and honest `OFFLINE_SAMPLE` labels.
+Show: open http://localhost:5173, point at the architecture diagram and module
+grid, pick **NVDA**, and point at the overlay comparison with its agreement
+score and honest `OFFLINE_SAMPLE` labels.
 
 ## 3-minute judge walkthrough
 
 1. **Framing (20s).** One-founder, AI-native, cross-asset research OS. Not an
    autonomous-agent product — human-in-the-loop.
-2. **Evidence (40s).** Open the evidence pack for NVDA; note the `sha256`
+2. **Architecture (20s).** Point at the architecture diagram: data sources →
+   data platform → research engines → deterministic + five-model LLM layer →
+   signal layer → trading (human-gated, no live autonomous execution).
+3. **Evidence (30s).** Open the evidence pack for NVDA; note the `sha256`
    content hash (provenance) — the same hash threads into the comparison.
-3. **Multi-model overlay (40s).** Show Qwen and DeepSeek analyzing the same
-   evidence; point at per-field divergence, the agreement score, and the
-   `data_state` headline.
-4. **Honesty & fail-closed (30s).** Every result is labelled `OFFLINE_SAMPLE`;
+4. **Multi-model overlay (40s).** Show Qwen and DeepSeek analyzing the same
+   evidence (the public repo's runnable slice of the five-model layer); point at
+   per-field divergence, the agreement score, and the `data_state` headline.
+5. **Honesty & fail-closed (30s).** Every result is labelled `OFFLINE_SAMPLE`;
    explain that a missing key yields `BLOCKED_BY_MISSING_CREDENTIAL` and a bad
    model response yields `PARSE_ERROR` — never a fabricated success.
-5. **Research-Ops (30s).** Open the data-quality / provider-health panel and the
+6. **Research-Ops (20s).** Open the data-quality / provider-health panel and the
    module snapshot grid (Macro / TA / FICC context-only).
-6. **Close (20s).** Human-review gate; no autonomous trading; the live product is
-   the broader system.
+7. **Close (20s).** Human-review gate; no autonomous trading; the live product
+   runs the full system across three cloud footprints.
 
 ## 5-minute technical walkthrough
 
@@ -51,9 +57,12 @@ comparison with its agreement score and honest `OFFLINE_SAMPLE` labels.
    ```
    Point out the evidence hash, the `data_state`, `human_review_required`, and
    that the proof endpoint returns booleans only.
-3. **Deployment proof (30s).** Explain `backend/app/alibaba_cloud_proof.py`:
-   host-honest, secret-free, no external calls; the live ECS box is supporting
-   evidence, not the project identity.
+3. **Multi-cloud deployment (30s).** Explain the three-stack footprint: Vercel +
+   Railway (core production), Google Cloud (Cloud Run + Gemini), and Alibaba
+   Cloud (ECS + DashScope/Qwen) — cloud portability and provider integration,
+   not automatic failover. `backend/app/alibaba_cloud_proof.py` is host-honest
+   and secret-free; the live ECS box is supporting evidence, not the project
+   identity.
 4. **Tests (30s).**
    ```bash
    cd backend && python -m pytest        # 84 tests

@@ -49,8 +49,14 @@ Being a one-person company is only possible because AI multiplies the founder's
 capacity:
 
 * AI coding tools accelerate engineering and refactoring;
-* LLM research overlays interpret structured evidence at breadth;
+* a **five-model LLM research layer** (Claude, ChatGPT, Gemini, DeepSeek, and
+  Qwen) interprets structured evidence at breadth — one founder now gets the
+  equivalent of a multi-analyst research desk;
 * multiple models are compared to surface disagreement and missing evidence;
+* the platform has been deployed and validated across **three cloud
+  footprints** — Vercel + Railway (core production), Google Cloud, and
+  Alibaba Cloud — demonstrating that one person can also own multi-cloud
+  operations, not just a single deployment target;
 * documentation and operations are AI-assisted.
 
 Crucially, this is **AI-assisted operation**, not an autonomous-agent product.
@@ -67,10 +73,13 @@ thesis this submission demonstrates.
 
 ## Current stage and future direction
 
-* **Now:** a live web product, multi-asset research modules, multi-model
-  overlays, Research-Ops tooling, and a live cloud deployment with a secret-free
-  proof endpoint.
-* **In progress:** backtest / forward-validation, commercialization.
+* **Now:** a live web product, multi-asset research modules, a completed
+  five-model LLM research layer, Research-Ops tooling, core production on
+  Vercel + Railway, and completed additional deployments on Google Cloud
+  (Cloud Run + Gemini) and Alibaba Cloud (ECS + DashScope/Qwen), each with a
+  secret-free proof endpoint.
+* **In progress:** backtest / forward-validation, PWA / mobile, WeChat Mini
+  Program, Telegram distribution, and commercialization.
 * **Future (not claimed as done):** broader coverage, richer validation, and —
   only after rigorous validation — a controlled execution layer.
 

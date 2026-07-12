@@ -1,4 +1,4 @@
-# Frontend — Pantheon Research Qwen Hackathon
+# Frontend — Pantheon Research (BUIDL_QUESTS 2026)
 
 Vite + React + TypeScript frontend that renders dual-LLM equity qualitative overlays side-by-side with agreement scoring, tone classification, and divergence detection.
 
