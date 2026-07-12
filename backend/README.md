@@ -1,4 +1,4 @@
-# Backend — Pantheon Research Qwen Hackathon
+# Backend — Pantheon Research (BUIDL_QUESTS 2026)
 
 FastAPI backend that orchestrates dual-LLM qualitative equity analysis with agreement scoring, tone classification, and divergence detection.
 
