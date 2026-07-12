@@ -89,10 +89,13 @@ accumulating. Reconstructed results and live forward results are kept separate,
 and **validation-only data is not a public alpha claim.** No performance numbers
 are published until they are real and verifiable.
 
-> When the public five-model cockpit and Research Ops console are merged to the
-> public `main`, this document will reference their exact public files and routes.
-> Until then, the five-model layer is described as private production capability
-> and the public runnable evidence is the Qwen + DeepSeek slice below.
+> The public **five-model cached cockpit** and **Research Ops / validation
+> console** are now merged to `main` and are judge-runnable offline — see
+> [`docs/five_model_llm_cockpit.md`](five_model_llm_cockpit.md) and
+> [`docs/research_ops_validation.md`](research_ops_validation.md). They compare
+> Claude, ChatGPT, Gemini, DeepSeek and Qwen over a hash-committed evidence pack
+> with **no live paid call**. Live five-model paid calls remain private
+> production; the Qwen + DeepSeek overlay below is the live-capable public path.
 
 ---
 
@@ -100,11 +103,11 @@ are published until they are real and verifiable.
 
 | Model | Role in Pantheon | Governance boundary |
 |---|---|---|
-| Claude | Qualitative overlay & risk reasoning | Reads governed evidence; never trades |
-| ChatGPT | Qualitative overlay & comparison | Reads governed evidence; never trades |
-| Gemini | Qualitative overlay (Google Cloud integration) | Reads governed evidence; never trades |
-| DeepSeek | Qualitative overlay (public runnable slice) | Reads governed evidence; never trades |
-| Qwen | Qualitative overlay (Alibaba DashScope; public runnable slice) | Reads governed evidence; never trades |
+| Claude | Qualitative overlay & risk reasoning (public cached cockpit) | Reads governed evidence; never trades |
+| ChatGPT | Qualitative overlay & comparison (public cached cockpit) | Reads governed evidence; never trades |
+| Gemini | Qualitative overlay (Google Cloud integration; public cached cockpit) | Reads governed evidence; never trades |
+| DeepSeek | Qualitative overlay (public cached cockpit + live-capable overlay) | Reads governed evidence; never trades |
+| Qwen | Qualitative overlay (Alibaba DashScope; public cached cockpit + live-capable overlay) | Reads governed evidence; never trades |
 
 Roles above are stated at the level verified by code and documentation. No
 comparative model-performance claims are made.
@@ -156,17 +159,19 @@ fabricated agreement score.
 
 ## Public vs. production
 
-The open-source repository ships a **runnable Qwen + DeepSeek vertical slice** of
-this layer:
+The open-source repository ships a **runnable five-model cached cockpit** (all
+five providers compared over one hash-committed evidence pack, offline with no
+live paid call) **plus** the live-capable Qwen + DeepSeek overlay:
 
 | What to verify | File |
 |---|---|
-| Qwen / DashScope overlay | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) |
-| DeepSeek overlay | [`backend/app/deepseek_overlay.py`](../backend/app/deepseek_overlay.py) |
+| Five-model cached cockpit | [`backend/app/llm_cockpit.py`](../backend/app/llm_cockpit.py) · [`backend/app/llm_five_model_comparison.py`](../backend/app/llm_five_model_comparison.py) |
+| Provider registry / schema / cache | [`backend/app/llm_registry.py`](../backend/app/llm_registry.py) · [`backend/app/llm_schema.py`](../backend/app/llm_schema.py) · [`backend/app/llm_cached_store.py`](../backend/app/llm_cached_store.py) |
+| Live-capable Qwen / DeepSeek overlays | [`backend/app/qwen_overlay.py`](../backend/app/qwen_overlay.py) · [`backend/app/deepseek_overlay.py`](../backend/app/deepseek_overlay.py) |
 | Cross-model comparison engine | [`backend/app/comparison.py`](../backend/app/comparison.py) |
 | Fail-closed handling (tests) | [`backend/tests/test_qwen_fail_closed.py`](../backend/tests/test_qwen_fail_closed.py) |
 
-The full five-model production layer (Claude, ChatGPT, Gemini, DeepSeek, Qwen)
-lives in the private production repository. This distinction is intentional: the
-public repo demonstrates the mechanism and governance; it does not bundle all
-five providers as independently runnable integrations.
+The public cockpit runs over **bundled/cached** model outputs — it declares no
+winner and makes no live paid model call. **Live** five-model paid calls remain
+in the private production repository; the public repo demonstrates the mechanism,
+governance, and offline comparison, not live paid multi-provider inference.

@@ -137,9 +137,10 @@ https://x.com/0xjacobzhao
 * Product name is **Pantheon Research** (not an "Agent" product).
 * No autonomous research agents, agent orchestration runtime, or autonomous
   trade execution are claimed — the product is AI-assisted, human-in-the-loop.
-* Five production LLM providers (Claude, ChatGPT, Gemini, DeepSeek, Qwen) vs.
-  the public repo's runnable Qwen + DeepSeek slice are kept explicitly
-  distinct — do not imply all five are independently runnable in the public repo.
+* Five production LLM providers (Claude, ChatGPT, Gemini, DeepSeek, Qwen) run
+  live in production; the public repo ships a five-model **cached** cockpit
+  (offline, no live paid call) plus a live-capable Qwen + DeepSeek overlay. Keep
+  the live-paid vs. cached/offline distinction explicit.
 * Multi-cloud deployment (Vercel+Railway, Google Cloud, Alibaba Cloud) is
   described as cloud portability and provider integration — not automatic
   failover or identical full-database replication.
