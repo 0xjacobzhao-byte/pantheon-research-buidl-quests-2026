@@ -136,16 +136,22 @@ Pantheon Research is a live, multi-year research system. At a glance:
 - **completed multi-cloud deployments** across three stacks;
 - **validation, backtesting, and a staged trading-gateway roadmap**.
 
-| Layer | Focus | Status |
-|-------|-------|--------|
-| **Strategy** | Versioned cross-asset investment frameworks | `PRODUCTION` |
-| **Information** | Governed, database-first data platform | `PRODUCTION` |
-| **Signal** | Deterministic + LLM research signals & delivery | `IN PROGRESS` |
-| **Trading** | Human-controlled execution; staged automation | `ROADMAP` |
-| **Five-model LLM overlay** | Claude · ChatGPT · Gemini · DeepSeek · Qwen | `DEVELOPED` |
-| **Public Qwen + DeepSeek slice** | Runnable in this repository | `LIVE` |
-| **Multi-cloud deployment** | Vercel + Railway · Google Cloud · Alibaba Cloud | `COMPLETED` |
-| **Backtest / forward validation** | Methodology + tracked signals | `VALIDATION` |
+The table below is deliberately explicit about scope: what exists in the full
+**private production** system versus what a judge can actually inspect and run in
+this **public review repository**.
+
+| Capability | Full Pantheon Production | Public Review Repository |
+|---|---|---|
+| Strategy frameworks | Developed and actively used across all domains | Public-safe method documentation ([`docs/strategy_stack.md`](docs/strategy_stack.md)) |
+| Information platform | Production database-first data architecture | Representative evidence-pack + data-quality slice |
+| LLM research layer | Five provider modules developed (Claude · ChatGPT · Gemini · DeepSeek · Qwen) | Runnable **Qwen + DeepSeek** comparison slice |
+| Multi-cloud deployment | Vercel + Railway · Google Cloud · Alibaba Cloud — completed & validated | Deployment documentation + secret-free proof artifacts |
+| Trading | Manual today; paper / approval / constraint-bound execution on a staged roadmap | No live execution |
+| Validation | Backtest and forward-validation workflows | Sanitized sample evidence + methodology |
+
+> The public slice proves the **mechanism and governance** — evidence packs,
+> fail-closed provider states, multi-model comparison, data-quality — not full
+> production parity. See [Repository Access and Judge Review](#repository-access-and-judge-review).
 
 ---
 
@@ -375,48 +381,66 @@ the portfolio manager and the accountable decision-maker.
 
 ## Commercial Model
 
-1. **Subscription Research Platform** — *Buyer:* individual investors and
-   analysts. *Product:* dashboards, strategy frameworks, AI research overlays,
-   model comparisons, signal summaries, premium market intelligence. *Mechanism:*
-   monthly / annual recurring. *Status:* foundations in progress.
-2. **Investment Skills Marketplace** — *Buyer:* self-directed investors. *Product:*
-   packaged skills (Macro, US Equity, BTC, ETH, DeFi Yield, TA, Narrative,
-   FX/Commodities). *Mechanism:* per-skill / bundle. *Status:* roadmap.
-3. **Research / Evaluation / Data APIs** — *Buyer:* B2B and developers. *Product:*
-   company evaluations, evidence packs, model comparisons, valuation and risk
-   views, data-quality-labeled artifacts, cleaned market data. *Mechanism:*
-   usage / tier. *Status:* in progress.
-4. **B2B & Institutional Licensing** — *Buyer:* family offices, advisors, crypto
-   funds, small investment teams. *Product:* dashboard licensing, custom
-   workflows, white-label reporting, premium support. *Mechanism:* licensing /
-   contract. *Status:* roadmap.
-5. **Long-Term Proprietary Strategy Upside** — *Buyer:* n/a (own capital).
-   *Mechanism:* strategy performance — **long-term only, after backtests, forward
-   validation, and a real track record.** *Status:* not a current revenue claim.
+> Pantheon's near-term commercial model is built around recurring software,
+> research, and workflow revenue. Trading-related upside is deliberately treated
+> as a later-stage opportunity that depends on validated signals, audited
+> execution, and a real track record.
 
-Near-term focus is recurring software and research revenue first. No current
-revenue, user, or AUM figures are claimed.
+| Revenue Pillar | Target Buyer | Product | Revenue Mechanism | Current Status | Key Dependency |
+|---|---|---|---|---|---|
+| **1 · Subscription Research Platform** | Individual investors, analysts, allocators, advisors, small teams | Cross-asset dashboard, AI overlays, model comparison, alerts, research briefs | Monthly / annual, tiered seats | Product live; pricing & packaging in progress | Willingness-to-pay evidence |
+| **2 · Investment Skills Marketplace** | Advanced retail, advisors, research teams, developers | Reusable, versioned framework "Skills" (Macro, US/CN/HK/SG Equity, BTC, ETH, DeFi Yield, TA, Narrative, FICC) | Per-Skill / bundle / enterprise / white-label | Framework base developed; marketplace on roadmap | Packaging & distribution |
+| **3 · Research / Evaluation / Data APIs** | Fintech, wealth apps, AI apps, funds, internal teams | Equity-evaluation, market-intelligence, and data/evidence APIs | Usage / per-report / quota / enterprise | Backend & artifacts developed; commercial API not launched | API packaging & SLAs |
+| **4 · B2B / Institutional Licensing** | Family offices, advisors, crypto funds, asset managers, fintechs | Dashboard licensing, custom workflows, white-label infra, premium services | Annual license + implementation + services | Foundation developed; GTM in progress | Design-partner validation |
+| **5 · Long-Term Proprietary Strategy Upside** | Own capital / mandates (future) | Validated strategies → controlled execution | Performance-linked, where legally permitted | **Not a current revenue claim** | Full validation + track record |
+
+**Commercial sequencing.** *Stage 1 — Software & research revenue* (subscriptions,
+premium digests, paid evaluations) is the near-term focus: validate
+willingness-to-pay and build recurring revenue. *Stage 2 — Team & institutional
+workflow revenue* (multi-seat, advisor/family-office workflows, APIs, white-label)
+raises ACV and deepens integration. *Stage 3 — Validated strategy monetization*
+(paper sleeves, broker-integrated approval, licensed strategies) comes only after
+signal quality and execution discipline are proven.
+
+No current revenue, user, AUM, or performance figures are claimed. Full detail —
+customer segments, packaging logic, unit-economic drivers, moat, GTM motions, and
+near-term experiments — is in [`docs/commercial_model.md`](docs/commercial_model.md).
 
 ---
 
-## Roadmap
-
-**Now — Research OS and signal quality.** Strengthen strategy backtests and
-forward validation, broaden data coverage and provider reliability, deepen
-five-model evaluation, refine signal alerts, and mature commercialization
-readiness.
-
-**Next — Controlled research-to-execution workflow.** A paper-trade journal with
-attribution, read-only broker integration, approval-based execution, and audit /
-risk gates.
-
-**Later — Constraint-bound execution.** Framework-specific position caps, risk
-overrides, a kill switch, reconciliation, multi-account support, and
-jurisdiction-aware operations.
+## Roadmap — From Research OS to Controlled Execution
 
 > Strategy first. Information second. Signal third. Execution last.
 
-Full staging: [`docs/roadmap.md`](docs/roadmap.md).
+Execution is intentionally the final stage, gated behind validation and risk
+controls. Each phase must pass explicit gates before the next begins — this is a
+governed development plan, not a feature wishlist.
+
+| Horizon | Strategic Goal | Product / Data & Validation | AI & Distribution | Execution | Commercial |
+|---|---|---|---|---|---|
+| **Phase 0** · Current | Cross-asset research OS | Live web product; governed data; backtest/forward validation | Five-model overlays; alerts & Telegram | Manual only | Product live; GTM prep |
+| **Phase 1** · Now | Product hardening & signal validation | Parity/perf hardening; provider fallback, freshness, data-gap remediation; expanded backtests & forward samples | Five-model parity, cost & disagreement diagnostics; alert reliability | Manual only | Pricing experiments; paid evaluations; design partners |
+| **Phase 2** · Next | Research-to-execution control plane | Paper-trade harness (sleeve → paper fill → P&L → attribution); broker **read-only** | Evidence-linked signals; human-review routing | Approval-based (human clicks) | Advisor / family-office pilots; API pilots |
+| **Phase 3** · Later | Constraint-bound automation | Reconciliation, incident response | Model research never bypasses deterministic gates | Constraint-bound, inside pre-approved limits; kill switch; human override | Strategy licensing; managed workflows |
+| **Phase 4** · Long-term | Multi-account infrastructure | Cross-account reconciliation; jurisdiction/tax reporting | Advisor console; committee review | Multi-account orchestration | Enterprise license; per-account fee |
+
+### Roadmap Gates
+
+Every phase transition must clear these gates; a failed gate blocks progression.
+
+| Gate | Question | Failure Result |
+|---|---|---|
+| Data | Is the data usable (freshness, coverage, provenance, provider health)? | Fail closed |
+| Framework | Is the methodology frozen (versioned rules, tests, hard stops)? | Research only |
+| Validation | Does the signal have evidence (backtest, forward sample, attribution)? | No execution influence |
+| Operational | Can it run reliably (monitoring, reconciliation, audit trail)? | Manual only |
+| Risk | Can loss be bounded (caps, kill switches, macro budget, drawdown)? | Blocked |
+| Commercial | Will users pay (pilots, retention, pricing evidence)? | Continue research product |
+| Regulatory | Is the operating model permitted (legal review, jurisdiction)? | No launch |
+
+No calendar dates are claimed — phases are sequenced by evidence, not deadlines.
+Full detail — per-phase deliverables, entry/exit criteria, exclusions,
+dependencies, risks, and success metrics — is in [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
 

@@ -81,6 +81,9 @@ thesis this submission demonstrates.
 * **In progress:** backtest / forward-validation, PWA / mobile, WeChat Mini
   Program, Telegram distribution, and commercialization.
 * **Future (not claimed as done):** broader coverage, richer validation, and —
-  only after rigorous validation — a controlled execution layer.
+  only after rigorous validation — a controlled execution layer. The full,
+  gated staging is in [`docs/roadmap.md`](roadmap.md).
 
-No revenue, users, AUM, or investment-performance figures are claimed.
+No revenue, users, AUM, or investment-performance figures are claimed. The
+commercial architecture behind this stage is in
+[`docs/commercial_model.md`](commercial_model.md).
