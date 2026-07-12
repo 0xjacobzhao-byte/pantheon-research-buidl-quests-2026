@@ -1,0 +1,59 @@
+{
+  "schema_version": "alibaba-proof-v2",
+  "project": "Pantheon Research",
+  "status": "ok",
+  "cloud_provider": "Alibaba Cloud",
+  "ai_platform": "Alibaba Cloud Model Studio / Qwen",
+  "qwen_provider": "Alibaba Cloud Model Studio / DashScope",
+  "qwen_base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+  "host_runtime": "Alibaba Cloud ECS",
+  "alibaba_hosted": true,
+  "backend_runtime": "Dockerized FastAPI",
+  "reverse_proxy": "Nginx",
+  "frontend_source": "private production master",
+  "demo_mode": "live",
+  "runtime": "Alibaba Cloud ECS",
+  "region": "ap-southeast-1",
+  "qwen_model": "qwen3.7-plus",
+  "qwen_configured": true,
+  "dashscope_api_key_configured": true,
+  "database_url_configured": true,
+  "proof_endpoints": {
+    "public": "/api/proof/alibaba-cloud",
+    "admin_gated_qwen_smoke": "/api/proof/qwen-smoke"
+  },
+  "database": {
+    "provider": "Alibaba RDS PostgreSQL-compatible",
+    "configured": true,
+    "connected": true,
+    "role": "selected evidence mirror",
+    "mirror_state": "partial_selected_mirror",
+    "production_data_migrated": false,
+    "full_production_clone_verified": false,
+    "row_counts": {
+      "public_tables": 103,
+      "evidence": null,
+      "macro_snapshot": null,
+      "ticker_profile": null,
+      "fi_score": null,
+      "fx_signal": null
+    },
+    "note": "Alibaba RDS is deployed and connected as a selected evidence mirror. Full production-data migration is not claimed without core table row counts and API read-path verification."
+  },
+  "safe_claims": [
+    "service reachable on Alibaba Cloud ECS",
+    "Dockerized FastAPI backend",
+    "Nginx reverse proxy",
+    "Alibaba Cloud Model Studio / DashScope (Qwen) configured",
+    "Alibaba RDS configured",
+    "Alibaba RDS connected",
+    "selected evidence mirror"
+  ],
+  "non_claims": [
+    "not a full production database clone",
+    "not a byte-for-byte production migration",
+    "not claiming all APIs read from Alibaba RDS",
+    "not claiming full research dataset hosted on Alibaba RDS"
+  ],
+  "timestamp_utc": "2026-07-02T22:50:30Z"
+}
