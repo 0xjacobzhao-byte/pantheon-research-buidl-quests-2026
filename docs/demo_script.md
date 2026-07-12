@@ -18,9 +18,10 @@ markets, built and run by one founder. It unifies cross-asset evidence, applies
 deterministic frameworks, and — in production — layers **five LLMs** (Claude,
 ChatGPT, Gemini, DeepSeek, Qwen) that analyze the *same* structured evidence —
 then compares them, surfaces disagreement and missing evidence, and hands the
-final call to a human. This repo is a sanitized, runnable Qwen + DeepSeek slice
-of that system; the live product at pantheon-research.com runs the full
-five-model layer across Vercel + Railway, Google Cloud, and Alibaba Cloud."
+final call to a human. This repo is a sanitized, judge-runnable slice — a
+five-model **cached** cockpit plus six offline governance modules; the live
+product at pantheon-research.com runs the full live five-model layer across
+Vercel + Railway, Google Cloud, and Alibaba Cloud."
 
 Show: open http://localhost:5173, point at the architecture diagram and module
 grid, pick **NVDA**, and point at the overlay comparison with its agreement

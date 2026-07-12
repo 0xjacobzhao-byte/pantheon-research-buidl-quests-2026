@@ -192,15 +192,19 @@ this **public review repository**.
 | Capability | Full Pantheon Production | Public Review Repository |
 |---|---|---|
 | Strategy frameworks | Developed and actively used across all domains | Public-safe method documentation ([`docs/strategy_stack.md`](docs/strategy_stack.md)) |
-| Information platform | Production database-first data architecture | Representative evidence-pack + data-quality slice |
-| LLM research layer | Five provider modules developed (Claude · ChatGPT · Gemini · DeepSeek · Qwen) | Runnable **Qwen + DeepSeek** comparison slice |
+| Information platform | Production database-first data architecture | Evidence-pack, data-quality & canonical **data-lineage** slices |
+| LLM research layer | Five provider modules developed, live | Runnable **five-model cached cockpit** (Claude · ChatGPT · Gemini · DeepSeek · Qwen, offline) + live-capable Qwen/DeepSeek overlay |
+| Macro & BTC research | Full production engines | Deterministic **Macro Risk Budget** + **BTC three-layer** decision slices (offline) |
 | Multi-cloud deployment | Vercel + Railway · Google Cloud · Alibaba Cloud — completed & validated | Deployment documentation + secret-free proof artifacts |
-| Trading | Manual today; paper / approval / constraint-bound execution on a staged roadmap | No live execution |
-| Validation | Backtest and forward-validation workflows | Sanitized sample evidence + methodology |
+| Trading | Manual today; paper / approval / constraint-bound execution on a staged roadmap | **Paper-only, LIVE-disabled** gateway demo |
+| Validation | Backtest and forward-validation workflows | **Research Ops / validation console** (no-alpha-claim) + sample evidence |
 
-> The public slice proves the **mechanism and governance** — evidence packs,
-> fail-closed provider states, multi-model comparison, data-quality — not full
-> production parity. See [Repository Access and Judge Review](#repository-access-and-judge-review).
+> The public repository now ships six offline, judge-runnable governance slices
+> (see [Full Public Migration](#full-public-migration--six-governance-modules)).
+> They prove the **mechanism and governance** — evidence packs, fail-closed
+> provider states, multi-model comparison, data-quality, lineage, and a
+> LIVE-disabled paper gateway — over bundled/cached data, not full production
+> parity or live paid model calls. See [Repository Access and Judge Review](#repository-access-and-judge-review).
 
 ---
 
@@ -215,21 +219,25 @@ Maturity is tracked honestly, per capability, using a consistent vocabulary:
 | Capability | Production maturity | Public evidence |
 |---|---|---|
 | Cross-asset dashboard | `LIVE` | `PUBLIC DEMO` (offline slice) |
-| Macro / cross-asset research | `LIVE` | Method docs |
+| Macro / cross-asset research | `LIVE` | `PUBLIC DEMO` (Macro Risk Budget, offline) |
 | Equity cockpit | `LIVE` | `PUBLIC DEMO` (MA / NVDA) |
-| Five-model comparison | `INTERNAL` (five providers) | `PUBLIC DEMO` (Qwen + DeepSeek) |
-| Evidence-backed vs inferred lanes | `LIVE` | Governance docs + code |
-| Research Ops | `LIVE` | `PUBLIC DEMO` (data-quality slice) |
+| Five-model comparison | `LIVE` (five providers, live) | `PUBLIC DEMO` (five-model **cached** cockpit, offline) |
+| Evidence-backed vs inferred lanes | `LIVE` | `PUBLIC DEMO` (governance code + docs) |
+| Research Ops / validation | `LIVE` | `PUBLIC DEMO` (validation console, no-alpha-claim) |
+| Canonical data lineage | `LIVE` | `PUBLIC DEMO` (lineage + vintage history) |
+| BTC decision stack | `LIVE` | `PUBLIC DEMO` (three-layer, offline) |
+| Paper / trading gateway | `PLANNED` / staged | `PUBLIC DEMO` (paper-only, **LIVE-disabled**) |
 | Signal Alert Layer | `BETA` | Documented |
 | Pantheon Pro delivery | `BETA` | Documented |
 | WeChat Mini Program | `IN PROGRESS` | Documented |
 | Capital Flow Intelligence | `INTERNAL` (validation surface) | Documented only |
-| Trading Gateway | `PLANNED` / staged | No live execution |
 | Multi-cloud proofs | `SHADOW` (GCP, Alibaba) + `LIVE` (Vercel + Railway) | Proof artifacts |
 
 Status-label definitions are expanded in [`docs/architecture.md`](docs/architecture.md).
 A public capability is listed as `PUBLIC DEMO` only when it is present and tested
-on this repository's `main`; broader modules are marked `INTERNAL` / private
+on this repository's `main` — the six governance modules are runnable **offline
+over bundled/cached data** (no live paid model calls). Broader modules (e.g.
+Capital Flow Intelligence, live five-model paid calls) remain `INTERNAL` / private
 production and are not claimed as public code.
 
 ---
@@ -345,15 +353,18 @@ evidence-gap discovery, cross-model comparison, source-backed narratives,
 confidence assessment, and risk explanation.
 
 Five production LLM research modules have been developed. The public repository
-ships a runnable Qwen + DeepSeek vertical slice of this layer.
+ships a runnable **five-model cached cockpit** — Claude, ChatGPT, Gemini,
+DeepSeek and Qwen compared over one hash-committed evidence pack, **offline with
+no live paid call** (see [Full Public Migration](#full-public-migration--six-governance-modules))
+— plus the live-capable Qwen + DeepSeek overlay.
 
 | Model | Role in Pantheon | Governance boundary |
 |---|---|---|
-| Claude | Qualitative overlay & risk reasoning | Reads governed evidence; never trades |
-| ChatGPT | Qualitative overlay & comparison | Reads governed evidence; never trades |
-| Gemini | Qualitative overlay (Google Cloud integration) | Reads governed evidence; never trades |
-| DeepSeek | Qualitative overlay (public runnable slice) | Reads governed evidence; never trades |
-| Qwen | Qualitative overlay (Alibaba DashScope; public runnable slice) | Reads governed evidence; never trades |
+| Claude | Qualitative overlay & risk reasoning (public cached cockpit) | Reads governed evidence; never trades |
+| ChatGPT | Qualitative overlay & comparison (public cached cockpit) | Reads governed evidence; never trades |
+| Gemini | Qualitative overlay (Google Cloud integration; public cached cockpit) | Reads governed evidence; never trades |
+| DeepSeek | Qualitative overlay (public cached cockpit + live-capable overlay) | Reads governed evidence; never trades |
+| Qwen | Qualitative overlay (Alibaba DashScope; public cached cockpit + live-capable overlay) | Reads governed evidence; never trades |
 
 The overlay workflow is evidence-first, not prompt-first:
 

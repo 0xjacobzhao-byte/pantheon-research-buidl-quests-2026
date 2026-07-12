@@ -128,7 +128,7 @@ deliberate IP and operational-security governance.
 
 ## 11. Non-claims (explicitly NOT asserted)
 
-1. **Not claiming all five production LLM providers are runnable in this public repository** — only Qwen + DeepSeek are.
+1. **Not claiming live paid five-model calls in this public repository** — the public five-model cockpit compares all five providers over **cached/bundled** outputs (offline, no live paid call); only Qwen + DeepSeek are live-capable. Live paid five-model inference remains private production.
 2. **Not claiming automatic multi-cloud failover or identical full-database replication** across Vercel+Railway / Google Cloud / Alibaba Cloud.
 3. **Alibaba RDS is NOT a full production database clone** — it is a selected evidence mirror (`mirror_state=partial_selected_mirror`).
 4. **Not claiming autonomous trading or model-generated alpha.** LLMs never execute trades.
