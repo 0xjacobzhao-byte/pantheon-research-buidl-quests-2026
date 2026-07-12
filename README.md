@@ -1,295 +1,166 @@
-# Pantheon Research — BUIDL_QUESTS 2026
+# Pantheon Research
 
-> **AI-native investment research operating system for public markets.**
+> **Institutional-grade cross-asset research command center that transforms complex market noise into structured investment intelligence.**
 
-Pantheon Research unifies structured market data, institutional-style investment
-frameworks, deterministic signal engines, backtest analytics, data-quality
-operations, and multi-model LLM research overlays across public markets.
+Pantheon Research combines quantitative frameworks, risk-regime models, structured market data, deterministic signal engines, backtest analytics, narrative research and multi-model AI overlays across Global Macro, Equities, Crypto, DeFi and FICC.
 
-> **Core belief:** AI should not replace the investor. AI should compound the
-> investor's discipline.
+> **AI should not replace the investor. AI should compound the investor's discipline.**
+
+**BUIDL_QUESTS 2026 · OPC Hackathon Submission**
 
 [![CI](https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Python 3.11–3.12](https://img.shields.io/badge/Python-3.11--3.12-3776AB?logo=python&logoColor=white)](backend/requirements.txt)
-[![React + TypeScript](https://img.shields.io/badge/React-TypeScript-61DAFB?logo=react&logoColor=white)](frontend/package.json)
-[![Docker Compose](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](docker-compose.yml)
 [![Live Product](https://img.shields.io/badge/Live%20Product-pantheon--research.com-1f9d55)](https://pantheon-research.com)
 
 ---
 
-## Submission Links
+## Product Links
 
 | | |
 |---|---|
 | 🌐 Live Product | https://pantheon-research.com |
-| 💻 Public Code (this repo) | https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026 |
+| 💻 Public GitHub Repository | https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026 |
 | 📋 Judge Evidence | [`docs/judge_evidence.md`](docs/judge_evidence.md) |
-| 🏗️ Architecture | [`docs/architecture.md`](docs/architecture.md) |
 | 👤 Founder / X | https://x.com/0xjacobzhao |
-| ☁️ Alibaba Cloud Deployment Proof *(supporting evidence)* | http://8.222.191.152/api/proof/alibaba-cloud |
-
-> A demo video and pitch deck can be attached in the OpenArena form once
-> recorded for this submission. Prior hackathon media is not reused here unless
-> it accurately represents this BUIDL_QUESTS submission.
 
 ---
 
-## At a Glance
+## Project Introduction
 
-| Dimension | Current state |
-|---|---|
-| Product | Live cross-asset investment research platform |
-| Research coverage | Macro, US/CN/HK/SG Equities, Bitcoin, Ethereum, DeFi, Technical Analysis, Fixed Income, Currencies, Commodities, Research Ops |
-| LLM layer (production) | Claude, ChatGPT, Gemini, DeepSeek, and Qwen |
-| Public demo (this repo) | Runnable, evidence-grounded Qwen + DeepSeek comparison |
-| Core production deployment | Vercel (frontend) + Railway (backend + PostgreSQL) |
-| Additional deployments | Google Cloud (Cloud Run + Gemini) and Alibaba Cloud (ECS + DashScope/Qwen) |
-| Governance | Evidence hashing, fail-closed provider states, human-review gate |
-| Execution | Human-controlled — no live autonomous trading |
+Pantheon Research is an institutional-grade cross-asset research command center that transforms complex, fast-moving market noise into structured investment intelligence. It is built for sophisticated investors, research analysts, allocators, and crypto-native market participants who need disciplined decision support, not another disconnected data feed.
+
+The platform combines quantitative frameworks, risk-regime models, structured market data, technical signals, valuation logic, narrative scanning, backtests, data-quality tooling, deterministic signal engines, and AI-powered research overlays with multi-model comparison — across Global Macro, US/China/Hong Kong/Singapore Equities, Bitcoin, Ethereum, DeFi, Technical Analysis, Commodities, Fixed Income, Currencies, narrative research, and Research Ops.
+
+Pantheon Research is currently a decision-intelligence and research platform. Final investment decisions remain human-controlled, and the product does not currently perform autonomous trading.
 
 ---
 
 ## Architecture
 
+> **Note:** the approved architecture diagram (`docs/assets/pantheon_research_high_level_architecture.png`) has not yet been added to this repository — see [`docs/assets/README.md`](docs/assets/README.md#approved-architecture-image-pending) for the pending drop-in path. No substitute or regenerated diagram is used in its place.
+
+<!--
 <p align="center">
   <img
-    src="docs/assets/pantheon_research_high_level_architecture_2026.png"
-    alt="Pantheon Research high-level architecture showing data sources, data platform, research engines, five-model LLM layer, dashboard, signal layer, trading roadmap and multi-cloud deployments"
+    src="docs/assets/pantheon_research_high_level_architecture.png"
+    alt="Pantheon Research high-level architecture showing the multi-asset research platform, five-model LLM layer, signal and trading layers, and Vercel Railway, Google Cloud, and Alibaba Cloud deployments"
     width="100%"
   />
 </p>
+-->
 
-<p align="center"><sub>This diagram represents the full Pantheon Research production architecture. The public repository below is a sanitized, representative slice of it — see <a href="#production-vs-public-repository-slice">Production vs. Public Repository Slice</a>.</sub></p>
+Pantheon Research combines a governed data platform, deterministic research engines, five-model LLM overlays, cross-asset information and signal layers, and completed deployments across Vercel + Railway, Google Cloud and Alibaba Cloud.
 
 ---
 
-## What Problem Pantheon Solves
+## The Problem Pantheon Solves
 
-Serious investment research is fragmented across a dozen disconnected tools —
-market data, fundamentals, macro context, technical signals, and cross-asset
-read-through. The issue is not a lack of information; it's a lack of
-**structured decision intelligence**. Pantheon connects deterministic research
-frameworks with evidence-grounded LLM interpretation in one platform, so a
-single operator can run an institutional-style research process.
+Financial information is fragmented, noisy, and fast-moving. Investors must monitor macro regimes, equities, crypto, DeFi, rates, commodities, currencies, narratives, and risk signals across a dozen disconnected tools. The problem is not a lack of information — it is a lack of structured decision intelligence. Pantheon Research turns market data, research evidence, and AI interpretation into a more disciplined and explainable research workflow.
 
 ---
 
 ## Product Coverage
 
-Pantheon Research is a **cross-asset** research operating system covering:
-
-| | | | |
+| Macro & Rates | Equities | Digital Assets | Cross-Cutting |
 |---|---|---|---|
-| Overview | Global Macro | US Equities | China Equities |
-| Hong Kong Equities | Singapore Equities | Bitcoin | Ethereum |
-| DeFi | Technical Analysis | Fixed Income | Currencies (FX) |
-| Commodities | Research Ops | | |
-
-**Production Pantheon Research** covers all domains above with structured
-frameworks, data feeds, and dashboards. **This public repository slice** is a
-representative, runnable subset — see the [scope table](#production-vs-public-repository-slice)
-below.
+| Global Macro | US Equities | Bitcoin | Technical Analysis |
+| Fixed Income | China Equities | Ethereum | Narrative Research |
+| Currencies (FX) | Hong Kong Equities | DeFi | Research Ops |
+| Commodities | Singapore Equities | | |
 
 ---
 
-## Four-Layer Architecture
+## How Pantheon Uses AI
+
+Pantheon combines two complementary approaches.
+
+**Deterministic framework layer** — data normalization, framework rules, scores, market regimes, hard stops, signal candidates, backtests, data-quality states, and evidence provenance produce consistent, explainable research outputs.
+
+**Multi-model LLM research-overlay layer** — Pantheon first builds structured evidence packs instead of asking an LLM for an unsupported investment opinion. Five LLM research modules have been developed — **Claude, ChatGPT, Gemini, DeepSeek, and Qwen** — each analyzing evidence using a consistent research schema covering business quality, moat, valuation, red flags, confidence, missing evidence, risk summary, and disagreement. Pantheon compares outputs across models and surfaces agreement, disagreement, confidence gaps, missing evidence, and human-review requirements.
+
+The public repository contains a runnable, sanitized Qwen + DeepSeek comparison example — supporting evidence of the approach, not the full identity of Pantheon Research.
+
+---
+
+## Four-Layer Architecture and Current Progress
+
+Pantheon Research is a live, web-based cross-asset research platform with
+mobile / PWA support, Research Ops and data-quality tooling, and membership /
+payment foundations for commercialization. A WeChat Mini Program and Telegram
+signal / research-distribution workflows are in progress.
 
 ```text
-Strategy ──▶ Information ──▶ Signal ──▶ Trading
+Strategy → Information → Signal → Trading
 ```
 
-| Layer | Role |
-|-------|------|
-| **Strategy** | Research frameworks and investment hypotheses; universe selection |
-| **Information** | Normalized market data, evidence packs, APIs, and dashboards |
-| **Signal** | Deterministic signals **plus** LLM research interpretation of structured evidence |
-| **Trading** | Manual execution today; a staged, human-gated roadmap toward constraint-bound execution |
-
-Final investment decisions remain human-controlled. LLM overlay outputs can
-trigger a human-review requirement when models disagree or evidence is missing
-— they never execute a trade.
+1. **Strategy** — versioned investment frameworks across Macro, Equities, Crypto, DeFi, Technical Analysis, Fixed Income, FX, Commodities, Narrative Trading, and Prediction Markets. *Largely completed.*
+2. **Information** — a database-first architecture (PostgreSQL, canonical observations, derived snapshots, evidence artifacts, data-quality labels) fed by APIs, filings, web data, on-chain data, social data, and provider integrations, following a fail-closed data-governance model where missing or stale data is labeled rather than silently guessed. *Largely completed.*
+3. **Signal** — deterministic scoring engines, market regimes, hard stops, and signal candidates combined with LLM research overlays, disagreement detection, missing-evidence surfacing, human-review flags, and Telegram distribution/alerts. These are research and decision-intelligence outputs, not automatic trade execution. *In progress, actively developed.*
+4. **Trading** — manual and human-controlled today. The roadmap may progress through paper trading, broker integration, approval-based execution, constraint-bound automation, and human override, contingent on backtesting, forward validation, and risk controls. *Staged roadmap, not currently live.*
 
 ---
 
-## AI Innovation
+## Why Pantheon Fits the OPC Model
 
-Pantheon separates a **deterministic framework layer** from a **multi-model LLM
-research-overlay layer** — the LLM interprets governed evidence, it does not
-free-associate from a raw prompt.
+Pantheon Research is built and submitted by **Jacob Zhao** as a one-person company. Jacob is an AI and crypto researcher, product builder, and investor with experience across public markets, digital assets, investment research, financial-market analysis, AI-native research infrastructure, product strategy, and hands-on software development — handling product design, investment-research methodology, system architecture, backend and frontend implementation, data operations, LLM evaluation, cloud deployment, business-model development, and GTM planning.
 
-**Deterministic framework layer**
-* normalized evidence packs;
-* versioned scoring and signal logic;
-* backtests;
-* data-quality states (`data_state` honesty);
-* auditability via content hashing.
-
-**Five-model LLM research layer (production)**
-* Claude, ChatGPT, Gemini, DeepSeek, and Qwen;
-* a consistent research schema across providers;
-* evidence-grounded interpretation, not raw-prompt generation;
-* side-by-side provider comparison;
-* disagreement detection and missing-evidence surfacing;
-* a human-review gate.
-
-LLMs interpret evidence; they do not replace deterministic computation.
-
----
-
-## Production vs. Public Repository Slice
-
-| Capability | Production Pantheon Research | Public BUIDL_QUESTS repository |
-|---|---|---|
-| Cross-asset dashboards | Full product coverage | Representative context-only mini panels |
-| LLM providers | Claude, ChatGPT, Gemini, DeepSeek, Qwen | Runnable Qwen + DeepSeek comparison slice |
-| Market coverage | Full supported universes | Sanitized MA / NVDA examples |
-| Database | Production PostgreSQL + runtime stores | Bundled offline sample data |
-| Cloud deployment | Vercel + Railway (core), Google Cloud, Alibaba Cloud | Docker local demo + public deployment-proof evidence |
-| Secrets | Managed privately | None included |
-| Trading | Human-controlled / staged roadmap | No execution |
-
-This repository does not claim full parity with production — it is a sanitized,
-self-contained, judge-runnable slice.
-
----
-
-## Why This Is Not Just an LLM Wrapper
-
-Every capability below points to a real file in this repository.
-
-| Capability | Implementation |
-|------------|---------------|
-| **Evidence packs + content hash** — every pack committed to a `sha256` hash threaded into each comparison | [`evidence_pack.py`](backend/app/evidence_pack.py) |
-| **Explicit provider states** — missing key → `BLOCKED_BY_MISSING_CREDENTIAL`, bad JSON → `PARSE_ERROR`, missing sample → `QWEN_NOT_GENERATED` | [`qwen_overlay.py`](backend/app/qwen_overlay.py) · [`models.py`](backend/app/models.py) |
-| **Fail-closed handling** — a blocked or malformed provider never silently reports a hollow success | [`qwen_overlay.py`](backend/app/qwen_overlay.py) · [`deepseek_overlay.py`](backend/app/deepseek_overlay.py) |
-| **Multi-model agreement & divergence** — per-field divergence, `data_state` (`LIVE_DUAL` / `OFFLINE_SAMPLE` / `MIXED` / `PARTIAL` / `BLOCKED`) | [`comparison.py`](backend/app/comparison.py) |
-| **Missing-evidence surfacing** — comparisons enumerate what the models could not evaluate | [`comparison.py`](backend/app/comparison.py) |
-| **Human-review gate** — low agreement or major divergence flags `human_review_required` | [`comparison.py`](backend/app/comparison.py) · [`OverlayComparisonPanel.tsx`](frontend/src/components/equity/OverlayComparisonPanel.tsx) |
-| **Research-Ops governance** — provider config, coverage, per-ticker state | [`data_quality.py`](backend/app/data_quality.py) · [`DataQualityPanel.tsx`](frontend/src/components/DataQualityPanel.tsx) |
-| **Reproducible offline demo** — the full workflow runs with zero secrets | [`sample_loader.py`](backend/app/sample_loader.py) · [`scripts/judge_smoke.sh`](scripts/judge_smoke.sh) |
+The platform was built using an AI-assisted, vibecoding workflow across tools and models including Claude Code, Codex, Trae, Qoder, OpenClaw, ChatGPT, Claude, Gemini, Qwen, and DeepSeek. The OPC relevance is not an autonomous-agent product — it is that AI allows one founder to perform work that traditionally requires a larger research, engineering, data, and product team, while retaining full product judgment and investment responsibility.
 
 ---
 
 ## Multi-Cloud Deployment
 
-Pantheon Research has been **deployed and validated** across three cloud
-footprints, each demonstrating a distinct capability:
-
-| Stack | Role | Components |
+| Environment | Role | Main components |
 |---|---|---|
-| **Vercel + Railway** | Core production | Vercel frontend, Railway FastAPI backend, Railway PostgreSQL |
-| **Google Cloud** | Completed deployment path + Gemini integration | Cloud Run, Artifact Registry, Secret Manager, Cloud Logging |
-| **Alibaba Cloud** | Completed deployment path + Qwen integration | ECS/Nginx, Dockerized FastAPI, RDS PostgreSQL (selected evidence mirror), DashScope/Qwen |
+| Vercel + Railway | Core production | Frontend, FastAPI backend, PostgreSQL |
+| Google Cloud | Completed deployment | Cloud Run, Artifact Registry, Secret Manager, Cloud Logging, Gemini |
+| Alibaba Cloud | Completed deployment | ECS/Nginx, Dockerized FastAPI, RDS selected mirror, DashScope/Qwen |
 
-**Non-claim:** these deployments demonstrate cloud portability and provider
-integration. This repository does **not** claim automatic multi-cloud failover
-or identical full-database replication across stacks — see the precise
-database-claim breakdown in [`docs/live_proof.md`](docs/live_proof.md) and
-[`docs/alibaba_deployment_parity.md`](docs/alibaba_deployment_parity.md).
-
-The secret-free `/api/proof/alibaba-cloud` endpoint reports host/runtime and
-credential state as **booleans only**, makes no external calls, and never
-claims connectivity it did not verify —
-[`alibaba_cloud_proof.py`](backend/app/alibaba_cloud_proof.py).
-
----
-
-## Why This Fits the OPC Model
-
-Pantheon Research demonstrates the OPC model through **AI-multiplied founder
-execution**, not through fully autonomous company control. One founder
-coordinates product design, research methodology, engineering, cloud
-deployment, data operations, model evaluation, and go-to-market — using
-AI-assisted development and a multi-model research layer to reach institutional
-breadth solo, while retaining full product judgment and investment
-responsibility.
-
----
-
-## Current Progress
-
-| Item | Status |
-|---|---|
-| Live web product | **Live** — pantheon-research.com |
-| Deterministic frameworks + data platform | **Live** |
-| Five-model LLM research layer | **Completed** |
-| Research Ops / data-quality tooling | **Live** |
-| Vercel + Railway (core production) | **Live** |
-| Google Cloud deployment + Gemini integration | **Completed** |
-| Alibaba Cloud deployment + Qwen integration | **Completed** |
-| PWA / mobile support | **In progress** |
-| WeChat Mini Program | **In progress** |
-| Telegram distribution | **In progress** |
-| Backtest / forward-validation | **Validation-only** — methodology documented, not an alpha claim |
-| Commercialization / membership readiness | **In progress** |
+These deployments demonstrate completed multi-cloud deployment and provider-integration work. Automatic multi-cloud failover, active-active replication, and identical full production database clones are not claimed.
 
 ---
 
 ## Business Model
 
-* subscription plans for individual investors;
-* reusable investment "Skills";
-* paid research and evaluation APIs;
-* B2B / institutional licensing;
-* future proprietary-trading upside — **only after validation**, not today.
+1. **Subscription Fees** — monthly and annual access to dashboards, strategy frameworks, AI research overlays, model comparisons, signal summaries, and premium market intelligence.
+2. **Skills Marketplace** — Macro, US Equity, Bitcoin, Ethereum, DeFi Yield, Technical Analysis, Narrative Trading, and FX/Commodities skills.
+3. **Paid Equity Evaluation and Market Data APIs** — company evaluations, evidence packs, model comparisons, valuation views, risk summaries, data-quality-labeled research artifacts, and cleaned/normalized market data.
+4. **B2B / Institutional Research Licensing** — family offices, advisors, crypto funds, and small investment teams, via dashboard licensing, custom workflows, white-label reporting, and premium support.
+5. **Trading Profit / Proprietary Strategy Upside** — long-term only, only after backtests, forward validation, and a real track record; not a current revenue claim.
 
-No revenue, user, or AUM figures are claimed.
-
----
-
-## 3-Minute Judge Path
-
-1. **Open the live product** — https://pantheon-research.com
-2. **Read the architecture** — the [diagram above](#architecture) and [`docs/architecture.md`](docs/architecture.md)
-3. **Inspect the evidence-pack + multi-model comparison code** —
-   [`backend/app/evidence_pack.py`](backend/app/evidence_pack.py) ·
-   [`backend/app/comparison.py`](backend/app/comparison.py)
-4. **Run the offline demo**
-   ```bash
-   docker compose up --build          # frontend :5173 · backend :8000
-   ```
-5. **Run the smoke test**
-   ```bash
-   ./scripts/judge_smoke.sh           # offline, no secrets
-   ```
-6. **Read the full evidence guide** — [`docs/judge_evidence.md`](docs/judge_evidence.md)
+The near-term sustainability plan is recurring software and research revenue first.
 
 ---
 
-## Product Evidence
+## Public Repository Scope
 
-**Cross-asset overview & module scope** — the four-layer architecture and the
-system-scope module grid, run locally from this repository:
-
-<p align="center">
-  <img src="docs/assets/product_overview.png" alt="Pantheon Research product overview showing the four-layer architecture and system-scope module snapshot grid" width="100%">
-</p>
-
-**Multi-model qualitative overlay comparison** — Qwen and DeepSeek independently
-analyzing the same NVDA evidence pack, with agreement scoring and a human-review
-gate:
-
-<p align="center">
-  <img src="docs/assets/equity_llm_comparison.png" alt="Qwen vs DeepSeek overlay comparison panel showing agreement score, human review gate, and side-by-side qualitative assessments" width="100%">
-</p>
-
-**Research-Ops / data-quality governance** — a read-only, public-safe snapshot
-of provider configuration and comparison health:
-
-<p align="center">
-  <img src="docs/assets/research_ops_data_quality.png" alt="Research-Ops data quality panel showing provider status and per-ticker comparison health" width="100%">
-</p>
+This repository is a sanitized, judge-runnable public slice of the broader private Pantheon Research production system. It includes representative evidence-pack, LLM-overlay, comparison, data-quality, Docker, and testing components without production secrets, proprietary strategy code, databases, or broker credentials.
 
 ---
 
-## Quick Start
+## Three-Minute Judge Path
+
+1. Open the live product — https://pantheon-research.com
+2. Review the approved architecture (once added — see the note above) and [`docs/architecture.md`](docs/architecture.md)
+3. Inspect the evidence-pack and comparison code — [`backend/app/evidence_pack.py`](backend/app/evidence_pack.py) · [`backend/app/comparison.py`](backend/app/comparison.py)
+4. Run Docker and the smoke test (below)
+5. Read [`docs/judge_evidence.md`](docs/judge_evidence.md)
+
+---
+
+## Quick Start and Verification
 
 ```bash
 git clone https://github.com/0xjacobzhao-byte/pantheon-research-buidl-quests-2026
 cd pantheon-research-buidl-quests-2026
 docker compose up --build          # frontend :5173 · backend :8000
 ./scripts/judge_smoke.sh           # end-to-end smoke test (offline, no secrets)
+```
+
+```bash
+cd backend && python -m pytest             # 84 backend tests
+cd frontend && npm test -- --run           # 9 frontend tests
+cd frontend && npm run build               # production build (tsc + vite)
 ```
 
 <details>
@@ -317,53 +188,8 @@ cd frontend && npm install && npm run dev
 
 ---
 
-## Tests
+## Author and License
 
-Verified in this repository:
-
-```bash
-cd backend && python -m pytest             # 84 backend tests
-cd frontend && npm test -- --run           # 9 frontend tests
-cd frontend && npm run build               # production build (tsc + vite)
-docker compose config                      # validate compose file
-./scripts/judge_smoke.sh                   # end-to-end smoke (18 checks, offline)
-```
-
----
-
-## Safety & Public/Private Boundary
-
-AI **assists** research; LLM outputs are **not investment advice**, and missing
-or unusable data **fails closed** rather than fabricating a result. Humans
-retain investment judgment at every step, and Pantheon Research does **not**
-currently execute autonomous trades. This repository is a sanitized,
-self-contained public slice — full details in
-[`docs/security_and_sanitization.md`](docs/security_and_sanitization.md). No
-API keys, private user data, live trading credentials, production secrets, or
-private financial records are included.
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Backend | FastAPI · Python 3.11–3.12 |
-| Frontend | React 18 · TypeScript · Vite 6 |
-| LLM providers (public slice) | Qwen (Alibaba DashScope) · DeepSeek — both OpenAI-compatible |
-| LLM providers (production) | Claude, ChatGPT, Gemini, DeepSeek, Qwen |
-| Database | PostgreSQL (Railway / Alibaba RDS-compatible) — production only |
-| Deploy | Docker Compose · Vercel + Railway (core) · Google Cloud · Alibaba Cloud |
-| Tests | pytest (backend) · vitest + Testing Library (frontend) |
-
----
-
-## Author & License
-
-**Jacob Zhao** — [0xjacobzhao-byte](https://github.com/0xjacobzhao-byte) ·
-[x.com/0xjacobzhao](https://x.com/0xjacobzhao)
+**Jacob Zhao** — [0xjacobzhao-byte](https://github.com/0xjacobzhao-byte) · [x.com/0xjacobzhao](https://x.com/0xjacobzhao)
 
 **License:** Apache-2.0 — see [LICENSE](LICENSE).
-
-No API keys, private user data, live trading credentials, production secrets, or
-private financial records are included in this repository.
