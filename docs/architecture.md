@@ -6,12 +6,6 @@ This document is the **textual source of truth** for the approved architecture
 diagram, `docs/assets/pantheon_research_high_level_architecture.png`, shown at
 the top of the [README](../README.md#architecture).
 
-> **Note:** the approved diagram file has not yet been added to this
-> repository — see [`docs/assets/README.md`](assets/README.md#approved-architecture-image-pending)
-> for the pending drop-in path. No substitute or regenerated diagram is used in
-> its place. Once the file is added, uncomment the embed below.
-
-<!--
 <p align="center">
   <img
     src="assets/pantheon_research_high_level_architecture.png"
@@ -19,12 +13,40 @@ the top of the [README](../README.md#architecture).
     width="100%"
   />
 </p>
--->
 
-Pantheon Research combines a governed data platform, deterministic research
-engines, five-model LLM overlays, cross-asset information and signal layers,
-and completed deployments across Vercel + Railway, Google Cloud and Alibaba
-Cloud.
+The diagram is organized into seven layers plus a deployment column:
+
+1. **External data sources** — macro/rates (FRED, ALFRED, GSEC, PBOC), equities
+   (Longbridge, TuShare, Yahoo Finance), crypto/DeFi (Binance, CoinGecko,
+   DeFiLlama, CoinMarketCap), social/alt data (BigQuant, StockTwits, X, Reddit),
+   and positioning/market structure (CFTC, tick data).
+2. **Data platform** — ingestion scheduler, provider health, validation /
+   normalization, a PostgreSQL store (canonical observations, product snapshots,
+   provider scores, ingest runs, derived snapshots, evidence artifacts),
+   TTL/freshness checks, and data-quality labeling.
+3. **Research engines** — Macro, Equity, Crypto, FICC, Technical Analysis,
+   Narrative, Backtest/Validation, and Capital Flow Intelligence.
+4. **Deterministic + LLM layer** — a deterministic engine (value/risk models,
+   factor regressions, portfolio signals, event models, hard signals) and a
+   five-model LLM research overlay (Source Pack Builder → Prompt Builder → Schema
+   Validator → Overlay Comparison) across Claude, ChatGPT, Gemini, DeepSeek, and
+   Qwen, producing qualitative overlays, confidence, red flags, missing evidence,
+   disagreement detection, and human-review requirements — not trade execution.
+5. **Information layer** — the Pantheon cross-asset dashboard (Overview, Global
+   Macro, US/CN/HK/SG Equity, BTC, ETH, DeFi, Technical Analysis, Fixed Income,
+   FX, Commodity, Research Ops).
+6. **Signal layer** — Telegram bot, user feed, research alerts, LLM signal
+   channels, and a human-review gate; signals and summaries are delivered, not
+   traded.
+7. **Trading layer** — manual execution today, then a staged roadmap through
+   paper trading, broker integration, and constraint-bound execution with human
+   override. No live autonomous trading.
+
+**Deployment stacks** — current production on Vercel (frontend) + Railway
+(FastAPI backend + PostgreSQL); a completed Google Cloud deployment (Cloud Run,
+Artifact Registry, Secret Manager, Cloud Logging, Gemini); and a completed
+Alibaba Cloud deployment (ECS/Nginx, Dockerized FastAPI, RDS PostgreSQL selected
+mirror, DashScope/Qwen).
 
 **Non-claims:** the three deployment stacks are independently verified, not an
 active-active failover cluster; only the core Vercel + Railway production stack

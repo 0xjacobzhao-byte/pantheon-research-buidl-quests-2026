@@ -9,8 +9,8 @@ identity under inspection.
 Pantheon Research is an institutional-grade cross-asset research command
 center: structured evidence, deterministic frameworks, and a five-model LLM
 research layer (production), reduced here to a sanitized, judge-runnable
-public slice. See [README → Project Introduction](../README.md#project-introduction)
-and [README → Public Repository Scope](../README.md#public-repository-scope).
+public slice. See [README → Executive Summary](../README.md#executive-summary)
+and [README → Repository Access and Judge Review](../README.md#repository-access-and-judge-review).
 
 ## 2. Architecture
 
@@ -34,7 +34,8 @@ sees it, so a stored comparison can be verified against an unmodified pack.
 The deterministic framework layer (scores, signals, evidence hashing) is
 implemented independently of the LLM overlay layer — the LLM interprets
 governed evidence, it does not generate the underlying scores. See
-[README → How Pantheon Uses AI](../README.md#how-pantheon-uses-ai).
+[README → Deterministic Research Meets Multi-Model AI](../README.md#deterministic-research-meets-multi-model-ai)
+and [`docs/llm_research_layer.md`](llm_research_layer.md).
 
 ## 5. Five-model production coverage
 
@@ -106,10 +107,18 @@ grep -RInE "(sk-|AKIA|DASHSCOPE_API_KEY=|DEEPSEEK_API_KEY=|DATABASE_URL=postgres
   --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.venv || true
 ```
 
-See [`docs/assets/README.md`](assets/README.md) for the status of the approved
-architecture diagram and other committed assets.
+## 10. Full production review (private repository)
 
-## 10. Non-claims (explicitly NOT asserted)
+The public slice is sufficient to verify Pantheon's mechanism and governance.
+For the full production codebase and research documentation — proprietary
+frameworks, provider integrations, operational infrastructure, and production
+assets — the private repository
+[`0xjacobzhao-byte/Pantheon-Research`](https://github.com/0xjacobzhao-byte/Pantheon-Research)
+is available to BUIDL_QUESTS judges under **temporary read-only access upon
+request**. A normal anonymous visitor cannot open it; this boundary is
+deliberate IP and operational-security governance.
+
+## 11. Non-claims (explicitly NOT asserted)
 
 1. **Not claiming all five production LLM providers are runnable in this public repository** — only Qwen + DeepSeek are.
 2. **Not claiming automatic multi-cloud failover or identical full-database replication** across Vercel+Railway / Google Cloud / Alibaba Cloud.
