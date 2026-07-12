@@ -1,8 +1,86 @@
 # Architecture
 
-## Overview
+## Production High-Level Architecture (2026)
 
-This application implements a **dual-LLM equity qualitative overlay** — a system that takes quantitative equity evidence and produces structured qualitative analysis from two independent LLM providers (Qwen Cloud and DeepSeek), then renders them side-by-side for comparison with agreement scoring, tone classification, and divergence detection.
+This document is the **textual source of truth** for the architecture diagram
+at [`docs/assets/pantheon_research_high_level_architecture_2026.png`](assets/pantheon_research_high_level_architecture_2026.png),
+also shown at the top of the [README](../README.md#architecture).
+
+<p align="center">
+  <img
+    src="assets/pantheon_research_high_level_architecture_2026.png"
+    alt="Pantheon Research high-level architecture showing data sources, data platform, research engines, five-model LLM layer, dashboard, signal layer, trading roadmap and multi-cloud deployments"
+    width="100%"
+  />
+</p>
+
+```mermaid
+flowchart LR
+  subgraph Sources["1. External Data Sources"]
+    S1[Macro / Rates<br/>FRED · ALFRED · GSEC]
+    S2[Equities<br/>Longbridge · TuShare · Yahoo]
+    S3[Crypto / DeFi<br/>Binance · CoinGecko · DeFiLlama]
+    S4[Social / Alt Data<br/>StockTwits · X · Reddit]
+  end
+
+  subgraph Platform["2. Data Platform"]
+    P1[Ingestion + provider health]
+    P2[Validation / normalization]
+    P3[Canonical observations<br/>PostgreSQL]
+    P4[Evidence packs<br/>content-hash provenance]
+  end
+
+  subgraph Engines["3. Research Engines"]
+    E1[Macro · Equities]
+    E2[Crypto · FICC]
+    E3[Technical Analysis]
+  end
+
+  subgraph LLM["4. Deterministic + LLM Layer"]
+    D1[Deterministic engine<br/>scores · signals · hashing]
+    L1["Five-model LLM layer (production)<br/>Claude · ChatGPT · Gemini · DeepSeek · Qwen"]
+    L2[Public repo slice:<br/>runnable Qwen + DeepSeek]
+  end
+
+  subgraph Deploy["Deployment Footprint"]
+    V1[Core Production<br/>Vercel + Railway]
+    V2[Google Cloud<br/>Cloud Run + Gemini]
+    V3[Alibaba Cloud<br/>ECS + DashScope/Qwen]
+  end
+
+  subgraph Signal["5–6. Information & Signal Layer"]
+    I1[Pantheon Dashboard<br/>cross-asset modules]
+    I2[Human-review gate]
+  end
+
+  subgraph Trading["7. Trading Layer"]
+    T1[Manual execution — current]
+    T2[No live autonomous trading]
+  end
+
+  Sources --> Platform --> Engines --> LLM
+  LLM --> Signal --> Trading
+  Deploy -.hosts.-> Platform
+  Deploy -.hosts.-> LLM
+```
+
+**Non-claims:** the three deployment stacks are independently verified, not an
+active-active failover cluster; only the core Vercel + Railway production stack
+and the Alibaba selected-evidence RDS mirror are described as connected to
+runtime data — see [Multi-Cloud Deployment](../README.md#multi-cloud-deployment)
+in the README and [`docs/alibaba_deployment_parity.md`](alibaba_deployment_parity.md)
+for the precise breakdown.
+
+---
+
+## Public Repository Implementation
+
+This repository is a sanitized, runnable slice of the production system above,
+centered on the **Qwen + DeepSeek dual-LLM equity qualitative overlay**: a
+system that takes quantitative equity evidence and produces structured
+qualitative analysis from two independent LLM providers, then renders them
+side-by-side for comparison with agreement scoring, tone classification, and
+divergence detection.
 
 ## System Diagram
 
