@@ -25,10 +25,15 @@ No new product functionality was invented.
 
 ## What remains private
 
-The private production repository (`0xjacobzhao-byte/Pantheon-Research`) remains
-closed and was **not** the source of this submission. It contains proprietary
-strategy logic, production infrastructure, operational runbooks, and production
-data — none of which appear here.
+The full production repository
+([`0xjacobzhao-byte/Pantheon-Research`](https://github.com/0xjacobzhao-byte/Pantheon-Research))
+is private and closed-source, and was **not** the source of this public
+submission. It contains the full production codebase and research documentation —
+proprietary frameworks and strategy logic, provider integrations, production
+infrastructure, operational runbooks, and production data — none of which appear
+here. This boundary is deliberate IP and operational-security governance.
+**Temporary read-only access can be granted to BUIDL_QUESTS judges upon
+request**; a normal anonymous visitor cannot open the private repository.
 
 ## What data samples are included
 
