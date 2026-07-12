@@ -4,6 +4,14 @@
 ordered so the product — not any single cloud or model provider — is the
 identity under inspection.
 
+> Pantheon is not presenting a feature checklist. It is presenting a governed
+> path from investment methodology to data, signal, validation, commercial
+> research products, and eventually controlled execution — see
+> [`docs/commercial_model.md`](commercial_model.md) and [`docs/roadmap.md`](roadmap.md).
+> The public repository is a sanitized review slice; the complete production
+> system and proprietary strategy documentation remain private and can be made
+> available to judges under temporary read-only access.
+
 ## 1. Product scope
 
 Pantheon Research is an institutional-grade cross-asset research command

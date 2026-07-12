@@ -114,7 +114,9 @@ clones, or seamless automatic traffic switching.
    revenue claim.
 
 The near-term sustainability plan is recurring software and research revenue
-first. No revenue, user, or AUM figures are claimed today.
+first. No revenue, user, or AUM figures are claimed today. Full revenue
+architecture, sequencing, and moat: [`docs/commercial_model.md`](commercial_model.md);
+the governed development plan: [`docs/roadmap.md`](roadmap.md).
 
 **Official Website**
 https://pantheon-research.com
