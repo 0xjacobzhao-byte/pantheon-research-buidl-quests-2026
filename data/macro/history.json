@@ -1,0 +1,19 @@
+[
+  {"as_of": "2025-02-01", "growth_score": 0.35, "inflation_score": 0.42, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-03-01", "growth_score": 0.38, "inflation_score": 0.40, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-04-01", "growth_score": 0.40, "inflation_score": 0.38, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [{"id": "HS3", "active": true}], "anomaly_flags": ["macro_data_stale"]},
+  {"as_of": "2025-05-01", "growth_score": 0.42, "inflation_score": 0.36, "data_quality_summary": "PARTIAL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-06-01", "growth_score": 0.45, "inflation_score": 0.35, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-07-01", "growth_score": 0.48, "inflation_score": 0.34, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-08-01", "growth_score": 0.52, "inflation_score": 0.44, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-09-01", "growth_score": 0.55, "inflation_score": 0.42, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-10-01", "growth_score": 0.60, "inflation_score": 0.40, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-11-01", "growth_score": 0.62, "inflation_score": 0.38, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2025-12-01", "growth_score": 0.63, "inflation_score": 0.37, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-01-01", "growth_score": 0.64, "inflation_score": 0.36, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-02-01", "growth_score": 0.61, "inflation_score": 0.45, "data_quality_summary": "PARTIAL", "freshness_source": "DB_SNAPSHOT_STALE", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-03-01", "growth_score": 0.58, "inflation_score": 0.48, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-04-01", "growth_score": 0.66, "inflation_score": 0.40, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-05-01", "growth_score": 0.68, "inflation_score": 0.38, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []},
+  {"as_of": "2026-06-01", "growth_score": 0.65, "inflation_score": 0.39, "data_quality_summary": "FULL", "freshness_source": "DB_SNAPSHOT", "hard_stops": [], "anomaly_flags": []}
+]
