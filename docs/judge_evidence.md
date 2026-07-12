@@ -6,11 +6,11 @@ identity under inspection.
 
 ## 1. Product scope
 
-Pantheon Research is an AI-native investment research operating system for
-public markets: structured evidence, deterministic frameworks, and a five-model
-LLM research layer (production), reduced here to a sanitized, judge-runnable
-public slice. See [README → At a Glance](../README.md#at-a-glance) and
-[README → Production vs. Public Repository Slice](../README.md#production-vs-public-repository-slice).
+Pantheon Research is an institutional-grade cross-asset research command
+center: structured evidence, deterministic frameworks, and a five-model LLM
+research layer (production), reduced here to a sanitized, judge-runnable
+public slice. See [README → Project Introduction](../README.md#project-introduction)
+and [README → Public Repository Scope](../README.md#public-repository-scope).
 
 ## 2. Architecture
 
@@ -34,7 +34,7 @@ sees it, so a stored comparison can be verified against an unmodified pack.
 The deterministic framework layer (scores, signals, evidence hashing) is
 implemented independently of the LLM overlay layer — the LLM interprets
 governed evidence, it does not generate the underlying scores. See
-[README → AI Innovation](../README.md#ai-innovation).
+[README → How Pantheon Uses AI](../README.md#how-pantheon-uses-ai).
 
 ## 5. Five-model production coverage
 
@@ -106,9 +106,8 @@ grep -RInE "(sk-|AKIA|DASHSCOPE_API_KEY=|DEEPSEEK_API_KEY=|DATABASE_URL=postgres
   --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.venv || true
 ```
 
-Real product screenshots captured from this exact local demo (offline, zero
-credentials) are in [`docs/assets/`](assets/README.md) and embedded in the
-[README → Product Evidence](../README.md#product-evidence) section.
+See [`docs/assets/README.md`](assets/README.md) for the status of the approved
+architecture diagram and other committed assets.
 
 ## 10. Non-claims (explicitly NOT asserted)
 

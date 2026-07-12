@@ -2,27 +2,28 @@
 
 Visual and captured-artifact assets for the README and judging docs.
 
-## Captured (committed)
+## Approved architecture image (pending)
 
-- **[`pantheon_research_high_level_architecture_2026.png`](pantheon_research_high_level_architecture_2026.png)**
-  — the current, verified high-level architecture diagram: external data
-  sources, data platform, research engines, the deterministic + five-model LLM
-  layer, the deployment footprint (Vercel + Railway core production, Google
-  Cloud, Alibaba Cloud), the information/signal layer, and the trading roadmap.
-  This is the diagram shown at the top of the [README](../../README.md#architecture);
-  [`docs/architecture.md`](../architecture.md) is its textual source of truth.
-- **[`product_overview.png`](product_overview.png)** — a real capture of the
-  local demo (`http://localhost:5173`): the four-layer architecture strip and
-  the system-scope module snapshot grid.
-- **[`equity_llm_comparison.png`](equity_llm_comparison.png)** — a real capture
-  of the Qwen vs DeepSeek overlay comparison panel for NVDA: agreement score,
-  human-review gate, and side-by-side qualitative assessments.
-- **[`research_ops_data_quality.png`](research_ops_data_quality.png)** — a real
-  capture of the Research-Ops / data-quality panel: provider configuration and
-  per-ticker comparison health.
+`docs/assets/pantheon_research_high_level_architecture.png` is the **single
+approved** architecture diagram for this submission — supplied by Jacob and
+intended to be the only architecture image shown in the README. It has not yet
+been added to this repository (the source file was not accessible in the
+environment that prepared this documentation pass). See the "Remaining actions
+for Jacob" note in the relevant PR for the exact drop-in path; once the file is
+added, the commented-out embed at the top of [`README.md`](../../README.md) and
+in [`docs/architecture.md`](../architecture.md) can be uncommented.
+
+**No substitute or Claude-generated architecture image is included.** A
+previous presentation pass generated a stand-in diagram and several local-demo
+screenshots; those were rejected and removed. This document intentionally does
+not list replacement visuals.
+
+## Historical reference (not shown in the README)
+
 - **[`architecture_high_level.png`](architecture_high_level.png)** — prior
-  Qwen Cloud hackathon architecture diagram, kept for historical reference; the
-  2026 diagram above supersedes it as the current source of truth.
+  Qwen Cloud hackathon architecture diagram. Superseded by the pending approved
+  2026 diagram above; kept here only for historical reference and does not
+  appear in the main README.
 - **[`alibaba_live_proof.json`](alibaba_live_proof.json)** — a real, unmodified
   capture of the live Alibaba Cloud proof endpoint
   (`GET http://8.222.191.152/api/proof/alibaba-cloud`). Booleans only, no
@@ -34,9 +35,7 @@ Visual and captured-artifact assets for the README and judging docs.
 
 **Image rules:** PNG or JPG, ideally < 500 KB each; no secrets, admin tokens, DB
 URLs, API keys, or browser auth headers; cropped to product UI / proof JSON
-only. All three product screenshots above were captured from the local offline
-demo (`docker compose up --build` → `http://localhost:5173`) with zero
-credentials configured.
+only.
 
 ## Prior technical evidence (not the current BUIDL_QUESTS presentation)
 
