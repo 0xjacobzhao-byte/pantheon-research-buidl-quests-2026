@@ -1,0 +1,50 @@
+{
+  "_note": "Illustrative conflict-resolution examples. Inputs are bundled samples; the resolver is deterministic and public-safe.",
+  "examples": [
+    {
+      "id": "l1_strong_l3_red",
+      "title": "L1 strong accumulation, L3 red risk",
+      "l1": {"state": "EXTREME", "available": true, "coverage_ratio": 0.9, "confidence": "HIGH"},
+      "l2": {"guardian_state": "GREEN", "long_gate": 1.0, "final_signal_score": 0.40, "final_signal_conviction": "MODERATE", "missing_fields": []},
+      "l3": {"state": "RED", "high_alert_mode": true, "degraded_mode": false, "risk_score": 5},
+      "macro": {"hard_stops_active": false, "confirmed_regime": "REFLATION"},
+      "expected_outcome": "RISK_THROTTLE"
+    },
+    {
+      "id": "l1_weak_l2_positive",
+      "title": "L1 weak, L2 positive directional",
+      "l1": {"state": "WEAK", "available": true, "coverage_ratio": 0.8, "confidence": "MEDIUM"},
+      "l2": {"guardian_state": "GREEN", "long_gate": 1.0, "final_signal_score": 0.50, "final_signal_conviction": "MODERATE", "missing_fields": []},
+      "l3": {"state": "GREEN", "high_alert_mode": false, "degraded_mode": false, "risk_score": 1},
+      "macro": {"hard_stops_active": false, "confirmed_regime": "REFLATION"},
+      "expected_outcome": "SLOW_SCALE"
+    },
+    {
+      "id": "macro_hard_stop",
+      "title": "Macro hard stop active, L2 bullish",
+      "l1": {"state": "MODERATE", "available": true, "coverage_ratio": 0.8, "confidence": "MEDIUM"},
+      "l2": {"guardian_state": "GREEN", "long_gate": 1.0, "hunter_score": 0.60, "final_signal_score": 0.45, "final_signal_conviction": "STRONG", "missing_fields": []},
+      "l3": {"state": "GREEN", "high_alert_mode": false, "degraded_mode": false, "risk_score": 1},
+      "macro": {"hard_stops_active": true, "hard_stops_triggered": ["HS2"], "confirmed_regime": "STAGFLATION"},
+      "expected_outcome": "NO_TRADE"
+    },
+    {
+      "id": "missing_l2_input",
+      "title": "Missing L2 internals",
+      "l1": {"state": "MODERATE", "available": true, "coverage_ratio": 0.8, "confidence": "MEDIUM"},
+      "l2": {"guardian_state": "GREEN", "long_gate": 1.0, "final_signal_score": null, "final_signal_conviction": "WEAK", "missing_fields": ["hunter_state", "final_signal_score"]},
+      "l3": {"state": "AMBER", "high_alert_mode": false, "degraded_mode": false, "risk_score": 3},
+      "macro": {"hard_stops_active": false, "confirmed_regime": "REFLATION"},
+      "expected_outcome": "RESEARCH_ONLY"
+    },
+    {
+      "id": "high_conviction_degraded_freshness",
+      "title": "High conviction but degraded freshness",
+      "l1": {"state": "DATA_INSUFFICIENT", "available": false, "coverage_ratio": 0.3, "confidence": "LOW"},
+      "l2": {"guardian_state": "GREEN", "long_gate": 1.0, "final_signal_score": 0.70, "final_signal_conviction": "STRONG", "missing_fields": []},
+      "l3": {"state": "DEGRADED_AMBER", "high_alert_mode": false, "degraded_mode": true, "risk_score": 4},
+      "macro": {"hard_stops_active": false, "confirmed_regime": "REFLATION"},
+      "expected_outcome": "RESEARCH_ONLY"
+    }
+  ]
+}

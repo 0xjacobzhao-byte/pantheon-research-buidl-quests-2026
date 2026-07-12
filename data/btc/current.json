@@ -1,0 +1,58 @@
+{
+  "_note": "Illustrative public-safe BTC three-layer state. Values are bundled samples; thresholds/formulas are NOT the production model. Not trading advice.",
+  "as_of": "2026-07-11",
+  "l1": {
+    "state": "MODERATE",
+    "label": "ACCUMULATION_WATCH",
+    "triggered": false,
+    "available": true,
+    "coverage_ratio": 0.75,
+    "confidence": "MEDIUM",
+    "rating_capped": false,
+    "score": 0.42,
+    "primary_signal": "MODERATE",
+    "layer_bias": "early_accumulation_watch",
+    "execution_effect": "allow_small_strategic_dca",
+    "source_timestamp": "2026-07-11T00:00:00Z"
+  },
+  "l2": {
+    "guardian_state": "GREEN",
+    "guardian_score": 1,
+    "macro_score": 0.68,
+    "long_gate": 1.0,
+    "short_gate": 0.25,
+    "hunter_state": "BULLISH",
+    "hunter_score": 0.36,
+    "architect_state": "YELLOW",
+    "architect_score": 0.10,
+    "risk_multiplier": 0.8,
+    "vol_scalar": 0.95,
+    "regime": "TRENDING",
+    "final_signal_score": 0.31,
+    "final_signal_direction": "LONG",
+    "final_signal_conviction": "MODERATE",
+    "missing_fields": [],
+    "source_timestamp": "2026-07-11T00:00:00Z"
+  },
+  "l3": {
+    "state": "AMBER",
+    "risk_label_raw": "AMBER",
+    "risk_score": 3,
+    "confidence": 74,
+    "mode": "normal",
+    "high_alert_mode": false,
+    "degraded_mode": false,
+    "primary_signal": "CAUTION",
+    "posture_72h": "CAUTIOUS",
+    "triggers_fired_72h": 2,
+    "metric_triggers": {
+      "options_skew_stressed": true,
+      "iv_elevated": false,
+      "put_volume_dominance": true,
+      "funding_regime_bearish": false,
+      "spot_dispersion": false
+    },
+    "conditions_fired": ["options_skew_stressed", "put_volume_dominance"],
+    "source_timestamp": "2026-07-11T00:00:00Z"
+  }
+}
