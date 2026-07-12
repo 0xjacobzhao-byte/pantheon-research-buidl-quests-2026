@@ -39,8 +39,12 @@ export default function IntentAuditTimeline({
             )}
             <div className="ae-hashes">
               <span>at {e.at}</span>
-              <code className="oc-hash">prev {e.prev_hash.slice(0, 14)}…</code>
-              <code className="oc-hash">hash {e.event_hash.slice(0, 14)}…</code>
+              <code className="oc-hash">
+                prev {e.prev_hash ? `${e.prev_hash.slice(0, 14)}…` : "genesis"}
+              </code>
+              <code className="oc-hash">
+                hash {e.event_hash ? `${e.event_hash.slice(0, 14)}…` : "—"}
+              </code>
             </div>
           </div>
         </div>

@@ -904,7 +904,7 @@ export interface AuditEvent {
   actor_identity: string;
   detail: any;
   at: string;
-  prev_hash: string;
+  prev_hash: string | null;
   event_hash: string;
 }
 
