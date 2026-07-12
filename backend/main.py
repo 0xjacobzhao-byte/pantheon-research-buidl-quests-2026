@@ -23,6 +23,27 @@ from app.ticker_profile import load_ticker_profile, list_profile_tickers
 from app.validation_timeline import get_validation_timeline
 from app.mini_panels import get_macro_mini_panel, get_market_pulse_mini_panel, get_ficc_mini_panel
 
+# --- Full public migration modules ---
+from app.llm_registry import list_providers as llm_list_providers
+from app.llm_provider_status import get_provider_status as llm_provider_status
+from app.llm_cockpit import (
+    get_cases as llm_get_cases,
+    get_case as llm_get_case,
+    get_comparison as llm_get_comparison,
+    get_agreement as llm_get_agreement,
+)
+from app.macro_risk_budget import extract_risk_budget
+from app.macro_sample_loader import load_current_snapshot, load_history, load_scenarios
+from app.research_ops import get_readiness as research_get_readiness, get_summary as research_get_summary
+from app.research_validation import get_validation as research_get_validation
+from app.research_outcomes import get_outcomes as research_get_outcomes
+from app.data_platform.seed import get_store as dp_get_store
+from app.data_platform.lineage import trace_evidence as dp_trace_evidence
+from app.paper_gateway.service import get_service as pg_get_service
+from app.btc_stack import get_stack as btc_get_stack, get_conflicts as btc_get_conflicts, get_current_posture as btc_get_posture
+from app.btc_history import get_history as btc_get_history
+from app.judge_demo import build_full_demo
+
 load_dotenv()
 
 DEMO_MODE = os.environ.get("DEMO_MODE", "offline")
@@ -280,3 +301,249 @@ async def mini_market_pulse():
 async def mini_ficc():
     """FICC mini panel (context-only, no position)."""
     return get_ficc_mini_panel()
+
+
+# ===========================================================================
+# P0-1 — Five-Model LLM Research Cockpit
+# ===========================================================================
+
+@app.get("/api/llm/providers")
+async def llm_providers():
+    """Public-safe registry of the five providers + provider status."""
+    return {"providers": llm_list_providers(), "status": llm_provider_status()}
+
+
+@app.get("/api/llm/cases")
+async def llm_cases():
+    return llm_get_cases()
+
+
+@app.get("/api/llm/case/{case_id}")
+async def llm_case(case_id: str):
+    result = llm_get_case(case_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail=f"No LLM case: {case_id}")
+    return result
+
+
+@app.get("/api/llm/comparison/{case_id}")
+async def llm_comparison(case_id: str):
+    result = llm_get_comparison(case_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail=f"No LLM case: {case_id}")
+    return result
+
+
+@app.get("/api/llm/agreement/{case_id}")
+async def llm_agreement(case_id: str):
+    result = llm_get_agreement(case_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail=f"No LLM case: {case_id}")
+    return result
+
+
+# ===========================================================================
+# P0-2 — Macro Risk Budget
+# ===========================================================================
+
+@app.get("/api/macro/risk-budget")
+async def macro_risk_budget():
+    """Current deterministic macro risk budget (offline, fail-closed)."""
+    return extract_risk_budget(load_current_snapshot(), load_history())
+
+
+@app.get("/api/macro/history")
+async def macro_history():
+    """Historical risk budgets extracted from bundled snapshots."""
+    history = load_history()
+    out = []
+    for i in range(len(history)):
+        prior = history[:i]
+        out.append(extract_risk_budget(history[i], prior))
+    return {"count": len(out), "history": out}
+
+
+@app.get("/api/macro/scenarios")
+async def macro_scenarios():
+    """Deterministic scenarios: valid / stress-hard-stop / stale / missing."""
+    scenarios = load_scenarios().get("scenarios", [])
+    history = load_history()
+    return {
+        "scenarios": [
+            {
+                "id": s["id"],
+                "label": s.get("label", ""),
+                "risk_budget": extract_risk_budget(s["snapshot"], history),
+            }
+            for s in scenarios
+        ]
+    }
+
+
+# ===========================================================================
+# P0-3 — Research Ops / Validation Console
+# ===========================================================================
+
+@app.get("/api/research-ops/readiness")
+async def research_ops_readiness():
+    return research_get_readiness()
+
+
+@app.get("/api/research-ops/validation")
+async def research_ops_validation():
+    return research_get_validation()
+
+
+@app.get("/api/research-ops/outcomes")
+async def research_ops_outcomes():
+    return research_get_outcomes()
+
+
+@app.get("/api/research-ops/summary")
+async def research_ops_summary():
+    return research_get_summary()
+
+
+# ===========================================================================
+# P1-1 — Canonical Data Platform + Vintage Provenance
+# ===========================================================================
+
+@app.get("/api/data-platform/ingest-runs")
+async def dp_ingest_runs():
+    return {"ingest_runs": dp_get_store().ingest_runs()}
+
+
+@app.get("/api/data-platform/provider-health")
+async def dp_provider_health():
+    return {"provider_health": dp_get_store().provider_health()}
+
+
+@app.get("/api/data-platform/observations")
+async def dp_observations(domain: str | None = None):
+    return {"observations": dp_get_store().observations(domain)}
+
+
+@app.get("/api/data-platform/observation/{observation_id}")
+async def dp_observation(observation_id: int):
+    obs = dp_get_store().observation(observation_id)
+    if obs is None:
+        raise HTTPException(status_code=404, detail=f"No observation: {observation_id}")
+    return obs
+
+
+@app.get("/api/data-platform/versions/{observation_id}")
+async def dp_versions(observation_id: int):
+    store = dp_get_store()
+    if store.observation(observation_id) is None:
+        raise HTTPException(status_code=404, detail=f"No observation: {observation_id}")
+    return {"observation_id": observation_id, "versions": store.observation_versions(observation_id)}
+
+
+@app.get("/api/data-platform/lineage/{evidence_hash}")
+async def dp_lineage(evidence_hash: str):
+    trace = dp_trace_evidence(dp_get_store(), evidence_hash)
+    return trace.model_dump()
+
+
+# ===========================================================================
+# P1-2 — Paper / Shadow Trading Gateway (paper-only, LIVE disabled)
+# ===========================================================================
+
+@app.get("/api/paper-gateway/status")
+async def pg_status():
+    return pg_get_service().status().model_dump()
+
+
+@app.get("/api/paper-gateway/provenance-completeness")
+async def pg_provenance_completeness():
+    return pg_get_service().provenance_completeness_report()
+
+
+@app.get("/api/paper-gateway/audit")
+async def pg_audit(intent_id: str | None = None):
+    return {"events": pg_get_service().audit_events(intent_id)}
+
+
+@app.get("/api/paper-gateway/live-disabled-proof")
+async def pg_live_disabled():
+    return pg_get_service().live_disabled_proof()
+
+
+@app.get("/api/paper-gateway/intents")
+async def pg_intents():
+    return {"intents": [i.model_dump() for i in pg_get_service().list_intents()]}
+
+
+@app.get("/api/paper-gateway/intent/{intent_id}")
+async def pg_intent(intent_id: str):
+    intent = pg_get_service().get(intent_id)
+    if intent is None:
+        raise HTTPException(status_code=404, detail=f"No intent: {intent_id}")
+    card = pg_get_service().approval_card(intent_id)
+    return {"intent": intent.model_dump(), "approval_card": card.model_dump() if card else None}
+
+
+@app.post("/api/paper-gateway/intent")
+async def pg_create_intent(payload: dict):
+    intent = pg_get_service().create_intent(payload)
+    return intent.model_dump()
+
+
+@app.post("/api/paper-gateway/intent/{intent_id}/approve")
+async def pg_approve(intent_id: str, payload: dict | None = None):
+    svc = pg_get_service()
+    if svc.get(intent_id) is None:
+        raise HTTPException(status_code=404, detail=f"No intent: {intent_id}")
+    operator = (payload or {}).get("operator", "operator_demo")
+    return svc.approve(intent_id, operator=operator).model_dump()
+
+
+@app.post("/api/paper-gateway/intent/{intent_id}/reject")
+async def pg_reject(intent_id: str, payload: dict | None = None):
+    svc = pg_get_service()
+    if svc.get(intent_id) is None:
+        raise HTTPException(status_code=404, detail=f"No intent: {intent_id}")
+    payload = payload or {}
+    return svc.reject(intent_id, operator=payload.get("operator", "operator_demo"),
+                      note=payload.get("note", "")).model_dump()
+
+
+@app.post("/api/paper-gateway/intent/{intent_id}/simulate")
+async def pg_simulate(intent_id: str):
+    svc = pg_get_service()
+    if svc.get(intent_id) is None:
+        raise HTTPException(status_code=404, detail=f"No intent: {intent_id}")
+    return svc.simulate(intent_id).model_dump()
+
+
+# ===========================================================================
+# P1-3 — BTC Three-Layer Decision Stack
+# ===========================================================================
+
+@app.get("/api/btc/stack")
+async def btc_stack():
+    return btc_get_stack()
+
+
+@app.get("/api/btc/history")
+async def btc_history(limit: int | None = None):
+    return btc_get_history(limit)
+
+
+@app.get("/api/btc/conflicts")
+async def btc_conflicts():
+    return btc_get_conflicts()
+
+
+@app.get("/api/btc/current-posture")
+async def btc_current_posture():
+    return btc_get_posture()
+
+
+# ===========================================================================
+# Unified judge demo flow
+# ===========================================================================
+
+@app.get("/api/judge/full-demo")
+async def judge_full_demo():
+    return build_full_demo()
