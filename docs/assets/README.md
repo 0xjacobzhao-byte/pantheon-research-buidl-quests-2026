@@ -19,6 +19,30 @@ substitute or Claude-generated architecture image is used** — a previous pass
 generated a stand-in diagram and local-demo screenshots; those were rejected and
 removed.
 
+## GitHub Social Preview asset
+
+`pantheon_research_social_preview.png` is the GitHub **Social Preview** image
+for this repository (the card shown when the repo is linked on social media,
+Slack, etc.). It is a **separate asset from the approved architecture
+diagram** above — the architecture PNG is never resized, edited, or reused as
+the social card.
+
+- **Dimensions:** exactly 1280×640 (GitHub's required social-preview size).
+- **Size:** ~420 KB, under the 1 MB limit.
+- **Format:** PNG.
+- **Content:** title, subtitle, the Strategy → Information → Signal →
+  Controlled Execution flow, the "Five-Model AI · Governed Data · Multi-Cloud"
+  capability line, and a `BUIDL_QUESTS 2026` footer badge — dark navy/charcoal
+  background with restrained blue/green accents, consistent with the approved
+  architecture image's visual language. No screenshots, no QR code, no
+  sponsor/provider logos, no metrics, and no investor-return, alpha, or
+  autonomous-trading claims.
+- **Derived from:** the Pantheon visual identity (same color palette and
+  typographic tone as the approved architecture diagram), authored as a
+  standalone composition rather than a crop or edit of that file.
+- This image is **not embedded in the README**; it is only used as GitHub's
+  repository Social Preview via *Settings → General → Social preview*.
+
 ## Historical reference (not shown in the README)
 
 - **[`architecture_high_level.png`](architecture_high_level.png)** — prior Qwen
