@@ -1,0 +1,29 @@
+{
+  "_redaction": "Redacted offline-sample overlay. No API key, no auth header, no private dataset.",
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "ticker": "NVDA",
+  "status": "OFFLINE_SAMPLE",
+  "latency_ms": 1520,
+  "attempts": 1,
+  "prompt_version": "deepseek-overlay-v1.1",
+  "output_schema_version": "overlay-assessment-1.0",
+  "evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9",
+  "timestamp_utc": "2026-07-02T12:00:00Z",
+  "redacted_output": {
+    "takeaway": "NVIDIA is the premier AI infrastructure company, benefiting from an unprecedented GPU demand supercycle. While the CUDA moat is formidable, the current valuation embeds aggressive growth expectations that leave limited margin of safety.",
+    "assessment": {
+      "business_quality": "Exceptional quality. ~75% gross margins and ~55% net margins are remarkable for a semiconductor company, reflecting NVIDIA's transition to a platform company. The ROIC of ~85% demonstrates outstanding capital efficiency.",
+      "moat": "The CUDA ecosystem is the strongest moat in semiconductors. Over a decade of developer lock-in creates switching costs that are nearly insurmountable. However, hyperscaler custom silicon (ASICs) poses a longer-term threat to this moat.",
+      "pricing_power": "Very strong pricing power in the near term. AI GPU demand far exceeds supply, giving NVIDIA significant pricing leverage. However, as supply constraints ease and competitors emerge, pricing power may moderate over time.",
+      "capital_allocation": "Management has been excellent at reinvesting in R&D to maintain the technology lead. The company's strategy of investing ahead of demand curves has been vindicated. Share buybacks are disciplined and opportunistic.",
+      "red_flags": "Valuation risk is extreme at 65x earnings. Geopolitical export restrictions to China could impact a significant revenue stream. Hyperscaler ASIC development (Google TPU, AWS Trainium) could erode GPU demand. The AI spending cycle could eventually decelerate.",
+      "confidence": 0.72,
+      "missing_evidence": [
+        "No real-time data center revenue breakdown",
+        "No hyperscaler capex guidance",
+        "No ASIC competitive threat timeline"
+      ]
+    }
+  }
+}

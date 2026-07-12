@@ -1,0 +1,25 @@
+{
+  "ticker": "MA",
+  "agreement_score": 0.78,
+  "agreement_level": "HIGH",
+  "qwen_tone": "conservative_positive",
+  "deepseek_tone": "positive",
+  "divergences": [],
+  "evidence_gaps": [
+    "No real-time earnings data",
+    "No management forward guidance",
+    "No competitive landscape deep-dive",
+    "No regulatory filing analysis",
+    "No intra-quarter transaction volume data"
+  ],
+  "human_review_required": false,
+  "comparison_fields": [
+    "business_quality",
+    "moat",
+    "pricing_power",
+    "capital_allocation",
+    "red_flags",
+    "confidence",
+    "missing_evidence"
+  ]
+}

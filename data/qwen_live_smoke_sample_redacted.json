@@ -1,0 +1,19 @@
+{
+  "_comment": "Redacted capture of a LIVE Qwen call made through the Alibaba Cloud ECS deployment (http://8.222.191.152/api/proof/qwen-smoke). No API key or auth header is included. See docs/live_proof.md.",
+  "captured_at_utc": "2026-07-02T11:57:03Z",
+  "host_runtime": "Alibaba Cloud ECS",
+  "ai_provider": "Alibaba Cloud Model Studio (DashScope)",
+  "endpoint_family": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "auth": "Bearer <DASHSCOPE_API_KEY redacted>",
+  "request": {
+    "model": "qwen3.7-plus",
+    "prompt": "In two sentences, describe Pantheon Research.",
+    "temperature": 0.2
+  },
+  "response": {
+    "status": "ok",
+    "qwen_model": "qwen3.7-plus",
+    "summary": "Pantheon Research is an independent, multi-asset market research platform that provides institutional investors with in-depth macroeconomic and financial analysis. The firm delivers actionable insights, forecasting, and strategic advice across global asset classes to help clients navigate complex market environments.",
+    "round_trip_seconds": 14.4
+  }
+}

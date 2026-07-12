@@ -1,0 +1,18 @@
+{
+  "ticker": "NVDA",
+  "company_name": "NVIDIA Corporation",
+  "exchange": "NASDAQ",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "market_cap_usd": 3300000000000,
+  "pe_ratio": 65.2,
+  "pb_ratio": 52.8,
+  "roic_pct": 85.1,
+  "fcf_ttm_usd": 56000000000,
+  "revenue_growth_yoy_pct": 94.0,
+  "gross_margin_pct": 75.0,
+  "net_margin_pct": 55.3,
+  "dividend_yield_pct": 0.03,
+  "debt_to_equity": 0.2,
+  "summary": "NVIDIA is the world leader in GPU design and AI computing platforms. Its products span gaming, data center AI training and inference, professional visualization, and automotive. The CUDA software ecosystem creates a deep competitive moat."
+}

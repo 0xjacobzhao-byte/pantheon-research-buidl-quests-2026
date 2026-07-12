@@ -1,0 +1,19 @@
+{
+  "provider": "qwen",
+  "model": "qwen-plus",
+  "ticker": "MA",
+  "takeaway": "Mastercard is a high-quality compounder with exceptional profitability metrics, a dominant duopoly position in global payments, and consistent double-digit revenue growth driven by secular tailwinds in digital payments.",
+  "assessment": {
+    "business_quality": "Excellent. 100% gross margins reflect an asset-light network business model. Net margins of ~46% and ROIC of ~45% are among the highest in financial services, indicating superior capital efficiency.",
+    "moat": "Very wide moat. Mastercard benefits from a two-sided network effect connecting consumers and merchants globally. Switching costs are high for both sides, and the Visa-Mastercard duopoly creates significant barriers to entry.",
+    "pricing_power": "Strong pricing power. Mastercard consistently raises fees above inflation with minimal customer attrition, reflecting the essential nature of its network and lack of viable alternatives.",
+    "capital_allocation": "Management has a disciplined approach to capital allocation, balancing share buybacks, dividends, and strategic acquisitions. The low dividend yield reflects reinvestment priorities rather than capital return concerns.",
+    "red_flags": "Key risks include regulatory scrutiny on interchange fees, potential disruption from CBDCs or crypto payment rails, and currency headwinds from a strong dollar. The elevated P/B ratio of 100x indicates significant premium pricing.",
+    "confidence": 0.85,
+    "missing_evidence": [
+      "No real-time earnings data",
+      "No management forward guidance",
+      "No competitive landscape deep-dive"
+    ]
+  }
+}

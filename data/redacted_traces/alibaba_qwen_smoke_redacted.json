@@ -1,0 +1,20 @@
+{
+  "_redaction": "Redacted capture of a LIVE Qwen call via the Alibaba Cloud ECS deployment (/api/proof/qwen-smoke). No API key or auth header included.",
+  "provider": "qwen",
+  "model": "qwen-plus",
+  "status": "ok",
+  "host_runtime": "Alibaba Cloud ECS",
+  "alibaba_hosted": true,
+  "ai_provider": "Alibaba Cloud Model Studio (DashScope)",
+  "endpoint_family": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "auth": "Bearer <DASHSCOPE_API_KEY redacted>",
+  "latency_ms": 14400,
+  "prompt_version": "qwen-smoke-v1",
+  "output_schema_version": "n/a (free-text smoke)",
+  "evidence_hash": "n/a (no equity evidence in smoke prompt)",
+  "timestamp_utc": "2026-07-02T12:00:00Z",
+  "redacted_output": {
+    "prompt": "In two sentences, describe what Pantheon Research is.",
+    "summary": "Pantheon Research is a framework-first, multi-asset market research operating system spanning crypto, equities, macro, and commodities. It pairs governed data pipelines with human-in-the-loop LLM overlays; models inform research and never execute trades."
+  }
+}

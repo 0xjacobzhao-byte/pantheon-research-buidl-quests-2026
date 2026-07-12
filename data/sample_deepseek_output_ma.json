@@ -1,0 +1,19 @@
+{
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "ticker": "MA",
+  "takeaway": "Mastercard represents a premium franchise in the global payments ecosystem. Its duopoly with Visa, combined with secular growth in electronic payments, supports a quality compounder thesis despite elevated valuation multiples.",
+  "assessment": {
+    "business_quality": "Outstanding business quality. The ~100% gross margin underscores the network-based, asset-light model. Net margins near 46% and ROIC above 45% demonstrate exceptional economic returns on capital deployed.",
+    "moat": "Powerful network effects form the core moat. The global acceptance network creates a flywheel — more merchants attract more cardholders and vice versa. Regulatory and capital requirements create high barriers to new entrants.",
+    "pricing_power": "Pricing power is robust. As an essential payment rail, Mastercard can incrementally raise pricing with limited pushback. Cross-border transaction growth provides an additional premium-priced revenue stream.",
+    "capital_allocation": "Capital allocation is shareholder-friendly with aggressive buyback programs and a growing dividend. Management maintains investment-grade leverage while returning excess capital, balancing growth investment with distributions.",
+    "red_flags": "Regulatory risk is the primary concern — governments may cap interchange fees. Competition from real-time payment systems and fintech disintermediation could erode the network advantage over time. Valuation at 36x earnings leaves limited margin of safety.",
+    "confidence": 0.82,
+    "missing_evidence": [
+      "No real-time earnings data",
+      "No regulatory filing analysis",
+      "No intra-quarter transaction volume data"
+    ]
+  }
+}

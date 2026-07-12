@@ -1,0 +1,18 @@
+{
+  "ticker": "MA",
+  "company_name": "Mastercard Incorporated",
+  "exchange": "NYSE",
+  "sector": "Financials",
+  "industry": "Financial Services",
+  "market_cap_usd": 420000000000,
+  "pe_ratio": 36.5,
+  "pb_ratio": 100.2,
+  "roic_pct": 45.3,
+  "fcf_ttm_usd": 12000000000,
+  "revenue_growth_yoy_pct": 12.5,
+  "gross_margin_pct": 100.0,
+  "net_margin_pct": 45.8,
+  "dividend_yield_pct": 0.6,
+  "debt_to_equity": 2.1,
+  "summary": "Mastercard is a global payments technology company that connects consumers, financial institutions, merchants, governments, and businesses worldwide. It operates one of the largest payment processing networks, competing primarily with Visa."
+}

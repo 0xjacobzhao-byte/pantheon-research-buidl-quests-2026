@@ -1,0 +1,29 @@
+{
+  "_redaction": "Redacted offline-sample overlay. No API key, no auth header, no private dataset.",
+  "provider": "qwen",
+  "model": "qwen-plus",
+  "ticker": "NVDA",
+  "status": "OFFLINE_SAMPLE",
+  "latency_ms": 1180,
+  "attempts": 1,
+  "prompt_version": "qwen-overlay-v1.1",
+  "output_schema_version": "overlay-assessment-1.0",
+  "evidence_hash": "sha256:b1b1a99dc8d5e218d93487c23166a804c3b69684e3781c6fa10f5117efdce4c9",
+  "timestamp_utc": "2026-07-02T12:00:00Z",
+  "redacted_output": {
+    "takeaway": "NVIDIA is the dominant AI computing platform with an extraordinary growth trajectory. The CUDA software ecosystem creates a deep competitive moat, and data center revenue is growing at triple-digit rates driven by AI training and inference demand.",
+    "assessment": {
+      "business_quality": "Exceptional. Gross margins of ~75% and net margins of ~55% reflect a premium-priced, software-like business model in hardware. ROIC of ~85% is extraordinary and demonstrates the economic power of the CUDA platform monopoly.",
+      "moat": "Extremely wide moat. The CUDA software ecosystem is the de facto standard for GPU computing, creating massive switching costs for developers. This software lock-in reinforces hardware demand, forming a powerful flywheel that competitors cannot easily replicate.",
+      "pricing_power": "Extraordinary pricing power. NVIDIA commands premium pricing for its data center GPUs due to unmatched performance and the CUDA ecosystem lock-in. Customers have limited alternatives at the scale required for AI training.",
+      "capital_allocation": "Management under Jensen Huang has demonstrated exceptional strategic vision. Capital is reinvested aggressively in R&D to maintain technological leadership. The low dividend yield reflects growth reinvestment priorities.",
+      "red_flags": "Key risks include cyclical demand for gaming GPUs, geopolitical restrictions on chip exports to China, potential competition from custom AI chips (ASICs), and extremely elevated valuation multiples. The P/E of 65x leaves little room for execution missteps.",
+      "confidence": 0.8,
+      "missing_evidence": [
+        "No real-time data center revenue breakdown",
+        "No competitive ASIC roadmap analysis",
+        "No supply chain constraint assessment"
+      ]
+    }
+  }
+}
